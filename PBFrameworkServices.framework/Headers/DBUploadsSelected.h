@@ -1,0 +1,46 @@
+#import "DBManager.h"
+
+@interface DBUploadsSelected : DBManager
+
+// Insert
++(void) insertUploadsSelected:(NSArray*) data forStream:(NSString*)streamID;
+
+// Select
++(NSDictionary*)getUploadByFileName:(NSString*)fileName andCreationDate:(NSDate*)creationDate;
++(NSDictionary*)getUploadByReserveCode:(NSString*)reserveCode;
++(NSArray*)getUploadNotificationsByReserveCode:(NSString*)reserveCode;
++(NSArray*)getUploadLocationsByReserveCode:(NSString*)reserveCode;
++(int)getCountCurrentlyUploading;
++(int)getCountReadyForUploading;
++(int)getCountDoneUploading;
++(int)getCountCurrentlyUploadingForStream:(NSString*)streamID;
++(int)getCountDoneForStream:(NSString*)streamID;
++(int)getCountTotalUploadsForStream:(NSString*)streamID;
+
+
+// Update (And UpdateSelects)
+// Getting assets that need locations
++(NSArray*)reserveUploadLocationsWithCode:(NSString*)reserveCode;
++(void)setUploadLocation:(NSString*)location forLocalIdentifier:(NSString*)localIdentifier;
+
+// Assets that have locations but need to be uploaded
++(NSDictionary*)reserveUploadWithCode:(NSString*)reserveCode;
++(void)setUploadDoneWithCode:(NSString*)reserveCode;
++(void)setUploadDoneWithLocalIdentifier:(NSString*)identifier;
+
+// Assets that have been uploaded, but the server needs to be notified of the upload
++(NSArray*)reserveCompletedUploadsWithCode:(NSString*)reserveCode;
++(void)setUploadsNotifiedWithCode:(NSString*)reserveCode;
+
+// Force an upload retry
++(void) retryUpload:(NSString*)localIdentifier;
+
+
+// Delete
++(void) deleteUploadWithReservedCode:(NSString*)reservedCode;
++(void) deleteUploadsWithStreamID:(NSString*)streamID;
++(void) deleteUploadsWithStreamID:(NSString*)streamID andFileName:(NSString*)fileName andCreationDate:(NSString*)creationDate;
++(void) deleteUploadsWithFileName:(NSString*)fileName andCreationDate:(NSString*)creationDate;
++(void) deleteUploadsIfAllDoneForStream:(NSString*)streamID;
+
+@end

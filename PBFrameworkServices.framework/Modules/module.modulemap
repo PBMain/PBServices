@@ -1,0 +1,6 @@
+framework module PBFrameworkServices {
+  umbrella header "PBFrameworkServices.h"
+
+  export *
+  module * { export * }
+}

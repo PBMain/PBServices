@@ -1,0 +1,17 @@
+source 'https://github.com/PBMain/PBCocoaPods.git'
+source 'https://github.com/CocoaPods/Specs.git'
+
+use_frameworks!
+
+target 'PBServices_Example' do
+  pod 'PBServices', :path => '../'
+
+  target 'PBServices_Tests' do
+    inherit! :search_paths
+
+    pod "FBSnapshotTestCase"
+    pod "PBNetworkingLibraries"
+    pod "Socket.IO-Client-Swift"
+    pod "AFNetworking"
+  end
+end
