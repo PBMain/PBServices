@@ -260,7 +260,7 @@
 #define getStreamLocations [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/getStreamLocations"]
 
 // Init call to get status of current build
-#define cInit [NSString stringWithFormat:@"%@", cRouterURL]
+#define cInit [NSString stringWithFormat:@"%@", [UserInfo getRouterServerEndpoint]]
 
 // Set new device token for this user
 #define cUpdateDeviceId [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/users/UpdateDeviceID/"]

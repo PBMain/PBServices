@@ -235,6 +235,8 @@
 +(void) setWebViewServer:(NSString*)webViewServer;
 +(NSString*) getServerType;
 +(void) setServerType:(NSString*)serverType;
++(NSString*) getRouterServerEndpoint;
++(void) setRouterServerEndpoint:(NSString*)serverEndpoint;
 
 // SDK Settings
 +(BOOL)showNSLogs;
