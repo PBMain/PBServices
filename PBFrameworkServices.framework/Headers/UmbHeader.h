@@ -1,6 +1,6 @@
-#import <PBPodNetworkingLibraries/Base64.h>
-#import <PBPodNetworkingLibraries/ExifContainer.h>
-#import <PBPodNetworkingLibraries/NRFileManager.h>
-#import <PBPodNetworkingLibraries/PBNetworkingInfo.h>
-#import <PBPodNetworkingLibraries/Reachability.h>
-#import <PBPodNetworkingLibraries/UIImage+Exif.h>
+#import <PBFrameworkNetworkingLibraries/Base64.h>
+#import <PBFrameworkNetworkingLibraries/ExifContainer.h>
+#import <PBFrameworkNetworkingLibraries/NRFileManager.h>
+#import <PBFrameworkNetworkingLibraries/PBNetworkingInfo.h>
+#import <PBFrameworkNetworkingLibraries/Reachability.h>
+#import <PBFrameworkNetworkingLibraries/UIImage+Exif.h>
