@@ -233,6 +233,8 @@
 +(void) setSocketIOServer:(NSString*)socketIOServer;
 +(NSString*) getWebViewServer;
 +(void) setWebViewServer:(NSString*)webViewServer;
++(NSString*) getServerType;
++(void) setServerType:(NSString*)serverType;
 
 // SDK Settings
 +(BOOL)showNSLogs;
