@@ -1,9 +1,12 @@
 #import <UIKit/UIKit.h>
 
+@class TrackingImports;
 @interface UserInfo : NSObject
 {
     NSArray *uploadedPhotos;
 }
+    
++(TrackingImports*) setAnalytics:(NSString*)mixpanelToken facebookAppId:(NSString*)facebookAppId intercomAppId:(NSString*)intercomAppId intercomAPIKey:(NSString*)intercomAPIKey nanigansId:(NSString*)nanigansId;
 
 +(void)saveArbitraryData:(NSString*)theKey theData:(id)theData;
 +(id)loadArbitraryData:(NSString*)theKey;

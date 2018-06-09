@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'PBServices'
-  s.version          = '1.1.43.6'
+  s.version          = '1.1.43.7'
   s.summary          = 'Photo Butler pod that contains support for connecting to Photo Butler services'
 
   s.description      = <<-DESC
@@ -20,6 +20,7 @@ Photo Butler pod that contains support for connecting to Photo Butler services, 
   s.ios.vendored_frameworks = 'PBFrameworkServices.framework'
   
   s.dependency "PBNetworkingLibraries"
+  s.dependency "PBAnalytics"
   s.dependency "Socket.IO-Client-Swift"
   s.dependency "AFNetworking"
   
