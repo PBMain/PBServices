@@ -19,6 +19,8 @@ Photo Butler pod that contains support for connecting to Photo Butler services, 
   
   s.ios.vendored_frameworks = 'PBFrameworkServices.framework'
   
+  s.ios.frameworks = 'Foundation', 'CoreGraphics', 'AdSupport', 'UIKit', 'SystemConfiguration'
+  
   s.dependency "PBNetworkingLibraries"
   s.dependency "PBAnalytics"
   s.dependency "Socket.IO-Client-Swift"
