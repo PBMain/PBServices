@@ -215,7 +215,13 @@
 +(BOOL) hasNaniganInstalled;
 +(void) setHasNaniganInstalled:(BOOL)hasNI;
 
+// Map Tutorial
++(void) setMapTutorialPressed;
++(BOOL) getMapTutorialPressed;
+
 // Changing Services Endpoint
++(NSString*)environmentStringForKey:(NSString*)key;
++(BOOL)environmentBoolForKey:(NSString*)key;
 +(NSString*) getServerEndpoint;
 +(void) setServerEndpoint:(NSString*)endpoint;
 +(NSString*) getFacebookAppId;
@@ -254,6 +260,9 @@
 +(NSString*)getClientID;
 +(void)setClientID:(NSString*)clientID;
 
++(NSString*)getFullAppName;
++(void)setFullAppName:(NSString*)appName;
+
 +(UIFont*)getFontNameRegular:(float)fontSize;
 +(void)setFontNameRegular:(NSString*)fontNameRegular;
 
@@ -284,6 +293,35 @@
 +(UIColor*)getColorNavigationSubText;
 +(void)setColorNavigationSubText:(UIColor*)color;
 
++(UIColor*)getColorButtonText;
++(void)setColorButtonText:(UIColor*)color;
++(UIColor*)getColorButtons;
++(void)setColorButtons:(UIColor*)color;
+
 +(void) clearColors;
+
+// Opt-in envelope customizations
++(UIImage*)getOptInEnvelopeProfilePhoto;
++(void)setOptInEnvelopeProfilePhotoName:(NSString*)imageName inBundle:(NSBundle*)bundle;
++(UIImage*)getOptInEnvelopeManualSelectedPhoto;
++(void)setOptInEnvelopeManualSelectedPhotoName:(NSString*)imageName inBundle:(NSBundle*)bundle;
++(UIImage*)getOptInEnvelopeManualNotSelectedPhoto;
++(void)setOptInEnvelopeManualNotSelectedPhotoName:(NSString*)imageName inBundle:(NSBundle*)bundle;
++(UIImage*)getOptInEnvelopeAutoSelectedPhoto;
++(void)setOptInEnvelopeAutoSelectedPhotoName:(NSString*)imageName inBundle:(NSBundle*)bundle;
++(UIImage*)getOptInEnvelopeAutoNotSelectedPhoto;
++(void)setOptInEnvelopeAutoNotSelectedPhotoName:(NSString*)imageName inBundle:(NSBundle*)bundle;
++(UIImage*)getAppLogo;
++(void)setAppLogoPhotoName:(NSString*)imageName inBundle:(NSBundle*)bundle;
+
+// Scroll indicator
++(UIImage*)getPhotoAlbumScrollIndicator;
++(void)setPhotoAlbumScrollIndicatorPhotoName:(NSString*)imageName inBundle:(NSBundle*)bundle;
+
+// Placeholder image customization
++(UIImage*)getPlaceholderUpcomingStreamSpectatorPhoto;
++(void)setPlaceholderUpcomingStreamSpectatorPhotoName:(NSString*)imageName inBundle:(NSBundle*)bundle;
++(UIImage*)getPlaceholderUpcomingStreamHostPhoto;
++(void)setPlaceholderUpcomingStreamHostPhotoName:(NSString*)imageName inBundle:(NSBundle*)bundle;
 
 @end

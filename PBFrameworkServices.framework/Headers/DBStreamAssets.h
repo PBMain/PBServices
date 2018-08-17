@@ -20,6 +20,7 @@
 +(NSArray*) getAssetsNotUploaded;
 +(NSString*) getPhotoVideoURL:(NSString*)fileName captureDateTime:(NSString*)captureDateTime;
 +(BOOL) isAssetVideo:(NSString*)assetID;
++(NSString*) getCommentCountForAssetID:(NSString*)assetID inStream:(NSString*)streamID;
 
 // Update
 +(BOOL) propogateIDForAssetsWithFileName:(NSString*)fileName captureDateTime:(NSString*)captureDateTime;
@@ -29,21 +30,23 @@
 +(void) setCommentCount:(NSString*)commentCount forAssetID:(NSString*)assetID inStream:(NSString*)streamID;
 +(void) setLikedByYou:(BOOL)likedByYou forAssetID:(NSString*)assetID inStream:(NSString*)streamID;
 +(void) setDuplicateParent:(NSString*)assetID previousParent:(NSString*)parentID;
++(void) setS3LinkExpired:(NSString*)assetID;
++(void) setAllS3LinksExpiredForStream:(NSString*)streamID;
 
 // Delete
-+(void) deleteAsset:(NSString*)assetID filename:(NSString*)filename creationDate:(NSString*)creationDate fromStream:(NSString*)streamID completionBlock:(void (^)(void))completionBlock;
++(void) deleteAsset:(NSString*)assetID filename:(NSString*)filename creationDateUTC:(NSString*)creationDateUTC fromStream:(NSString*)streamID completionBlock:(void (^)(void))completionBlock;
 // This removes anything that was inserted by the pre-upload function, but didn't come back when getting the assets from the server. This will remove any local-only photos from a stream.
 +(void) deleteUnverifiedPhotosFromStream:(NSString*)streamID completionBlock:(void (^)(void))completionBlock;
 // This will take a filename/creationdate and remove it from any streams where it is a temp file. This is for when we have 'already uploaded an image' but it's not getting assigned an AssetID, which usually is some kind of server error at some point.
 +(void) deleteAllUnverifiedPhotosFromStreams:(void (^)(void))completionBlock;
-+(void) deleteUnverifiedPhotoFromStreams:(NSString*)filename creationDate:(NSString*)creationDate completionBlock:(void (^)(void))completionBlock;
++(void) deleteUnverifiedPhotoFromStreams:(NSString*)filename creationDateUTC:(NSString*)creationDateUTC completionBlock:(void (^)(void))completionBlock;
 // This takes an array of photos from the server, and removes any photos in the stream that meet this criteria:
 //  1) Have an assetID (meaning they've been uploaded and aren't pre-upload display)
 //  2) Are not present in the stream (meaning they've likely been deleted)
 +(void) deleteVerifiedPhotosFromStreamNotInArray:(NSString*)streamID photos:(NSArray*)photos completionBlock:(void (^)(void))completionBlock;
 // This un-deletes any images that we might think have been deleted, but the server is telling us haven't been
 +(void) unDeleteAssetIDsFromServer:(NSArray*)assets forStream:(NSString*)streamID;
-+(void) deleteImageFromPB:(NSString*)assetID filename:(NSString*)filename creationDate:(NSString*)creationDate;
++(void) deleteImageFromPB:(NSString*)assetID filename:(NSString*)filename creationDateUTC:(NSString*)creationDateUTC;
 +(void) deleteAllAssetsFromStream:(NSString*)streamID;
 
 @end

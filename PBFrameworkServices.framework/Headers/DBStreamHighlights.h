@@ -14,6 +14,7 @@
 
 // Update
 +(void) setLikedByYou:(BOOL)likedByYou forAssetID:(NSString*)assetID inStream:(NSString*)streamID;
++(void) setAllS3LinksExpiredForStream:(NSString*)streamID;
 
 // Delete
 +(void) deleteStreamHighlight:(NSString*)streamID assetID:(NSString*)assetID;

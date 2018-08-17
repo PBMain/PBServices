@@ -16,3 +16,4 @@
 #import "DBUploadsSelected.h"
 #import "DBUploadsVideo.h"
 #import "DBStreamGUIDs.h"
+#import "DBStreamCategories.h"

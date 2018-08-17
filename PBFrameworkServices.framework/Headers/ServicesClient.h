@@ -20,4 +20,10 @@
 // Get stream information / precache
 +(void) cacheStream:(NSString*)streamGUID completion:(void (^)(BOOL success))completionBlock error:(void (^)(id response))errorBlock;
 
+// Bib search
++(void) getBibFile:(NSString*)location completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
++(void) getImagesForBibID:(NSString*)bibID bibPath:(NSString*)bibPath completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
+// Team search
++(void) getImagesForTeamID:(NSString*)teamID bibPath:(NSString*)bibPath completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
+
 @end

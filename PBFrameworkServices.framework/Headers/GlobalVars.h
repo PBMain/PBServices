@@ -259,7 +259,7 @@
 // Get nearby events/streams
 #define getStreamLocations [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/getStreamLocations"]
 
-// Init call to get status of current build
+// Init call to get status of current buildalvars
 #define cInit [NSString stringWithFormat:@"%@", [UserInfo getRouterServerEndpoint]]
 
 // Set new device token for this user
@@ -364,6 +364,8 @@
 #define cStreamCommentCounts [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/listCounts"]
 // Set custom cover
 #define cSetCoverImage [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoFaces/SetCoverImage/"]
+// Get Category Photos
+#define cGetCategoryPhotos [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/getCategoryPhotos/"]
 
 // Activity Feed
 #define cGetActivityFeed [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/getActivityFeed"]

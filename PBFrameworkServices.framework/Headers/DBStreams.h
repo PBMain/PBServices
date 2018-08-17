@@ -31,6 +31,8 @@
 +(void) setNumberOfAudienceMembers:(int)numberOfMembers forStream:(NSString*)streamID;
 +(void) setStreamStatus:(NSString*)status forStream:(NSString*)streamID;
 +(void) setAssetCount:(NSString*)count forStream:(NSString*)streamID;
++(void) setBibPath:(NSString*)bibPath forStream:(NSString*)streamID;
++(void) setBibInfoPath:(NSString*)bibInfoPath forStream:(NSString*)streamID;
 
 // Delete
 +(void) deleteStream:(NSString*)streamID;

@@ -178,6 +178,9 @@
 -(void) editNameForMagicAlbum:(NSString*)albumId name:(NSString*)name completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 -(void) getFirstPhotoStreamAssets:(NSString*)albumId completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 -(void) getPhotoStreamAssets:(NSString*)albumId completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
+-(void) getCategoryAssets:(NSString*)albumId categoryId:(NSInteger)catID completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
+-(void) getPagedCategoryAssets:(NSString*)albumId categoryId:(NSInteger)catID page:(int)page pageSize:(int)pageSize ascending:(BOOL)ascending completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
+-(void) getPagedCategoryHighlights:(NSString*)albumId categoryId:(NSInteger)catID page:(int)page pageSize:(int)pageSize ascending:(BOOL)ascending completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 -(void) getPhotoStreamBlackoutTimes:(NSString*)albumId completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 -(void) getPeopleSeenInPhotoStream:(NSString*)albumId completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 -(void) getPeopleSeenInPhotoStreamRecipient:(NSString*)sharedAlbumId ownerId:(NSString*)ownerId completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;

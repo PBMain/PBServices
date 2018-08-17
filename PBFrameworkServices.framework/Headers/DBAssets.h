@@ -10,7 +10,7 @@
 
 
 // Delete
-+(void) deleteAssetFromPhotoButler:(NSString*)assetID filename:(NSString*)filename creationDate:(NSString*)creationDate completionBlock:(void (^)(void))completionBlock;
++(void) deleteAssetFromPhotoButler:(NSString*)assetID filename:(NSString*)filename creationDateUTC:(NSString*)creationDateUTC completionBlock:(void (^)(void))completionBlock;
 +(PHAsset*) getPHAssetForFileName:(NSString*)fileName creationDateUTC:(NSString*)creationDateUTC;
 
 @end

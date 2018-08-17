@@ -7,7 +7,7 @@
 +(void) createPhotoStream:(NSString*)name startDate:(NSDate*)startDate endDate:(NSDate*)endDate completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 +(void) createPhotoStreamFromLocal:(NSString*)name startDate:(NSDate*)startDate endDate:(NSDate*)endDate isUpcoming:(BOOL)isUpcoming requestId:(NSString*)uuid completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 
-// Get
+// Get Streams
 +(void) getPhotoStreamsSummary:(BOOL)isLive completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 +(void) getPhotoStreamsSummary:(BOOL)isLive isUpcoming:(BOOL)isUpcoming numberOfStreams:(NSNumber*)numberOfStreams page:(NSNumber*)page completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 +(void) getPhotoStreamsSummaryUpcoming:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
@@ -15,6 +15,15 @@
 +(void) getPublicLivePhotoStreamsSummary:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 +(void) getPublicPastPhotoStreamsSummary:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 +(void) getPublicUpcomingPhotoStreamsSummary:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
+
+// Get Stream Assets
++(void) getPhotoStreamAssetsNoS3First:(NSString*)streamID completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
++(void) getPhotoStreamAssetsNoS3:(NSString*)streamID completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
++(void) getPhotoStreamAssetsS3Links:(NSString*)streamID startIndex:(int)startIndex numberRows:(int)numberRows isMeta:(BOOL)isMeta oldToNew:(BOOL)oldToNew completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
++(void) getPhotoStreamHighlightsNoS3First:(NSString*)streamID completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
++(void) getPhotoStreamHighlightsS3Links:(NSString*)streamID startIndex:(int)startIndex numberRows:(int)numberRows completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
++(void) getPhotoStreamHighlightsS3Links:(NSString*)streamID completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
++(void) getPhotoStreamTOC:(NSString*)streamID tocLink:(NSString*)tocLink completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 
 // Edit
 +(void) photoStreamChangeDates:(NSString*)streamAlbumId newStartDate:(NSString*)newStartDate newEndDate:(NSString*)newEndDate completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
