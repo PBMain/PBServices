@@ -21,6 +21,7 @@
 +(NSString*) getPhotoVideoURL:(NSString*)fileName captureDateTime:(NSString*)captureDateTime;
 +(BOOL) isAssetVideo:(NSString*)assetID;
 +(NSString*) getCommentCountForAssetID:(NSString*)assetID inStream:(NSString*)streamID;
++(NSString*) getS3LinkForAsset:(NSString*)assetID inStream:streamID;
 
 // Update
 +(BOOL) propogateIDForAssetsWithFileName:(NSString*)fileName captureDateTime:(NSString*)captureDateTime;

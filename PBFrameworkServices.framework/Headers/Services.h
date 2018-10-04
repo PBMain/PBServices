@@ -290,6 +290,9 @@
 // Log an error to error log server
 -(void)logError:(NSString*)serviceCall error:(NSString*)error;
 
+// Logging when log flags are set
++(void)logEvent:(NSString*)eventName logLevel:(int)logLevel information:(NSDictionary*)info;
+
 -(NSString *)manageDictionaryExport:(NSMutableDictionary *)dict;
 
 -(BOOL) isAnotherAlertVisible;

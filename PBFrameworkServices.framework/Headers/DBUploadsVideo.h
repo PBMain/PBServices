@@ -41,6 +41,7 @@
 
 // Force an upload retry
 +(void) retryUpload:(NSString*)localIdentifier;
++(void) retryUploadByFilename:(NSString*)fileName andCreationDateUTC:(NSString*)creationDateUTC;
 
 // Delete
 +(void) deleteUploadWithReservedCode:(NSString*)reservedCode;

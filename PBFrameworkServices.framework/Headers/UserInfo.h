@@ -324,4 +324,8 @@
 +(UIImage*)getPlaceholderUpcomingStreamHostPhoto;
 +(void)setPlaceholderUpcomingStreamHostPhotoName:(NSString*)imageName inBundle:(NSBundle*)bundle;
 
+// Logging settings
++(void)setLoggingLevel:(int)logLevel;
++(int)getLoggingLevel;
+
 @end

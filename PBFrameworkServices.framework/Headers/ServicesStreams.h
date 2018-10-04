@@ -4,8 +4,8 @@
 }
 
 // Create
-+(void) createPhotoStream:(NSString*)name startDate:(NSDate*)startDate endDate:(NSDate*)endDate completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
-+(void) createPhotoStreamFromLocal:(NSString*)name startDate:(NSDate*)startDate endDate:(NSDate*)endDate isUpcoming:(BOOL)isUpcoming requestId:(NSString*)uuid completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
++(void) createPhotoStream:(NSString*)name startDate:(NSDate*)startDate endDate:(NSDate*)endDate isManual:(BOOL)isManual completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
++(void) createPhotoStreamFromLocal:(NSString*)name startDate:(NSDate*)startDate endDate:(NSDate*)endDate isUpcoming:(BOOL)isUpcoming requestId:(NSString*)uuid isManual:(BOOL)isManual completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 
 // Get Streams
 +(void) getPhotoStreamsSummary:(BOOL)isLive completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
