@@ -50,4 +50,7 @@
 +(void) deleteImageFromPB:(NSString*)assetID filename:(NSString*)filename creationDateUTC:(NSString*)creationDateUTC;
 +(void) deleteAllAssetsFromStream:(NSString*)streamID;
 
+// Other
++(void) compareInstantToUploads;
+
 @end

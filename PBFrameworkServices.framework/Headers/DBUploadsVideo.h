@@ -37,7 +37,7 @@
 
 // Assets that have been uploaded, but the server needs to be notified of the upload
 +(NSArray*)reserveCompletedUploadsWithCode:(NSString*)reserveCode;
-+(void)setUploadsNotifiedWithCode:(NSString*)reserveCode;
++(void)setUploadsNotifiedWithCode:(NSString*)reserveCode andLog:(NSString*)logEntry;
 
 // Force an upload retry
 +(void) retryUpload:(NSString*)localIdentifier;

@@ -22,6 +22,7 @@
 // Getting assets that need locations
 +(NSArray*)reserveUploadLocationsWithCode:(NSString*)reserveCode;
 +(void)setUploadLocation:(NSString*)location forLocalIdentifier:(NSString*)localIdentifier;
++(void)tryLocationAgainForLocalIdentifier:(NSString*)localIdentifier;
 
 // Assets that have locations but need to be uploaded
 +(NSDictionary*)reserveUploadWithCode:(NSString*)reserveCode;
@@ -30,7 +31,7 @@
 
 // Assets that have been uploaded, but the server needs to be notified of the upload
 +(NSArray*)reserveCompletedUploadsWithCode:(NSString*)reserveCode;
-+(void)setUploadsNotifiedWithCode:(NSString*)reserveCode;
++(void)setUploadsNotifiedWithCode:(NSString*)reserveCode andLog:(NSString*)logEntry;
 
 // Uploads skipped (Screenshots)
 +(void)setUploadSkippedWithCode:(NSString*)reserveCode;

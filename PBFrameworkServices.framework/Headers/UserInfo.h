@@ -323,6 +323,8 @@
 +(void)setPlaceholderUpcomingStreamSpectatorPhotoName:(NSString*)imageName inBundle:(NSBundle*)bundle;
 +(UIImage*)getPlaceholderUpcomingStreamHostPhoto;
 +(void)setPlaceholderUpcomingStreamHostPhotoName:(NSString*)imageName inBundle:(NSBundle*)bundle;
++(UIImage*)getPlaceholderStreamCoverPhoto;
++(void)setPlaceholderStreamCoverPhotoName:(NSString*)imageName inBundle:(NSBundle*)bundle;
 
 // Logging settings
 +(void)setLoggingLevel:(int)logLevel;

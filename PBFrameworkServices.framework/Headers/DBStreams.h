@@ -33,6 +33,7 @@
 +(void) setAssetCount:(NSString*)count forStream:(NSString*)streamID;
 +(void) setBibPath:(NSString*)bibPath forStream:(NSString*)streamID;
 +(void) setBibInfoPath:(NSString*)bibInfoPath forStream:(NSString*)streamID;
++(void) setIsPopupURLAlreadyShown:(BOOL) isPopupURLAlreadyShown forStream:(NSString*)streamID;
 
 // Delete
 +(void) deleteStream:(NSString*)streamID;
