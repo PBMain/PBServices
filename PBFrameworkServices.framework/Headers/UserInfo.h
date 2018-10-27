@@ -263,6 +263,8 @@
 +(NSString*)getFullAppName;
 +(void)setFullAppName:(NSString*)appName;
 
++(UIFont*)getHelveticaNeueBold:(float)fontSize;
+
 +(UIFont*)getFontNameRegular:(float)fontSize;
 +(void)setFontNameRegular:(NSString*)fontNameRegular;
 
@@ -292,6 +294,11 @@
 
 +(UIColor*)getColorNavigationSubText;
 +(void)setColorNavigationSubText:(UIColor*)color;
+
++(CAGradientLayer*)getColorGradientCTA;
++(void)setColorGradientCTA:(CAGradientLayer*)color;
++(CAGradientLayer*)getColorGradientLogo;
++(void)setColorGradientLogo:(CAGradientLayer*)color;
 
 +(UIColor*)getColorButtonText;
 +(void)setColorButtonText:(UIColor*)color;
@@ -325,6 +332,14 @@
 +(void)setPlaceholderUpcomingStreamHostPhotoName:(NSString*)imageName inBundle:(NSBundle*)bundle;
 +(UIImage*)getPlaceholderStreamCoverPhoto;
 +(void)setPlaceholderStreamCoverPhotoName:(NSString*)imageName inBundle:(NSBundle*)bundle;
+
+// Limits on contribution types
++(BOOL)getManualContributionOnly;
++(void)setManualContributionOnly:(BOOL)manualOnly;
++(BOOL)getShouldHideMenuInStreamDetailsForPastStreams;
++(void)setShouldHideMenuInStreamDetailsForPastStreams:(BOOL)shouldIt;
++(BOOL)getShouldSetManualContributionForAllStreams;
++(void)setShouldSetManualContributionForAllStreams:(BOOL)shouldIt;
 
 // Logging settings
 +(void)setLoggingLevel:(int)logLevel;

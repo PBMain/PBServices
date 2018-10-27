@@ -10,9 +10,11 @@
 // Select
 +(NSArray*) getLocationsForStream:(NSString*)streamID completion:(void (^)(NSArray *people))completionBlock;
 +(NSArray*) getAllLocationsForStream:(NSString*)streamID completion:(void (^)(NSArray *people))completionBlock;
++(NSArray*) getDSSLocationsForStream:(NSString*)streamID completion:(void (^)(NSArray *people))completionBlock;
 
 // Delete
 +(void) deleteStreamLocation:(NSString*)streamID gpsCoordinates:(NSString*)gpsCoordinates;
 +(void) deleteLocationsFromStream:(NSString*)streamID;
++(void) deleteAllLocationsFromStream:(NSString*)streamID;
 
 @end

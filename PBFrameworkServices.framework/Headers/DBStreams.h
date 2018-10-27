@@ -37,12 +37,12 @@
 
 // Delete
 +(void) deleteStream:(NSString*)streamID;
-+(void) deleteLiveStreamsNotPresentInArray:(NSArray*) streams;
-+(void) deletePastStreamsNotPresentInArray:(NSArray*) streams;
-+(void) deleteUpcomingStreamsNotPresentInArray:(NSArray*) streams;
-+(void) deletePublicLiveStreamsNotPresentInArray:(NSArray*) streams;
-+(void) deletePublicPastStreamsNotPresentInArray:(NSArray*) streams;
-+(void) deletePublicUpcomingStreamsNotPresentInArray:(NSArray*) streams;
++(void) deleteLiveStreamsNotPresentInArray:(NSArray*) streams inFolder:(NSString*)folderID;
++(void) deletePastStreamsNotPresentInArray:(NSArray*) streams inFolder:(NSString*)folderID;
++(void) deleteUpcomingStreamsNotPresentInArray:(NSArray*) streams inFolder:(NSString*)folderID;
++(void) deletePublicLiveStreamsNotPresentInArray:(NSArray*) streams inFolder:(NSString*)folderID;
++(void) deletePublicPastStreamsNotPresentInArray:(NSArray*) streams inFolder:(NSString*)folderID;
++(void) deletePublicUpcomingStreamsNotPresentInArray:(NSArray*) streams inFolder:(NSString*)folderID;
 
 // Select
 +(NSArray*) getStreamsWithQuery:(NSString*)query completion:(void (^)(NSMutableArray *streamArray))completionBlock;
@@ -86,5 +86,16 @@
 // Joined Selects
 +(NSArray*) getStreamsWithCachedAssets;
 +(BOOL) getStreamHasCachedAssets:(NSString*)streamID;
+
+/* FOLDER STREAMS */
+
++(NSArray*) getAllStreams:(NSString*)folderID completionBlock:(void (^)(NSMutableArray *streams))completionBlock;
++(NSArray*) getAllPublicStreams:(NSString*)folderID completionBlock:(void (^)(NSMutableArray *streams))completionBlock;
++(NSArray*) getAllUpcomingStreams:(NSString*)folderID completionBlock:(void (^)(NSMutableArray *streams))completionBlock;
++(NSArray*) getAllUpcomingPublicStreams:(NSString*)folderID completionBlock:(void (^)(NSMutableArray *streams))completionBlock;
++(NSArray*) getAllLivePublicStreams:(NSString*)folderID completionBlock:(void (^)(NSMutableArray *streams))completionBlock;
++(NSArray*) getAllPastPublicStreams:(NSString*)folderID completionBlock:(void (^)(NSMutableArray *streams))completionBlock;
++(NSArray*) getAllLiveStreams:(NSString*)folderID completionBlock:(void (^)(NSMutableArray *streams))completionBlock;
++(NSArray*) getAllLiveStreamsForStart:(NSDate*)start end:(NSDate*)end inFolder:(NSString*)folderID completion:(void (^)(NSMutableArray *streams))completionBlock;
 
 @end

@@ -42,4 +42,18 @@
 +(void) photoStreamDelete:(NSString*)streamAlbumId completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 +(void) leavePhotoStream:(NSString*)streamID completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 
+/* STREAMS BY FOLDER */
+
+// Create
++(void) createPhotoStream:(NSString*)name startDate:(NSDate*)startDate endDate:(NSDate*)endDate isManual:(BOOL)isManual inFolder:(NSString*)folderID completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
++(void) createPhotoStreamFromLocal:(NSString*)name startDate:(NSDate*)startDate endDate:(NSDate*)endDate isUpcoming:(BOOL)isUpcoming requestId:(NSString*)uuid isManual:(BOOL)isManual inFolder:(NSString*)folderID completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
+
+// Get Streams
++(void) getPhotoStreamsSummary:(BOOL)isLive inFolder:(NSString*)folderID completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
++(void) getPhotoStreamsSummary:(BOOL)isLive isUpcoming:(BOOL)isUpcoming numberOfStreams:(NSNumber*)numberOfStreams page:(NSNumber*)page inFolder:(NSString*)folderID completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
++(void) getPhotoStreamsSummaryUpcoming:folderID completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
++(void) getPublicLivePhotoStreamsSummary:folderID completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
++(void) getPublicPastPhotoStreamsSummary:folderID completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
++(void) getPublicUpcomingPhotoStreamsSummary:folderID completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
+
 @end
