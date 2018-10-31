@@ -97,21 +97,6 @@
 +(void) getPhotoStreamAssets:(NSString*)streamID bypassCache:(BOOL)bypassCache completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 
 /*!
- @method getPeopleSeenInPhotoStream
- @brief Gets all people seen in assets of a photo stream
- @code
- [PBPodServices getPeopleSeenInPhotoStream:@"1234" bypassCache:NO completion:^(id response) {
-     for (int i = 0; i < [response count]; i++) {
-         NSLog(@"Person at index %i: %@", i, [response objectAtIndex:i]);
-     }
- } error:^(id response) {
-     NSLog(@"There was an error calling getPeopleSeenInPhotoStream: %@", response);
- }];
- @endcode
- */
-+(void) getPeopleSeenInPhotoStream:(NSString*)streamID bypassCache:(BOOL)bypassCache completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
-
-/*!
  @method getPhotoStreamAssetsByPersonId
  @brief Gets all photos of a person that are in a stream
  @code
