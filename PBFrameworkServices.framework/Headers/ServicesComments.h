@@ -38,6 +38,11 @@
                    completion : (void (^)(id activityFeed)) completionBlock
                         error : (void (^)(id response)) errorBlock;
 
++(void) activityFeedSinceDate : (NSDate*) date
+                     folderID : (NSString*) folderID
+                   completion : (void (^)(id activityFeed)) completionBlock
+                        error : (void (^)(id response)) errorBlock;
+
 +(void) setActivityFeedItemRead : (NSArray*) activityIds
                      completion : (void (^)(id responseObject)) completionBlock
                           error : (void (^)(id response)) errorBlock;

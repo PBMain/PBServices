@@ -56,4 +56,8 @@
 +(void) getPublicPastPhotoStreamsSummary:folderID completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 +(void) getPublicUpcomingPhotoStreamsSummary:folderID completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 
+// Join Streams
++(void) getStreamFromInviteCode:(NSString*)inviteCode folderID:(NSString*)folderID completionBlock:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;
++(void) joinStreamWithInviteCode:(NSString*)inviteCode folderID:(NSString*)folderID completionBlock:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;
+
 @end

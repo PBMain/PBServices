@@ -6,6 +6,7 @@
 }
 
 +(void) saveImage:(UIImage*)image withIdentifier:(NSString*)filename;
++(BOOL) imageExistsWithIdentifier:(NSString*)filename;
 +(BOOL) loadImageWithIdentifier:(NSString*)filename completionBlock:(void (^)(id image))completionBlock;
 +(void) removeFromCacheWithIdentifier:(NSString*)filename;
 +(BOOL) clearCache;

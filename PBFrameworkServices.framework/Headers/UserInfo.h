@@ -304,6 +304,8 @@
 +(void)setColorButtonText:(UIColor*)color;
 +(UIColor*)getColorButtons;
 +(void)setColorButtons:(UIColor*)color;
++(UIColor*)getColorButtonsAgainstLightBG;
++(void)setColorButtonsAgainstLightBG:(UIColor*)color;
 
 +(void) clearColors;
 
@@ -344,5 +346,15 @@
 // Logging settings
 +(void)setLoggingLevel:(int)logLevel;
 +(int)getLoggingLevel;
+
+// Onboarding customization
++(void)setAllowEmailRegistration:(BOOL)allow;
++(BOOL)getAllowEmailRegistration;
++(void)setAllowPhoneRegistration:(BOOL)allow;
++(BOOL)getAllowPhoneRegistration;
+
+// Onboarding OTP from a link
++(void)setOTPFromLink:(NSString*)value;
++(NSString*)getOTPFromLink;
 
 @end

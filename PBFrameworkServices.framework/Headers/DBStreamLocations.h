@@ -15,6 +15,7 @@
 // Delete
 +(void) deleteStreamLocation:(NSString*)streamID gpsCoordinates:(NSString*)gpsCoordinates;
 +(void) deleteLocationsFromStream:(NSString*)streamID;
++(void) deleteCategoryLocationsFromStream:(NSString*)streamID;
 +(void) deleteAllLocationsFromStream:(NSString*)streamID;
 
 @end
