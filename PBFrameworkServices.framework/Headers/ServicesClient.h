@@ -26,4 +26,10 @@
 // Team search
 +(void) getImagesForTeamID:(NSString*)teamID bibPath:(NSString*)bibPath completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 
+// BBYO
+// Get account balance
++(void) getUserAccountBalance:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
++(void) withdrawFunds:(int)amount completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
+
+
 @end

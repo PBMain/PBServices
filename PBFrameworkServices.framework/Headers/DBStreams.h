@@ -34,6 +34,7 @@
 +(void) setBibPath:(NSString*)bibPath forStream:(NSString*)streamID;
 +(void) setBibInfoPath:(NSString*)bibInfoPath forStream:(NSString*)streamID;
 +(void) setIsPopupURLAlreadyShown:(BOOL) isPopupURLAlreadyShown forStream:(NSString*)streamID;
++(void) setCoverVideoURL:(NSString*)videoURL withIconURL:(NSString*)iconURL forStream:(NSString*)streamID;
 
 // Delete
 +(void) deleteStream:(NSString*)streamID;

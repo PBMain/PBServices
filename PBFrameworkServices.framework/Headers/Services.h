@@ -8,6 +8,9 @@
 // Photos
 @import Photos;
 
+// For testing laggy returns. This value in seconds represents how long we wait after getting a response to actually do anything with that response
+#define introducedLagOnCalls 0.0
+
 // Services
 #import "ServicesStreams.h"
 #import "ServicesOfflineMode.h"
@@ -17,6 +20,7 @@
 #import "ServicesUploadsSelected.h"
 #import "ServicesComments.h"
 #import "ServicesClient.h"
+#import "ServicesActivityFeed.h"
 
 #import "NSString+RemoveEmoji.h"
 
@@ -40,6 +44,7 @@
 @property (nonatomic) PHCachingImageManager *imageManager;
 @property (nonatomic, strong) NSURLSession *session;
 @property (nonatomic, strong) NSURLSession *profileSession;
+@property (nonatomic, strong) NSURLSession *sessionWithCustomTimeout;
 @property (nonatomic, strong) NSMutableData *responseData;
 @property (nonatomic) int maxProcessedQueueSize;
 @property (nonatomic) int timeoutCount;
@@ -100,6 +105,7 @@
 
 + (instancetype)sharedDelegate;
 + (NSURLSession*)sharedSession;
++ (NSURLSession*)sharedProfileSessionWithTimeout:(float)timeout;
 + (NSURLSession*)sharedProfileSession;
 
 // Services
@@ -196,8 +202,10 @@
 -(void) getActivitySince:(NSDate*)since completionBlock:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;
 -(void) getIsActivity:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;
 
-// Likes / Liking / Favorites
+// Likes / Liking / Favorites (deprecating this one)
 -(void) setPhotoLike:(NSString*)assetId photoStreamId:(NSString*)photoStreamId isFavorite:(BOOL)isFavorite completionBlock:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;
+// Use this one, which takes the internal ID of the asset, in case it hasn't been uploaded yet
+-(void) setPhotoLike:(NSString*)assetId photoStreamId:(NSString*)photoStreamId streamAssetID:(NSString*)streamAssetID isFavorite:(BOOL)isFavorite completionBlock:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;
 
 // Duplicate photo handling
 -(void)addPhotosToCluster:(NSNumber*)masterAssetId assetList:(NSMutableArray*)assetList completionBlock:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;
@@ -326,5 +334,8 @@
 
 // SDK
 -(NSString*) buildAuthStringGETParams;
+
+// Our own date->string conversion (to get around iOS bugs with date formatting)
++(NSString*)dateToString:(NSDate*)date isUTC:(BOOL)isUTC;
 
 @end

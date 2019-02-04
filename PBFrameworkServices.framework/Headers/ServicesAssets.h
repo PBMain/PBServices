@@ -15,5 +15,7 @@
 
 // Cached
 +(void) getImageFromCache:(NSDictionary*)asset isThumb:(BOOL)isThumb streamId:(NSString*)photoStreamId uiImageView:(UIImageView*)uiImageView cacheIdentifier:(NSString*)cacheIdentifier completionBlock:(void (^)(id response))completionBlock;
+// Just use the S3 link
++(void) getImageFromURL:(NSDictionary*)asset isThumb:(BOOL)isThumb streamId:(NSString*)photoStreamId uiImageView:(UIImageView*)uiImageView cacheIdentifier:(NSString*)cacheIdentifier completionBlock:(void (^)(id response))completionBlock;
 
 @end

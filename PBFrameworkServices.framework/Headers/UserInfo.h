@@ -169,6 +169,10 @@
 +(NSString*)getAuthToken;
 +(void)setAuthToken:(NSString*)authToken;
 
+// "Authentication" header
++(NSString*)getAuthenticationHeader;
++(void)setAuthenticationHeader:(NSString*)authentication;
+
 // New Build Update Screen
 +(BOOL)getUpdateScreenSeen;
 +(void)setUpdateScreenSeen:(BOOL)seen;
@@ -246,6 +250,10 @@
 +(void) setServerType:(NSString*)serverType;
 +(NSString*) getRouterServerEndpoint;
 +(void) setRouterServerEndpoint:(NSString*)serverEndpoint;
++(NSString*) getPartnerEndpointServer;
++(void) setPartnerEndpointServer:(NSString*)urlString;
++(NSString*) getPartnerServerFolder;
++(void) setPartnerServerFolder:(NSString*)urlString;
 
 // SDK Settings
 +(BOOL)showNSLogs;
@@ -264,6 +272,7 @@
 +(void)setFullAppName:(NSString*)appName;
 
 +(UIFont*)getHelveticaNeueBold:(float)fontSize;
++(UIFont*)getHelveticaNeueRegular:(float)fontSize;
 
 +(UIFont*)getFontNameRegular:(float)fontSize;
 +(void)setFontNameRegular:(NSString*)fontNameRegular;
@@ -338,10 +347,14 @@
 // Limits on contribution types
 +(BOOL)getManualContributionOnly;
 +(void)setManualContributionOnly:(BOOL)manualOnly;
++(BOOL)getManualContributionOnlyPublic;
++(void)setManualContributionOnlyPublic:(BOOL)manualOnly;
 +(BOOL)getShouldHideMenuInStreamDetailsForPastStreams;
 +(void)setShouldHideMenuInStreamDetailsForPastStreams:(BOOL)shouldIt;
 +(BOOL)getShouldSetManualContributionForAllStreams;
 +(void)setShouldSetManualContributionForAllStreams:(BOOL)shouldIt;
++(BOOL)getShouldSetManualContributionForPublicStreams;
++(void)setShouldSetManualContributionForPublicStreams:(BOOL)shouldIt;
 
 // Logging settings
 +(void)setLoggingLevel:(int)logLevel;
@@ -356,5 +369,23 @@
 // Onboarding OTP from a link
 +(void)setOTPFromLink:(NSString*)value;
 +(NSString*)getOTPFromLink;
+
+// Should the single main view have a back button (instead of a profile button)
++(void)setSingleMainViewHasBackButton:(BOOL)shouldIt;
++(BOOL)getSingleMainViewHasBackButton;
+
+// Onboarding Tutorial
++(void)setOnboardingTutorialText:(NSString*)txt forPage:(int)page;
++(void)setOnboardingTutorialImageNumber:(int)imgNumber forPage:(int)page;
++(NSString*)getOnboardingTutorialTextForPage:(int)page;
++(int)getOnboardingTutorialImageNumberForPage:(int)page;
+    
+// Should use Activity Feed stream details instead of single stream details view
++(void)setPhotoStreamShowActivityFeed:(BOOL)shouldIt;
++(BOOL)getPhotoStreamShowActivityFeed;
+
+// Added for custom BBYO behavior
++(void)setNumberOfPhotosToShowBeforeHighlights:(int)numberOfPhotos;
++(int)getNumberOfPhotosToShowBeforeHighlights;
 
 @end

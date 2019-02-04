@@ -22,6 +22,7 @@
 // Getting assets that need locations
 +(NSArray*)reserveUploadLocationsWithCode:(NSString*)reserveCode;
 +(void)setUploadLocation:(NSString*)location forLocalIdentifier:(NSString*)localIdentifier;
++(void)setPostID:(NSString*)postID forUploadLocations:(NSArray*)uploadLocations;
 
 // Assets that have locations but need to be uploaded
 +(NSDictionary*)reserveUploadWithCode:(NSString*)reserveCode;
@@ -40,6 +41,7 @@
 +(void) deleteUploadWithReservedCode:(NSString*)reservedCode;
 +(void) deleteUploadsWithStreamID:(NSString*)streamID;
 +(void) deleteUploadsWithStreamID:(NSString*)streamID andFileName:(NSString*)fileName andCreationDate:(NSString*)creationDate;
++(void) deleteUploadsWithTemporaryPostID:(NSString*)tempPostID;
 +(void) deleteUploadsWithFileName:(NSString*)fileName andCreationDate:(NSString*)creationDate;
 +(void) deleteUploadsIfAllDoneForStream:(NSString*)streamID;
 

@@ -14,6 +14,7 @@
 +(int) getDuplicateCountForStream:(NSString*)streamID;
 +(NSString*) getAssetIDForImage:(NSString*)filename creationDate:(NSString*)creationDate;
 +(NSString*) getAssetIDForImage:(NSString*)filename creationDateUTC:(NSString*)creationDateUTC;
++(NSString*) getAssetIDForStreamAssetID:(NSString*)streamAssetID;
 +(NSMutableDictionary*) getAssetForStream:(NSString*)streamID byID:(NSString*)assetID;
 +(NSMutableDictionary*) getAssetForStream:(NSString*)streamID byFileName:(NSString*)fileName creationDateUTC:(NSString*)creationDateUTC;
 +(NSArray*) getAssetsNotUploadedForStream:(NSString*)streamID;
