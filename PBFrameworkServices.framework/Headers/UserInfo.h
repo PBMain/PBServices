@@ -388,4 +388,8 @@
 +(void)setNumberOfPhotosToShowBeforeHighlights:(int)numberOfPhotos;
 +(int)getNumberOfPhotosToShowBeforeHighlights;
 
+// Nasdaq behavior
++(void)setAllowSocialSharing:(BOOL)allowSocial;
++(BOOL)getAllowSocialSharing;
+
 @end
