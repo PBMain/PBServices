@@ -392,4 +392,8 @@
 +(void)setAllowSocialSharing:(BOOL)allowSocial;
 +(BOOL)getAllowSocialSharing;
 
+// Open people with event rather than internally (for clients that want to handle people themselves)
++(void)setOpenPersonWithEvent:(BOOL)openWithEvent;
++(BOOL)getOpenPersonWithEvent;
+
 @end

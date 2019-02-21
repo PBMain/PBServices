@@ -124,5 +124,6 @@
 +(instancetype)sharedDelegate;
 +(void)wipeOldData;
 +(NSString*)getNextView:(NSString*)currentView;
++(NSString*)getMainStoryboardName;
 
 @end
