@@ -24,6 +24,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString*) startStreamOptions_joinStreamButtonTitle;
 - (NSString*) startStreamOptions_createStreamButtonTitle;
 
+//These properties are used on the NewPhotoStream Screen. (PBPodUIStreamList)
+- (NSString*) newPhotoStream_mainTitle; //Default value: @"Create a Photo Stream"
+- (NSString*) newPhotoStream_subtitle; //Default value: @"Set a  duration, invite your friends and family and Photo Butler will share your photos instantly."
+
+//These properties are used on the HostContributorOptInView Screen. (PBPodUIStreamList)
+- (NSString*) hostContributorOptInView_mainTitle; //Default value: @"How would you like to add photos to your stream?"
+- (NSString*) hostContributorOptInView_subtitle; //Default value: @"Choose how you would like to share photos to your stream when it is live."
 
 //These properties are used on the Contribution Opt-In Screen. (PBPodUIStreamDetails)
 - (NSString*) optInButton_autoShareTitle; //Default value: @"Auto-Share"
@@ -53,6 +60,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *startStreamOptions_joinStreamButtonTitle;
 @property (nonatomic, strong) NSString *startStreamOptions_createStreamButtonTitle;
 
+@property (nonatomic, strong) NSString *newPhotoStream_mainTitle;
+@property (nonatomic, strong) NSString *newPhotoStream_subtitle;
+
+@property (nonatomic, strong) NSString *hostContributorOptInView_mainTitle;
+@property (nonatomic, strong) NSString *hostContributorOptInView_subtitle;
 
 #pragma mark - PBPodUIStreamDetails
 //These properties are used on the Contribution Opt-In Screen.

@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL) needToShowMainViewController; //Shows a list of photo streams with a bottom tab bar (default is YES)
 - (BOOL) needToShowPhotoAlbumWithActivityFeed; //Should use Activity Feed stream details instead of single stream details view. Shows PhotoAlbumViewController with Activity Feed (like in Bizzabo app) (default is NO)
 - (BOOL) needToShowParksAndResortsViewController; //Shows a list of Parks and Resorts (default is NO)
+- (BOOL) needToShowPhotosTab; //Shows the photos tab on the main view (shown with needToShowMainViewController) (default is YES)
 
 @end
 
@@ -28,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL needToShowOnboardingTutorial;
 @property (nonatomic, assign) BOOL needToShowSingleMainViewController;
 @property (nonatomic, assign) BOOL needToShowMainViewController;
+@property (nonatomic, assign) BOOL needToShowPhotosTab;
 @property (nonatomic, assign) BOOL needToShowPhotoAlbumWithActivityFeed;
 @property (nonatomic, assign) BOOL needToShowParksAndResortsViewController;
 

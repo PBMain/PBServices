@@ -13,13 +13,14 @@
 #import "PBAppSettings.h"
 #import "PBAppStringsService.h"
 #import "PBAppColorsService.h"
-
+#import "PBAppFontsService.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PBSettingsService : NSObject
 
 + (instancetype) service;
+- (void)setDataSource:(id)dataSource;
 
 + (instancetype) alloc __attribute__((unavailable("alloc not available, call service instead")));
 - (instancetype) init __attribute__((unavailable("init not available, call service instead")));
@@ -31,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) id<PBAppSettingsDataSource> appSettingsDataSource;
 @property (nonatomic, weak) id<PBAppStringsServiceDataSource> appStringsServiceDataSource;
 @property (nonatomic, weak) id<PBAppColorsServiceDataSource> appColorsServiceDataSource;
+@property (nonatomic, weak) id<PBAppFontsServiceDataSource> appFontsServiceDataSource;
 
 
 @property (nonatomic, strong) PBImagesService *imagesService; // This service is responsible for setting up images in the application. (It is responsible for the background images on the screen (icons, etc.) that you customized from the project.)
@@ -45,6 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) PBAppColorsService *appColorsService;
 
+@property (nonatomic, strong) PBAppFontsService *appFontsService; // This service is responsible for setting up fonts in the application.
 
 @end
 

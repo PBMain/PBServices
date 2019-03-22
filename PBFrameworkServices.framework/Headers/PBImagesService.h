@@ -23,9 +23,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSString*) bg_verifyPhoneScreenImageName; //Image name that we use on the Verify phone screen
 
+//Placeholders
+- (NSString*) upcomingStreamHostPlaceholderName;
+- (NSString*) upcomingStreamSpectatorPlaceholderName;
+- (NSString*) streamCoverPlaceholderName;
+
+//AppLogo
+- (NSString*) appLogoPhotoName;
+
 //Icons
 - (NSString*) startStreamOptions_joinStreamIconName;
 - (NSString*) startStreamOptions_createStreamIconName;
+- (NSString*) settingsScreen_appLogoIconName; //Icon name that we use on the Settings screen, it is located on the right side of the screen.
 
 //These images are used only for the "Parks and Resorts" application.
 - (UIImageRenderingMode) appLogoRenderingMode; //This flag is used in OptInView. If we want to change the color of the appLogo to the same color as the buttons, set the value to UIImageRenderingModeAlwaysTemplate.
@@ -63,9 +72,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *bg_registerScreenImageName;
 @property (nonatomic, strong) NSString *bg_verifyPhoneScreenImageName;
 
+//Placeholders
+@property (nonatomic, strong) NSString *upcomingStreamHostPlaceholderName;
+@property (nonatomic, strong) NSString *upcomingStreamSpectatorPlaceholderName;
+@property (nonatomic, strong) NSString *streamCoverPlaceholderName;
+
+//AppLogo
+@property (nonatomic, strong) NSString *appLogoPhotoName;
+
 //Icons
 @property (nonatomic, strong) NSString *startStreamOptions_joinStreamIconName;
 @property (nonatomic, strong) NSString *startStreamOptions_createStreamIconName;
+@property (nonatomic, strong) NSString *settingsScreen_appLogoIconName;
 
 //These methods are used only for the "Parks and Resorts" application.
 - (UIImageRenderingMode) appLogoRenderingMode;

@@ -26,6 +26,7 @@
 
 // Update
 +(BOOL) propogateIDForAssetsWithFileName:(NSString*)fileName captureDateTime:(NSString*)captureDateTime;
++(BOOL) updateAssetID:(NSString*)assetID forAssetsWithFileName:(NSString*)fileName captureDateTimeUTC:(NSString*)captureDateTimeUTC;
 +(void) setPhotoVideoURL:(NSString*)fileName captureDateTime:(NSString*)captureDateTime videoURL:(NSString*)videoURL;
 +(void) setPhotoAssetID:(NSString*)assetID forFilename:(NSString*)fileName captureDateTime:(NSString*)captureDateTime;
 +(void) setUpdatedStreamID:(NSString*)streamID forOldStreamID:(NSString*)oldStreamID completion:(void (^)(void))completionBlock;

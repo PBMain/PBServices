@@ -173,6 +173,9 @@
 +(NSString*)getAuthenticationHeader;
 +(void)setAuthenticationHeader:(NSString*)authentication;
 
+// Remove all user info
++(void)logout;
+
 // New Build Update Screen
 +(BOOL)getUpdateScreenSeen;
 +(void)setUpdateScreenSeen:(BOOL)seen;
@@ -271,27 +274,27 @@
 +(NSString*)getFullAppName;
 +(void)setFullAppName:(NSString*)appName;
 
-+(UIFont*)getHelveticaNeueBold:(float)fontSize;
-+(UIFont*)getHelveticaNeueRegular:(float)fontSize;
-
-+(UIFont*)getFontNameRegular:(float)fontSize;
-+(void)setFontNameRegular:(NSString*)fontNameRegular;
-
-+(UIFont*)getFontNameMedium:(float)fontSize;
-+(void)setFontNameMedium:(NSString*)fontNameMedium;
-
-+(UIFont*)getFontNameSemiBold:(float)fontSize;
-+(void)setFontNameSemiBold:(NSString*)fontNameSemiBold;
-
-+(UIFont*)getFontNameBold:(float)fontSize;
-+(void)setFontNameBold:(NSString*)fontNameBold;
+//+(UIFont*)getHelveticaNeueBold:(float)fontSize;
+//+(UIFont*)getHelveticaNeueRegular:(float)fontSize;
+//
+//+(UIFont*)getFontNameRegular:(float)fontSize;
+//+(void)setFontNameRegular:(NSString*)fontNameRegular;
+//
+//+(UIFont*)getFontNameMedium:(float)fontSize;
+//+(void)setFontNameMedium:(NSString*)fontNameMedium;
+//
+//+(UIFont*)getFontNameSemiBold:(float)fontSize;
+//+(void)setFontNameSemiBold:(NSString*)fontNameSemiBold;
+//
+//+(UIFont*)getFontNameBold:(float)fontSize;
+//+(void)setFontNameBold:(NSString*)fontNameBold;
 
 +(BOOL)getShouldUsePBPermissionsScreens;
 +(void)setShouldUsePBPermissionsScreens:(BOOL)shouldUsePBScreens;
 
 +(void)setIsLightStatusBar: (BOOL) isLight;
 +(BOOL)getIsLightStatusBar;
-
+/*
 +(UIColor*)getColorNavigationBar;
 +(void)setColorNavigationBar:(UIColor*)color;
 
@@ -317,7 +320,7 @@
 +(void)setColorButtonsAgainstLightBG:(UIColor*)color;
 
 +(void) clearColors;
-
+*/
 // Opt-in envelope customizations
 +(UIImage*)getOptInEnvelopeProfilePhoto;
 +(void)setOptInEnvelopeProfilePhotoName:(NSString*)imageName inBundle:(NSBundle*)bundle;
