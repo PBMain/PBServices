@@ -294,7 +294,7 @@
 
 +(void)setIsLightStatusBar: (BOOL) isLight;
 +(BOOL)getIsLightStatusBar;
-/*
+
 +(UIColor*)getColorNavigationBar;
 +(void)setColorNavigationBar:(UIColor*)color;
 
@@ -320,7 +320,7 @@
 +(void)setColorButtonsAgainstLightBG:(UIColor*)color;
 
 +(void) clearColors;
-*/
+
 // Opt-in envelope customizations
 +(UIImage*)getOptInEnvelopeProfilePhoto;
 +(void)setOptInEnvelopeProfilePhotoName:(NSString*)imageName inBundle:(NSBundle*)bundle;
