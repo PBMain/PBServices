@@ -49,7 +49,6 @@ FOUNDATION_EXPORT const unsigned char PBFrameworkServicesVersionString[];
 #import <PBFrameworkServices/DBStreams.h>
 #import <PBFrameworkServices/SocketHandler.h>
 #import <PBFrameworkServices/DBStreamPeople.h>
-#import <PBFrameworkServices/UserInfo.h>
 #import <PBFrameworkServices/GlobalVars.h>
 #import <PBFrameworkServices/DBStreamPeopleAssets.h>
 #import <PBFrameworkServices/ViewCollector.h>
