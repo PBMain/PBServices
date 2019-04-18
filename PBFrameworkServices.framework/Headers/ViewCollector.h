@@ -122,7 +122,6 @@
 @property (nonatomic) PhotosTabBarController *tbcPhotos;
 
 +(instancetype)sharedDelegate;
-+(void)wipeOldData;
 +(NSString*)getNextView:(NSString*)currentView;
 +(NSString*)getMainStoryboardName;
 

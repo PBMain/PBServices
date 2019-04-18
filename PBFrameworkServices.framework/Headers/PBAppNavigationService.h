@@ -18,6 +18,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL) needToShowParksAndResortsViewController; //Shows a list of Parks and Resorts (default is NO)
 - (BOOL) needToShowPhotosTab; //Shows the photos tab on the main view (shown with needToShowMainViewController) (default is YES)
 
+- (BOOL) singleMainViewHasBackButton; //You can manage left button on the navigation bar on the "SingleMain" View. Default value is NO (Displayed as a user photo. Transition to the "Settings" screen). if you set the value of YES to this property, the left button will look like a "back" button and dismiss "SingleMain" View.
+
+- (BOOL) shouldHideMenuInStreamDetailsForPastStreams;
+
 @end
 
 @interface PBAppNavigationService : NSObject
@@ -32,6 +36,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL needToShowPhotosTab;
 @property (nonatomic, assign) BOOL needToShowPhotoAlbumWithActivityFeed;
 @property (nonatomic, assign) BOOL needToShowParksAndResortsViewController;
+
+@property (nonatomic, assign) BOOL singleMainViewHasBackButton;
+
+@property (nonatomic, assign) BOOL shouldHideMenuInStreamDetailsForPastStreams;
+
+@property (nonatomic, assign) BOOL needToUpdateScreens;
+@property (nonatomic, assign) BOOL isUploadListRefreshed;
+@property (nonatomic, assign) BOOL isTutorialShown;
+@property (nonatomic, assign) BOOL isIntroductionScreenShown;
+@property (nonatomic, assign) BOOL isSelfieSkipped;
+@property (nonatomic, assign) BOOL isMapTutorialPressed;
+@property (nonatomic, assign) BOOL isPersonOpenWithEvent; // Open people with event rather than internally (for clients that want to handle people themselves). Default value: NO
+
 
 @end
 

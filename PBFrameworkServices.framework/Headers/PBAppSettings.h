@@ -10,6 +10,16 @@
 NS_ASSUME_NONNULL_BEGIN
 @protocol PBAppSettingsDataSource <NSObject>
 
+@required
+//Application Client ID and Client Key
+- (NSString*) clientId; //Default value: Empty string
+- (NSString*) clientKey; //Default value: Empty string
+
+//Application Name and Client Name
+- (NSString*) fullAppName; //Default value: @"Photo Butler"
+- (NSString*) clientName; //Default value: Empty string
+
+
 @optional
 
 - (BOOL) needToShowAllUserSettings; //Shows a full list of User settings (default is YES)
@@ -26,6 +36,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (BOOL) needToApplyDarkThemeOnUserSettingsScreen; //Default value: NO
 
+- (BOOL) isAdminVersion; //Default value: NO
+
+- (BOOL) needToHideLeaveStreamButton; //Default value: NO
+
+- (BOOL) isSocialSharingAllowed; //To allow social sharing in the application (Nasdaq behavior). Default: YES
+
+- (BOOL) isLightStatusBar; //Changing the status bar style. Default value: NO (UIStatusBarStyleDefault)
+
 @end
 
 @interface PBAppSettings : NSObject
@@ -33,6 +51,12 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype) createWithDataSource : (nullable id<PBAppSettingsDataSource>) dataSource;
 
 @property (nonatomic, weak) id<PBAppSettingsDataSource> dataSource;
+
+@property (nonatomic, strong) NSString *clientId;
+@property (nonatomic, strong) NSString *clientKey;
+
+@property (nonatomic, strong) NSString *fullAppName;
+@property (nonatomic, strong) NSString *clientName;
 
 #pragma mark - PBPodUIStreamList
 @property (nonatomic, assign) BOOL needToShowAllUserSettings; //This property is used on Settings Screen.
@@ -48,6 +72,31 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL newPhotoStream_needToShowSignalIcon; //This property is used on NewPhotoStream Screen.
 
 @property (nonatomic, assign) BOOL needToApplyDarkThemeOnUserSettingsScreen;  //This property is used on ParksSelection Screen.
+
+// General Info
+@property (nonatomic, assign) BOOL isAdminVersion;
+
+@property (nonatomic, assign) BOOL needToHideLeaveStreamButton;
+
+@property (nonatomic, assign) BOOL isSocialSharingAllowed;
+
+@property (nonatomic, assign) BOOL isLightStatusBar;
+
+@property (nonatomic, assign) BOOL isLoudNotifications; //
+
+@property (nonatomic, assign) BOOL isOfflineBannerClosed;
+
+@property (nonatomic, assign) BOOL hasChosenDataOrWifi;
+
+@property (nonatomic, assign) BOOL isCellularDataOnly;
+
+@property (nonatomic, assign) int loginVersion;
+
+@property (nonatomic, assign) int dbVersion;
+
+@property (nonatomic, assign) int loggingLevel; //Logging settings
+
+@property (nonatomic, strong) NSString *log; // Non-Debugger Logging
 
 @end
 

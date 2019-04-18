@@ -31,6 +31,9 @@ NS_ASSUME_NONNULL_BEGIN
 //AppLogo
 - (NSString*) appLogoPhotoName;
 
+//PhotoAlbumScrollIndicator
+- (NSString*) photoAlbumScrollIndicatorName;
+
 //Icons
 - (NSString*) startStreamOptions_joinStreamIconName;
 - (NSString*) startStreamOptions_createStreamIconName;
@@ -79,6 +82,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 //AppLogo
 @property (nonatomic, strong) NSString *appLogoPhotoName;
+
+//PhotoAlbumScrollIndicator
+@property (nonatomic, strong) NSString *photoAlbumScrollIndicatorName;
 
 //Icons
 @property (nonatomic, strong) NSString *startStreamOptions_joinStreamIconName;

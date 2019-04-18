@@ -113,14 +113,12 @@
 // Nearby streams by lat/long
 -(void) getStreamsByLocation:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 -(void) checkLogin;
--(void) getAuthToken:(void (^)(id success))completionBlock;
 -(void) sendPhoneForOTP:(NSString*)phoneNumber email:(NSString*)email completionBlock:(void (^)(id success))completionBlock;
 -(void) verifyOTP:(NSString*)otp completionBlock:(void (^)(id success))completionBlock;
 -(void) reAuth:(void (^)(id success))completionBlock userLoggedOut:(void (^)(void))userLoggedOutBlock;
 -(void) login:(NSString*)login withPassword:(NSString*)password completion:(void (^)(id success))completionBlock error:(void (^)(id error))errorBlock;
 -(void) registerWithLogin:(NSString*)login andPassword:(NSString*)password completion:(void (^)(id success))completionBlock error:(void (^)(id error))errorBlock;
 -(void) updateLoginToVersionOne:(void (^)(id success))completionBlock;
--(void) finalizeRegistration:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 -(void) setProfileImage:(UIImage*)image cropRectangle:(CGRect)rectangle completionBlock:(void (^)(id success))completionBlock;
 -(void) registerForPushNotifications:(void (^)(id success))completionBlock;
 -(void) updateDeviceId:(id)newDeviceId callbackDelegate:(void (^)(id response))callbackDelegate;

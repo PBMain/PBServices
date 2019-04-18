@@ -38,6 +38,8 @@
  #define cServerType @"Staging"
  */
 
+#import "PBSettingsService.h"
+
 // ------ Lite / "Photo Butler Lite" In iTunes Connect ------
 // App ID In Build Target: com.photobutler.PhotoButlerLite
 // ICON AssetPack In Build Target: AppIconBeta
@@ -54,7 +56,7 @@
 #define cNodeJSServer [NSString stringWithFormat:@"%@%@", @"https://prjs.photobutler.com/", cNodeJSServerDirectory]
 #define cSocketIOServer [NSString stringWithFormat:@"%@", @"https://notification.photobutler.com/photo"]
 #define cWebViewServer [NSString stringWithFormat:@"%@", @"https://m2.pb.life/"]
-#define isAdminVersion NO
+// #define isAdminVersion NO
 // Router call
 #define cRouterURL [NSString stringWithFormat:@"https://router.photobutler.com/"]
 #define cRouterBuildType @"prod"
@@ -251,278 +253,296 @@
 #define kDidSkipSelfie @"kDidSkipSelfie"
 #define kHasFavorites @"kHasFavorites"
 #define kLoginVersion @"kLoginVersion"
+#define kDeviceTokenForPushNotifications @"kDeviceTokenForPushNotifications"
+#define kHasSeenPushNotificationPopup @"kHasSeenPushNotificationPopup"
+#define kShouldShowLocationPopup @"kShouldShowLocationPopup"
+#define kHasAllowedLocation @"kHasAllowedLocation"
+#define kHasActivity @"kHasActivity"
+#define kAccountLastSeenDate @"kAccountLastSeenDate"
+#define kReviewPopupLastSeenDate @"kReviewPopupLastSeenDate"
+#define kInstallDate @"kInstallDate"
+#define kOfflineBannerClosed @"kOfflineBannerClosed"
+#define kDBVersion @"kDBVersion"
+#define kLoggingLevel @"kLoggingLevel"
+#define kNumberOfPhotosToShowBeforeHighlights @"kNumberOfPhotosToShowBeforeHighlights"
+#define kHasSeenTutorial @"kHasSeenTutorial"
+#define kMapTutorialPressed @"kMapTutorialPressed"
+#define kOpenPersonWithEvent @"kOpenPersonWithEvent"
+#define kAuthenticationHeader @"kAuthenticationHeader"
+#define kOTPFromLink @"kOTPFromLink"
 
-// New Uploading
-#define cNodeUploadStart [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/start_upload"]
-#define cNodeUploadComplete [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/upload_complete"]
 
-// Get nearby events/streams
-#define getStreamLocations [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/getStreamLocations"]
+#define kServerEndpoint [NSString stringWithFormat:@"%@", [PBSettingsService service].appEndpointsSettingsService.serverEndpoint]
 
 // Init call to get status of current buildalvars
-#define cInit [NSString stringWithFormat:@"%@", [UserInfo getRouterServerEndpoint]]
+#define cInit [NSString stringWithFormat:@"%@", [PBSettingsService service].appEndpointsSettingsService.routerServerEndpoint]
+
+// New Uploading
+#define cNodeUploadStart [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/start_upload"]
+#define cNodeUploadComplete [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/upload_complete"]
+
+// Get nearby events/streams
+#define getStreamLocations [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/getStreamLocations"]
 
 // Set new device token for this user
-#define cUpdateDeviceId [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/users/UpdateDeviceID/"]
+#define cUpdateDeviceId [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/users/UpdateDeviceID/"]
 
 // Get All locations with a thumbnail for each
-#define cGetImagesByLocation [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/assets/getimagesgroupbylocation/"]
+#define cGetImagesByLocation [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/assets/getimagesgroupbylocation/"]
 // Get All assets for a location given location ID (in one big array)
-#define cGetImagesByLocationID [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/assets/getassetsbylocationid/"]
+#define cGetImagesByLocationID [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/assets/getassetsbylocationid/"]
 // Get All assets for a location given location ID (grouped by month)
-#define cGetAssetsAtLocation [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/assets/getassetsatlocation_v2/"]
+#define cGetAssetsAtLocation [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/assets/getassetsatlocation_v2/"]
 // Get All assets for the user (grouped by month)
-#define cGetUserImagesGroupByMonth [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/assets/GetUserImagesGroupByMonth_v2/"]
+#define cGetUserImagesGroupByMonth [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/assets/GetUserImagesGroupByMonth_v2/"]
 // Get All friends with a thumbnail for each
-#define cGetUsersFriendSummary [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoFaces/GetUsersFriendSummary"]
+#define cGetUsersFriendSummary [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoFaces/GetUsersFriendSummary"]
 // Set a friend's name
-#define cUpdateFriendName [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoFaces/UpdateFriendName/"]
+#define cUpdateFriendName [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoFaces/UpdateFriendName/"]
 // Get magic albums with a thumbnail for each
-#define cGetMagicAlbums [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/album/getdynamicalbumsv1-2/"]
+#define cGetMagicAlbums [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/album/getdynamicalbumsv1-2/"]
 // Get magic album assets by album ID
-#define cGetMagicAlbumImages [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/album/getdynamicalbumsassets/"]
+#define cGetMagicAlbumImages [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/album/getdynamicalbumsassets/"]
 // Create magic ablum using filters
-#define cCreateMagicAlbum [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/album/createdynamicalbum/"]
+#define cCreateMagicAlbum [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/album/createdynamicalbum/"]
 // Remove Image from Magic Album
-#define cRemoveAssetsFromMagicAlbum [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/assets/RemoveAssetsFromMagicAlbum/"]
+#define cRemoveAssetsFromMagicAlbum [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/assets/RemoveAssetsFromMagicAlbum/"]
 // Remove Image from Photo Stream
-#define cRemoveAssetsFromPhotoStream [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoStream/RemoveAssetsFromPhotoStream/"]
+#define cRemoveAssetsFromPhotoStream [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/RemoveAssetsFromPhotoStream/"]
 // Rename magic album
-#define cRenameMagicAlbum [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/album/UpdateMagicAlbumName/"]
+#define cRenameMagicAlbum [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/album/UpdateMagicAlbumName/"]
 // Get a user's information
-#define cGetUsers [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/getUsers"]
+#define cGetUsers [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/getUsers"]
 
 // Photo Streams
 // Create Streaming Album (photo stream)
-#define cCreatePhotoStream [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoStream/CreatePhotoStream_v1_6/"]
+#define cCreatePhotoStream [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/CreatePhotoStream_v1_6/"]
 // Share Streaming Album (photo stream)
-#define cSharePhotoStream [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoStream/SharePhotoStream_v1_5/"]
+#define cSharePhotoStream [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/SharePhotoStream_v1_5/"]
 // Get a list of your photo streams
-//#define cGetPhotoStreamSummary [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/album/GetAlbumsList-V1-4/"]
-#define cGetPhotoStreamSummary [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/album/GetAlbumsList/"]
+//#define cGetPhotoStreamSummary [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/album/GetAlbumsList-V1-4/"]
+#define cGetPhotoStreamSummary [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/album/GetAlbumsList/"]
 // Get summary of one photo stream
-//#define cGetPhotoStream [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoStream/GetPhotoStream-V1-4/"]
+//#define cGetPhotoStream [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/GetPhotoStream-V1-4/"]
 // Get people seen in a photo stream (as a person the album was shared with)
-#define cGetPeopleSeenInPhotoStreamRecipient [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoStream/GetPeopleSeenInPhotoStreamRecipient/"]
+#define cGetPeopleSeenInPhotoStreamRecipient [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/GetPeopleSeenInPhotoStreamRecipient/"]
 // Get people seen in a photo stream (as the creator)
-#define cGetPeopleSeenInPhotoStream [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoStream/GetPeopleSeenInPhotoStream/"]
+#define cGetPeopleSeenInPhotoStream [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/GetPeopleSeenInPhotoStream/"]
 // Get images for a photo stream (as host)
-#define cGetPhotoStreamAssets [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoStream/GetPhotoStreamAssets-v1-3/"]
+#define cGetPhotoStreamAssets [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/GetPhotoStreamAssets-v1-3/"]
 // Get Stream Blackout Times
-#define cGetPSBlockedHours [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/getStreamBlockedHours/"]
+#define cGetPSBlockedHours [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/getStreamBlockedHours/"]
 // Get images for a photo stream (as guest)
-#define cGetPhotoStreamAssetsRecipients [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoStream/GetPhotoStreamAssetsRecipients-v1-3/"]
+#define cGetPhotoStreamAssetsRecipients [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/GetPhotoStreamAssetsRecipients-v1-3/"]
 // List of recipients on a photo stream
-#define cGetSharedPhotoStreamRecipients [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoStream/GetSharedPhotoStreamRecipients_v1_5/"]
+#define cGetSharedPhotoStreamRecipients [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/GetSharedPhotoStreamRecipients_v1_5/"]
 // Update recipient status on a shared album
-#define cUpdateContributorStatus [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoStream/UpdateContributorStatus/"]
-#define cApprovePhotoStreamInvitation [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoStream/ApprovePhotoStreamInvitation/"]
+#define cUpdateContributorStatus [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/UpdateContributorStatus/"]
+#define cApprovePhotoStreamInvitation [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/ApprovePhotoStreamInvitation/"]
 // Remove someone from a stream altogether
-#define cRemoveRecipientFromPhotoStream [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoStream/RemoveRecipientFromPhotoStream/"]
+#define cRemoveRecipientFromPhotoStream [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/RemoveRecipientFromPhotoStream/"]
 // Update photo stream status (0 - inactive, 1 - active)
-#define cUpdatePhotoStreamStatus [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoStream/UpdatePhotoStreamStatus/"]
+#define cUpdatePhotoStreamStatus [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/UpdatePhotoStreamStatus/"]
 // Get person images from stream
-#define cGetPhotoStreamAssetsByPersonId [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoStream/GetPhotoStreamAssetsByPersonId/"]
+#define cGetPhotoStreamAssetsByPersonId [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/GetPhotoStreamAssetsByPersonId/"]
 // Delete Photo Stream
-#define cDeletePhotoStream [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoStream/DeletePhotoStream/"]
+#define cDeletePhotoStream [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/DeletePhotoStream/"]
 // Leave photo stream (delete for viewer)
-#define cLeavePhotoStream [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/leaveStream"]
+#define cLeavePhotoStream [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/leaveStream"]
 // Edit Photo Stream Name
-#define cUpdatePhotoStreamName [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoStream/UpdatePhotoStreamName/"]
+#define cUpdatePhotoStreamName [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/UpdatePhotoStreamName/"]
 // Extend Photo Stream
-#define cExtendPhotoStreamTime [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoStream/ExtendPhotoStreamTime/"]
+#define cExtendPhotoStreamTime [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/ExtendPhotoStreamTime/"]
 // Change the Stream Active Time
-#define cUpdatePhotoStreamTime [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoStream/UpdatePhotoStreamTime/"]
+#define cUpdatePhotoStreamTime [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/UpdatePhotoStreamTime/"]
 // Get Photo Stream ID by mini token
-#define cGetSharedAlbumIdFromMiniToken [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/Album/GetSharedAlbumIdFromMiniToken/"]
-#define cGetAlbumIdFromMiniToken [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/Album/GetPSId/"]
+#define cGetSharedAlbumIdFromMiniToken [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/Album/GetSharedAlbumIdFromMiniToken/"]
+#define cGetAlbumIdFromMiniToken [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/Album/GetPSId/"]
 // Get Streams call
-#define cGetPhotostreams [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoStream/GetPhotostreams_v2/"]
-#define cGetPhotoStreamsNode [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/GetStreamsV3"]
+#define cGetPhotostreams [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/GetPhotostreams_v2/"]
+#define cGetPhotoStreamsNode [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/GetStreamsV3"]
 // Get an image in photo stream
-#define cGetPSPhotoThumb [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoStream/GetPSPhotoThumb/"]
-#define cGetPSPhoto [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoStream/GetPSPhoto/"]
+#define cGetPSPhotoThumb [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/GetPSPhotoThumb/"]
+#define cGetPSPhoto [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/GetPSPhoto/"]
 // Person's face from stream
-#define cGetPSFaceThumb [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoStream/GetPSFaceThumb/"]
-#define cGetPSPersonProfileThumb [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoStream/GetPSPersonProfileThumb/"]
+#define cGetPSFaceThumb [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/GetPSFaceThumb/"]
+#define cGetPSPersonProfileThumb [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/GetPSPersonProfileThumb/"]
 // Get photos for stream
-#define cGetPSPhotos [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/getPSPhotosV3/"]
-#define cGetPSPhotosWithPersonID [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/getPSPhotosByPersonV3/"]
+#define cGetPSPhotos [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/getPSPhotosV3/"]
+#define cGetPSPhotosWithPersonID [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/getPSPhotosByPersonV3/"]
 // Get people in photo stream
-#define cGetPSFaces [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoStream/GetPSFaces/"]
-// Get the cropped hero image
-#define cGetPSPhotoHero [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoStream/GetPSPhotoHero/"]
+#define cGetPSFaces [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/GetPSFaces/"]
 // Active stream control
-#define cLiveStreamsTimer [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoStream/LiveStreamsTimer/"]
+#define cLiveStreamsTimer [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/LiveStreamsTimer/"]
 // Get stream details using an invite code
-#define cGetPSBasicInfo [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoStream/GetPSBasicInfo/"]
+#define cGetPSBasicInfo [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/GetPSBasicInfo/"]
 // set a vanity invite code
-#define cUpdateStreamCode [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/updateStreamCode"]
+#define cUpdateStreamCode [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/updateStreamCode"]
 // Sign up for a stream with an invite code
-#define cRegisterPsUser [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoStream/RegisterPsUser/"]
+#define cRegisterPsUser [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/RegisterPsUser/"]
 // Get photo stream comment counts
-#define cStreamCommentCounts [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/listCounts"]
+#define cStreamCommentCounts [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/listCounts"]
 // Set custom cover
-#define cSetCoverImage [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoFaces/SetCoverImage/"]
+#define cSetCoverImage [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoFaces/SetCoverImage/"]
 // Get Category Photos
-#define cGetCategoryPhotos [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/getCategoryPhotos/"]
+#define cGetCategoryPhotos [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/getCategoryPhotos/"]
 
 // Activity Feed
-#define cGetActivityFeed [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/getActivityFeed"]
+#define cGetActivityFeed [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/getActivityFeed"]
 
 // Favorites
-#define cSetPhotoStreamLike [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/Like/SetPhotoStreamLike/"]
-#define cGetPhotoStreamLikes [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/Like/GetPhotoStreamLikes/"]
-#define cSetPhotoLike [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/Like/SetPhotoLike/"]
-#define cGetLikedPhotos [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/Like/GetLikedPhotos/"]
+#define cSetPhotoStreamLike [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/Like/SetPhotoStreamLike/"]
+#define cGetPhotoStreamLikes [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/Like/GetPhotoStreamLikes/"]
+#define cSetPhotoLike [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/Like/SetPhotoLike/"]
+#define cGetLikedPhotos [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/Like/GetLikedPhotos/"]
 
 // Occasions
 
 // Remove Image from Occasion
-#define cRemoveAssetsFromOccasion [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/assets/updateoccasions/"]
+#define cRemoveAssetsFromOccasion [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/assets/updateoccasions/"]
 // Delete magic album
-#define cRemoveMagicAlbum [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/album/DeleteMagicAlbum/"]
+#define cRemoveMagicAlbum [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/album/DeleteMagicAlbum/"]
 // People seen in a magic album
-#define cGetPeopleSeenInMagicAlbum [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/assets/GetPeopleSeenInMagicAlbum/"]
+#define cGetPeopleSeenInMagicAlbum [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/assets/GetPeopleSeenInMagicAlbum/"]
 // Get parameters for magic album
-#define cGetMagicAlbumParameters [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/album/GetMagicAlbumCriteria/"]
+#define cGetMagicAlbumParameters [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/album/GetMagicAlbumCriteria/"]
 // Update magic album parameters
-#define cUpdateMagicAlbumParameters [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/album/updatedynamicalbum/"]
+#define cUpdateMagicAlbumParameters [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/album/updatedynamicalbum/"]
 // Occasion by years
-#define cGetOccasionsAssetsByYear [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/AssetPriority/GetOcassionsAssetsByYear/"]
+#define cGetOccasionsAssetsByYear [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/AssetPriority/GetOcassionsAssetsByYear/"]
 // Occasion by year (top)
-#define cGetTopAssetsForOccasion [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/AssetPriority/GetTopAssetsForOccasion/"]
+#define cGetTopAssetsForOccasion [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/AssetPriority/GetTopAssetsForOccasion/"]
 // Occasion by year (bottom)
-#define cGetBottomAssetsForOccasion [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/AssetPriority/GetBottomAssetsForOccasion/"]
+#define cGetBottomAssetsForOccasion [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/AssetPriority/GetBottomAssetsForOccasion/"]
 
 // Remove image from PhotoButler
-#define cRemoveAssetsFromPhotoButler [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/assets/DeleteAssets/"]
+#define cRemoveAssetsFromPhotoButler [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/assets/DeleteAssets/"]
 // Array of all images for a person by personID
-#define cGetPersonPhotos [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoFaces/GetPersonPhotos/"]
+#define cGetPersonPhotos [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoFaces/GetPersonPhotos/"]
 // Get person's recent images (9 most recent) by person ID
-#define cGetFriendsRecentImages [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/assets/getfriendsrecentimages_v2/"]
+#define cGetFriendsRecentImages [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/assets/getfriendsrecentimages_v2/"]
 // Get ALL person's images by month using person ID
-#define cGetFriendsMonthlyImages [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/assets/GetFriendsMonthlyImages_v2/"]
+#define cGetFriendsMonthlyImages [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/assets/GetFriendsMonthlyImages_v2/"]
 // Get person's locations that they show up in by person ID
-#define cGetPersonPhotosWithLocation [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoFaces/GetPersonPhotosWithLocation/"]
+#define cGetPersonPhotosWithLocation [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoFaces/GetPersonPhotosWithLocation/"]
 // Get person's photos in location
-#define cGetPersonPhotosInLocation [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoFaces/GetPersonPhotosInLocation/"]
-#define cGetPersonAssetsAtLocation [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/assets/getpersonassetsatlocation_v2/"]
+#define cGetPersonPhotosInLocation [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoFaces/GetPersonPhotosInLocation/"]
+#define cGetPersonAssetsAtLocation [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/assets/getpersonassetsatlocation_v2/"]
 // Search using filters
-#define cSearchAssets [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/assets/basicsearch_v2/"]
+#define cSearchAssets [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/assets/basicsearch_v2/"]
 // Filter for search using same filters
-#define cFilterSearchChoices [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/assets/searchassets/"]
+#define cFilterSearchChoices [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/assets/searchassets/"]
 // Returns a PNG/JPG to be used as UIImage
-#define cGetImageByAssetID [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/assets/getassetsbyid/"]
-#define cGetImageByPersonID [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoFaces/GetPersonFace/"]
-#define cGetThumbnailByAssetID [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/assets/GetThumbAssetsById/"]
-#define cGetSharedAlbumHeroImage [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/assets/GetSharedAlbumHeroImage/"]
+#define cGetImageByAssetID [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/assets/getassetsbyid/"]
+#define cGetImageByPersonID [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoFaces/GetPersonFace/"]
+#define cGetThumbnailByAssetID [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/assets/GetThumbAssetsById/"]
+#define cGetSharedAlbumHeroImage [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/assets/GetSharedAlbumHeroImage/"]
 // Gets tiles for header image in main view
-#define cGetMagicTiles [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/assets/GetMagicTiles/"]
+#define cGetMagicTiles [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/assets/GetMagicTiles/"]
 // Timestamp call
-#define cGetTimestamp [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/users/gettimestamp/"]
+#define cGetTimestamp [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/users/gettimestamp/"]
 // First step of registration: sending deviceID, getting userID back
-#define cAddUserUrl [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/users/adduser/"]
+#define cAddUserUrl [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/users/adduser/"]
 // Get login token for security things
-#define cAuthToken [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/auth/token/"]
+#define cAuthToken [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/auth/token/"]
 // Send phone number so OTP can be sent
-#define cPhoneUrl [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/users/sendotp/"]
+#define cPhoneUrl [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/users/sendotp/"]
 // Sending phone number and GETTING OTP CODE. Not sending OTP code, as the name would suggest.
-#define cSendOTP [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/getOTP"]
+#define cSendOTP [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/getOTP"]
 // Sending OTP code.
-#define cVerifyOTP [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/verifyOTP"]
+#define cVerifyOTP [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/verifyOTP"]
 // Update Login Version
-#define cUpdateSecurityToken [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/updateSecurityToken"]
+#define cUpdateSecurityToken [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/updateSecurityToken"]
 // Sending OTP verification code
-#define cPhoneVerifyUrl [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/users/verifyotp/"]
+#define cPhoneVerifyUrl [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/users/verifyotp/"]
 // Send all registration info to finalize process
-#define cRegisterUser [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/users/registeruser_v1_6/"]
+#define cRegisterUser [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/users/registeruser_v1_6/"]
 // Send photo to crop/profile image service
-#define cSetProfileImage [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoFaces/SetProfileImage/"]
+#define cSetProfileImage [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoFaces/SetProfileImage/"]
 // Register for push notifications with service
-#define cRegisterForPushNotifications [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/Notification/SubscribePushNotifications/"]
+#define cRegisterForPushNotifications [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/Notification/SubscribePushNotifications/"]
 // Silently get a PBTOKEN if the user doesn't have one
-#define cSilentUpdateToken [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/users/SilentUpdateToken/"]
+#define cSilentUpdateToken [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/users/SilentUpdateToken/"]
 // NodeJS push notification subscribe
-#define cSubscribePushNotifications [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/subscribePushNotifications"]
+#define cSubscribePushNotifications [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/subscribePushNotifications"]
 
 // Sharing
 // Create a link for sharing images
-#define cCreateSharedAlbum [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/album/CreateSharedAlbum/"]
+#define cCreateSharedAlbum [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/album/CreateSharedAlbum/"]
 // Create a link for sharing an album
-#define cShareMagicAlbum [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/album/ShareMagicAlbum/"]
+#define cShareMagicAlbum [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/album/ShareMagicAlbum/"]
 // Get albums shared with this user by others
-#define cGetAlbumsListSharedByOthers [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/photostream/GetAlbumsListSharedByOthers-v-1-3/"]
-//#define cGetAlbumsListSharedByOthers [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/photostream/GetAlbumsListSharedByOthers-V1-4/"]
+#define cGetAlbumsListSharedByOthers [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/photostream/GetAlbumsListSharedByOthers-v-1-3/"]
+//#define cGetAlbumsListSharedByOthers [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/photostream/GetAlbumsListSharedByOthers-V1-4/"]
 // Get album assets shared with this user for one album
-#define cGetAlbumSharedWithUser [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/album/GetAlbumSharedWithUser/"]
+#define cGetAlbumSharedWithUser [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/album/GetAlbumSharedWithUser/"]
 // Get list of albums shared by this user
-#define cGetSharedAlbumList [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/photostream/GetSharedAlbumListv1-3/"]
-//#define cGetSharedAlbumList [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/photostream/GetSharedAlbumList-V1-4/"]
+#define cGetSharedAlbumList [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/photostream/GetSharedAlbumListv1-3/"]
+//#define cGetSharedAlbumList [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/photostream/GetSharedAlbumList-V1-4/"]
 // Get assets for an album that this user shared
-#define cGetSharedAlbumByAlbumId [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/album/GetSharedAlbumByAlbumId/"]
+#define cGetSharedAlbumByAlbumId [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/album/GetSharedAlbumByAlbumId/"]
 // Get shared album recipients (for shared by you)
-#define cGetSharedAlbumRecipients [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/album/GetSharedAlbumRecipients/"]
+#define cGetSharedAlbumRecipients [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/album/GetSharedAlbumRecipients/"]
 // Get someone else's image for shared albums
-#define getVerifiedAssetForSharedAlbum [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/assets/getVerifiedAssetForSharedAlbum/"]
+#define getVerifiedAssetForSharedAlbum [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/assets/getVerifiedAssetForSharedAlbum/"]
 // Get someone else's image for shared albums (thumbnail)
-#define getVerifiedThumbnailForSharedAlbum [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/assets/GetVerifiedThumbnailForSharedAlbum/"]
-#define cGetVerifiedPersonFace [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoStream/GetVerifiedPersonFace/"]
+#define getVerifiedThumbnailForSharedAlbum [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/assets/GetVerifiedThumbnailForSharedAlbum/"]
+#define cGetVerifiedPersonFace [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/GetVerifiedPersonFace/"]
 // Get frequently shared names
-#define cGetFrequentlyShared [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/album/GetSharedAlbumTopTenRecipients/"]
+#define cGetFrequentlyShared [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/album/GetSharedAlbumTopTenRecipients/"]
 
 /*****************
  Duplicate Photos
  ****************/
 // Split photos from cluster
-#define cSplitPhotosFromCluster  [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/assets/SplitPhotosFromCluster/"]
+#define cSplitPhotosFromCluster  [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/assets/SplitPhotosFromCluster/"]
 // Add photos to cluster
-#define cAddPhotosToCluster [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/assets/AddPhotosToCluster/"]
+#define cAddPhotosToCluster [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/assets/AddPhotosToCluster/"]
 // Switch master asset Id
-#define cSwitchMasterAssetId [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/assets/SwitchMasterAssetId/"]
+#define cSwitchMasterAssetId [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/assets/SwitchMasterAssetId/"]
 // Reset all photos in cluster
-#define cResetAllPhotosInCluster [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/assets/ResetAllPhotosInCluster/"]
+#define cResetAllPhotosInCluster [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/assets/ResetAllPhotosInCluster/"]
 
 // Occasions
 //#define cCreateOccasionAlbum @"http://nerdromancer.com/services/createocc.php"
-#define cCreateOccasionAlbum [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/assets/CreateOccasionAlbum/"]
+#define cCreateOccasionAlbum [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/assets/CreateOccasionAlbum/"]
 // Get all occasions
-#define cGetOccasions [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/album/GetOccasionsAlbumList/"]
+#define cGetOccasions [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/album/GetOccasionsAlbumList/"]
 // Get assets for an occasion
-#define cGetAssetsForOccasion [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/album/GetAssetsForOccasionGroupByMonth/"]
+#define cGetAssetsForOccasion [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/album/GetAssetsForOccasionGroupByMonth/"]
 // Get occasions for a friend
-#define cGetFriendOccasions [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/assets/GetFriendOccasions/"]
+#define cGetFriendOccasions [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/assets/GetFriendOccasions/"]
 // Get image assetids for an occasion associated with a friend
-#define cGetPersonOccasion [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/assets/GetPersonOccasion/"]
+#define cGetPersonOccasion [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/assets/GetPersonOccasion/"]
 // Get people in an occasion
-#define cGetFriendInOccasion [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/Friends/GetFriendInOccasion/"]
+#define cGetFriendInOccasion [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/Friends/GetFriendInOccasion/"]
 
 // People Clustering
 // Get unnamed people affinity
-#define cGetUnidentifiedPeople [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoFaces/GetUnidentifiedPeople/"]
+#define cGetUnidentifiedPeople [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoFaces/GetUnidentifiedPeople/"]
 // Get named people affinity
-#define cGetIdentifiedPeople [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoFaces/GetIdentifiedPeople/"]
+#define cGetIdentifiedPeople [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoFaces/GetIdentifiedPeople/"]
 // GetCluster
-#define cGetPersonsCluster [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoFaces/GetPersonsCluster/"]
+#define cGetPersonsCluster [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoFaces/GetPersonsCluster/"]
 // Add People
-#define cAddPersonsToCluster [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoFaces/AddPersonsToCluster/"]
+#define cAddPersonsToCluster [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoFaces/AddPersonsToCluster/"]
 // Remove People
-#define cSplitPersonsFromCluster [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/PhotoFaces/SplitPersonsFromCluster/"]
+#define cSplitPersonsFromCluster [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoFaces/SplitPersonsFromCluster/"]
 // Remove personID from app entirely
-#define cRemovePersonIDFromEntireApp [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/Friends/RemovePerson/"]
+#define cRemovePersonIDFromEntireApp [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/Friends/RemovePerson/"]
 // Switch master person ID for a cluster
-#define cSwitchMasterPersonId [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/Friends/SwitchMasterPersonId/"]
+#define cSwitchMasterPersonId [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/Friends/SwitchMasterPersonId/"]
 // Nuke a person
-#define cNukePersonId [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/Friends/ResetAllPersonsInCluster/"]
+#define cNukePersonId [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/Friends/ResetAllPersonsInCluster/"]
 
 // Update user profile information
-#define cUpdateUserProfileInfo [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/users/UpdateUserProfileInfo/"]
+#define cUpdateUserProfileInfo [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/users/UpdateUserProfileInfo/"]
 
 // People seen in Location
-#define cPeopleSeenWithUser [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/assets/getpeopleseenwithuser/"]
+#define cPeopleSeenWithUser [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/assets/getpeopleseenwithuser/"]
 
 // Logging
-#define cLogError [NSString stringWithFormat:@"%@%@", [UserInfo getServerEndpoint], @"/service/logmessage/"]
+#define cLogError [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/service/logmessage/"]
 
 #define cLogUrl @"http://nerdromancer.com/services/log.php"
 #define cBoundaryString @"-------BOUNDARY-PB000000001------"

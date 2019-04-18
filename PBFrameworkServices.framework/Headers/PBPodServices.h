@@ -238,18 +238,6 @@
  */
 +(void) photoStreamAssetAsUIImage:(NSString*)assetID fileName:(NSString*)fileName captureDateTime:(NSString*)captureDateTime isThumb:(BOOL)isThumb streamID:(NSString*)streamID uiImageView:(UIImageView*)uiImageView completion:(void (^)(id response))completionBlock;
 /*!
- @method photoStreamCoverAssetAsUIImage
- @brief Loads an image (cropped for cover aspect ratio), given a stream and asset ID
- @code
- [ServicesAssets photoStreamCoverAssetAsUIImage:@"assetID" streamID:@"streamID" uiImageView:uiImageView completionBlock:^(id response) {
-     [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
-         [uiImageView setImage:response];
-     }];
- }];
- @endcode
- */
-+(void) photoStreamCoverAssetAsUIImage:(NSString*)assetID streamID:(NSString*)streamID uiImageView:(UIImageView*)uiImageView completion:(void (^)(id response))completionBlock;
-/*!
  @method photoStreamPersonAsUIImage
  @brief Loads a person's profile image using a personID
  @code

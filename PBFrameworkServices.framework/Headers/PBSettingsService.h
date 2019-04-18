@@ -14,6 +14,11 @@
 #import "PBAppStringsService.h"
 #import "PBAppColorsService.h"
 #import "PBAppFontsService.h"
+#import "PBAppEndpointsSettingsService.h"
+#import "PBUserSettingsService.h"
+#import "PBPhotosService.h"
+
+@class TrackingImports;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -33,6 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) id<PBAppStringsServiceDataSource> appStringsServiceDataSource;
 @property (nonatomic, weak) id<PBAppColorsServiceDataSource> appColorsServiceDataSource;
 @property (nonatomic, weak) id<PBAppFontsServiceDataSource> appFontsServiceDataSource;
+@property (nonatomic, weak) id<PBAppEndpointsSettingsServiceDataSource> appEndpointsSettingsServiceDataSource;
 
 
 @property (nonatomic, strong) PBImagesService *imagesService; // This service is responsible for setting up images in the application. (It is responsible for the background images on the screen (icons, etc.) that you customized from the project.)
@@ -45,9 +51,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) PBAppStringsService *appStringsService;
 
-@property (nonatomic, strong) PBAppColorsService *appColorsService;
+@property (nonatomic, strong) PBAppColorsService *appColorsService; // This service is responsible for setting up colors in the application.
 
 @property (nonatomic, strong) PBAppFontsService *appFontsService; // This service is responsible for setting up fonts in the application.
+
+@property (nonatomic, strong) PBAppEndpointsSettingsService *appEndpointsSettingsService; // This service is responsible for setting endpoints in the application.
+
+@property (nonatomic, strong) PBUserSettingsService *userSettingsService; // This service is responsible for setting user in the application.
+
+@property (nonatomic, strong) PBPhotosService *photosService; // This service is responsible for photos in the application.
+
+#pragma mark - TrackingImports Initializing
+// Initialization of application analytics
+- (TrackingImports*) setAnalytics: (nullable NSString*) mixpanelToken
+                    facebookAppId: (nullable NSString*)facebookAppId
+                    intercomAppId: (nullable NSString*)intercomAppId
+                   intercomAPIKey: (nullable NSString*)intercomAPIKey
+                       nanigansId: (nullable NSString*)nanigansId;
+
 
 @end
 

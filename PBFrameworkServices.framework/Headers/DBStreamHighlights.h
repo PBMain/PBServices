@@ -8,8 +8,8 @@
 +(BOOL) insertStreamHighlightsIfChanged:(NSArray*)highlights streamID:(NSString*)streamID;
 
 // Select
-+(NSArray*) getHighlightsForStream:(NSString*)streamID completion:(void (^)(NSArray *people))completionBlock;
-+(NSArray*) getHighlightsRecentForStream:(NSString*)streamID completion:(void (^)(NSArray *people))completionBlock;
++(NSArray*) getHighlightsForStream:(NSString*)streamID completion:(void (^)(NSArray *results))completionBlock;
++(NSArray*) getHighlightsRecentForStream:(NSString*)streamID completion:(void (^)(NSArray *results))completionBlock;
 +(NSString*) getTopHighlightAssetIDForStream:(NSString*)streamID;
 
 // Update
