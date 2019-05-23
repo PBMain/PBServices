@@ -38,6 +38,7 @@
 
 // Delete
 +(void) deleteStream:(NSString*)streamID;
++(void) deleteStreamsNotPresentInArray:(NSArray*) streams inFolder:(NSString*)folderID;
 +(void) deleteLiveStreamsNotPresentInArray:(NSArray*) streams inFolder:(NSString*)folderID;
 +(void) deletePastStreamsNotPresentInArray:(NSArray*) streams inFolder:(NSString*)folderID;
 +(void) deleteUpcomingStreamsNotPresentInArray:(NSArray*) streams inFolder:(NSString*)folderID;
@@ -47,6 +48,7 @@
 
 // Select
 +(NSArray*) getStreamsWithQuery:(NSString*)query completion:(void (^)(NSMutableArray *streamArray))completionBlock;
++(NSArray*) getStreamListForFolder:(NSString*)folderID completionBlock:(void (^)(NSMutableArray *streams))completionBlock;
 +(NSArray*) getAllStreams:(void (^)(NSMutableArray *streams))completionBlock;
 +(NSArray*) getAllPublicStreams:(void (^)(NSMutableArray *streams))completionBlock;
 +(NSArray*) getAllUpcomingPublicStreams:(void (^)(NSMutableArray *streams))completionBlock;

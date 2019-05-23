@@ -33,6 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL) registerScreen_isPhoneAccepted; //Allow the user to sign up / login using phone number
 
 - (BOOL) newPhotoStream_needToShowSignalIcon; //Default value: NO
+- (BOOL) newPhotoStream_needToHideStreamDurationTextForLiveStream; //Default value: NO
+- (BOOL) newPhotoStream_needToHideStreamDurationTextForScheduledStream; //Default value: NO
 
 - (BOOL) needToApplyDarkThemeOnUserSettingsScreen; //Default value: NO
 
@@ -70,6 +72,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL registerScreen_isPhoneAccepted; //This property is used on Register Screen.
 
 @property (nonatomic, assign) BOOL newPhotoStream_needToShowSignalIcon; //This property is used on NewPhotoStream Screen.
+@property (nonatomic, assign) BOOL newPhotoStream_needToHideStreamDurationTextForLiveStream; //This property is used on NewPhotoStream Screen.
+@property (nonatomic, assign) BOOL newPhotoStream_needToHideStreamDurationTextForScheduledStream; //This property is used on NewPhotoStream Screen.
 
 @property (nonatomic, assign) BOOL needToApplyDarkThemeOnUserSettingsScreen;  //This property is used on ParksSelection Screen.
 

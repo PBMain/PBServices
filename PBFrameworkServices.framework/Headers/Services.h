@@ -116,6 +116,7 @@
 -(void) sendPhoneForOTP:(NSString*)phoneNumber email:(NSString*)email completionBlock:(void (^)(id success))completionBlock;
 -(void) verifyOTP:(NSString*)otp completionBlock:(void (^)(id success))completionBlock;
 -(void) reAuth:(void (^)(id success))completionBlock userLoggedOut:(void (^)(void))userLoggedOutBlock;
+-(void) getCurrentUser:(void (^)(id success))completionBlock;
 -(void) login:(NSString*)login withPassword:(NSString*)password completion:(void (^)(id success))completionBlock error:(void (^)(id error))errorBlock;
 -(void) registerWithLogin:(NSString*)login andPassword:(NSString*)password completion:(void (^)(id success))completionBlock error:(void (^)(id error))errorBlock;
 -(void) updateLoginToVersionOne:(void (^)(id success))completionBlock;

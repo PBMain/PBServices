@@ -38,8 +38,6 @@
  #define cServerType @"Staging"
  */
 
-#import "PBSettingsService.h"
-
 // ------ Lite / "Photo Butler Lite" In iTunes Connect ------
 // App ID In Build Target: com.photobutler.PhotoButlerLite
 // ICON AssetPack In Build Target: AppIconBeta
@@ -135,8 +133,6 @@
 #define streamsWithoutCoversUseTopHighlight YES
 
 // Tracking
-#define onlyTrackingProductionFacebook NO
-#define onlyTrackingProductionGoogle NO
 #define onlyTrackingProductionMixpanel NO
 #define trackingNanigan YES
 
@@ -315,8 +311,6 @@
 #define cGetUsers [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/getUsers"]
 
 // Photo Streams
-// Create Streaming Album (photo stream)
-#define cCreatePhotoStream [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/CreatePhotoStream_v1_6/"]
 // Share Streaming Album (photo stream)
 #define cSharePhotoStream [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/SharePhotoStream_v1_5/"]
 // Get a list of your photo streams

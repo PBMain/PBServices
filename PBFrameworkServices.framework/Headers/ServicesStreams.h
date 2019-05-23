@@ -49,12 +49,20 @@
 +(void) createPhotoStreamFromLocal:(NSString*)name startDate:(NSDate*)startDate endDate:(NSDate*)endDate isUpcoming:(BOOL)isUpcoming requestId:(NSString*)uuid isManual:(BOOL)isManual inFolder:(NSString*)folderID completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 
 // Get Streams
+// V3
++(void) getPhotoStreamsSummaryForFolder:(NSString*)folderID completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
++(void) getPhotoStreamsSummaryPrivateForFolder:(NSString*)folderID completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
++(void) getPhotoStreamsSummaryPublicForFolder:(NSString*)folderID completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
+// OLD
 +(void) getPhotoStreamsSummary:(BOOL)isLive inFolder:(NSString*)folderID completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 +(void) getPhotoStreamsSummary:(BOOL)isLive isUpcoming:(BOOL)isUpcoming numberOfStreams:(NSNumber*)numberOfStreams page:(NSNumber*)page inFolder:(NSString*)folderID completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 +(void) getPhotoStreamsSummaryUpcoming:folderID completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 +(void) getPublicLivePhotoStreamsSummary:folderID completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 +(void) getPublicPastPhotoStreamsSummary:folderID completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 +(void) getPublicUpcomingPhotoStreamsSummary:folderID completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
+
+// Edit
++(void) photoStreamEdit:(NSString*)streamID newStartDate:(NSString*)newStartDate newEndDate:(NSString*)newEndDate newName:(NSString*)name newInviteCode:(NSString*)inviteCode manualContribution:(NSNumber*)manualContribution completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 
 // Join Streams
 +(void) getStreamFromInviteCode:(NSString*)inviteCode folderID:(NSString*)folderID completionBlock:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;

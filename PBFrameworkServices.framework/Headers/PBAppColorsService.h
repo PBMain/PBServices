@@ -33,6 +33,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (UIColor*) newPhotoStream_mainTitleColor; //Default value: [UIColor blackColor]
 - (UIColor*) newPhotoStream_subtitleColor; //Default value: [UIColor colorWithWhite: 120.0 / 255.0 alpha: 1.0]
 
+//These properties are used on the StartStreamOptions Screen. (PBPodUIStreamList)
+- (UIColor*) startStreamOptions_buttonTitleColor; //Default value: buttonsColor
+
 //These properties are used on the Contribution Opt-In Screen. (PBPodUIStreamDetails)
 - (UIColor*) optInButton_titleDefaultColor; //Default value: [UIColor blackColor]
 - (UIColor*) optInButton_titleSelectedColor; //Default value: [UIColor whiteColor]
@@ -70,6 +73,9 @@ NS_ASSUME_NONNULL_BEGIN
 //These properties are used on the NewPhotoStream Screen. (PBPodUIStreamList)
 @property (nonatomic, strong) UIColor *newPhotoStream_mainTitleColor;
 @property (nonatomic, strong) UIColor *newPhotoStream_subtitleColor;
+
+//These properties are used on the StartStreamOptions Screen. (PBPodUIStreamList)
+@property (nonatomic, strong) UIColor *startStreamOptions_buttonTitleColor;
 
 #pragma mark - PBPodUIStreamDetails
 //These properties are used on the Contribution Opt-In Screen.

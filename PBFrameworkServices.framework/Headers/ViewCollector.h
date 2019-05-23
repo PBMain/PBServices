@@ -16,7 +16,6 @@
 @class InviteCodeViewController;
 @class RSVPViewController;
 @class NewInviteUpcomingStream;
-@class UploadProgressViewController;
 @class SearchViewController;
 @class TimelineDetailViewController;
 @class ViewController_SearchFilterResult;
@@ -25,12 +24,9 @@
 @class NewPhotoStream;
 @class NewPhotoStreamLive;
 @class EditPhotoStreamViewController;
-@class CommentWebViewController;
 @class NewInviteStreamSchedule;
-@class CommentWebView;
 @class ImageDetailView;
 @class ImageDuplicateView;
-@class ActiveStreamCountdownView;
 @class LocationAlbumView;
 @class UIView_NewLocationAlbumView;
 @class OccasionsContainerView;
@@ -43,8 +39,6 @@
 @class PeopleMoreView;
 @class PeopleRecentTimelineView;
 @class PeoplePlaceAsTimelineView;
-@class PlacesContainerView;
-@class SharedAlbumTimelineView;
 @class TimeoutPopupView;
 @class ScrollTimeView;
 @class TimelinesContainerView;
@@ -79,7 +73,6 @@
 @property (nonatomic) InviteCodeViewController *vcInviteCode;
 @property (nonatomic) RSVPViewController *vcRsvp;
 @property (nonatomic) NewInviteUpcomingStream *vcNewInviteUpcomingStream;
-@property (nonatomic) UploadProgressViewController *vcUploadProgress;
 @property (nonatomic) SearchViewController *vcSearch;
 @property (nonatomic) TimelineDetailViewController *vcTimelineDetail;
 @property (nonatomic) ViewController_SearchFilterResult *vcSearchFilterResult;
@@ -88,13 +81,10 @@
 @property (nonatomic) NewPhotoStream *vcNewPhotoStream;
 @property (nonatomic) NewPhotoStreamLive *vcNewPhotoStreamLive;
 @property (nonatomic) EditPhotoStreamViewController *vcEditPhotoStreamViewController;
-@property (nonatomic) CommentWebViewController * vcCommentWeb;
 @property (nonatomic) NewInviteStreamSchedule * vcNewInviteStreamSchedule;
 // UIViews
-@property (nonatomic) CommentWebView *vCommentWeb;
 @property (nonatomic) ImageDetailView *vImageDetail;
 @property (nonatomic) ImageDuplicateView *vImageDuplicate;
-@property (nonatomic) ActiveStreamCountdownView *vActiveStreamCountdown;
 @property (nonatomic) LocationAlbumView *vLocationAlbum;
 @property (nonatomic) UIView_NewLocationAlbumView *vNewLocationAlbum;
 @property (nonatomic) OccasionsContainerView *vOccasionsContainer;
@@ -107,8 +97,6 @@
 @property (nonatomic) PeopleMoreView *vPeopleMore;
 @property (nonatomic) PeopleRecentTimelineView *vPeopleRecentTimeline;
 @property (nonatomic) PeoplePlaceAsTimelineView *vPeoplePlacesAsTimeline;
-@property (nonatomic) PlacesContainerView *vPlacesContainer;
-@property (nonatomic) SharedAlbumTimelineView *vShareAlbumTimeline;
 @property (nonatomic) TimeoutPopupView *vTimeoutPopup;
 @property (nonatomic) ScrollTimeView *vScrollTime;
 @property (nonatomic) TimelinesContainerView *vTimelinesContainer;
