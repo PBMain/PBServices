@@ -60,3 +60,4 @@ FOUNDATION_EXPORT const unsigned char PBFrameworkServicesVersionString[];
 #import <PBFrameworkServices/DBStreamGUIDs.h>
 #import <PBFrameworkServices/DBStreamLocations.h>
 #import <PBFrameworkServices/DBStreamCategories.h>
+#import <PBFrameworkServices/PBSettingsService.h>
