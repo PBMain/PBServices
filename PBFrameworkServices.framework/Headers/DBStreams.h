@@ -70,6 +70,7 @@
 +(NSDictionary*) getStream:(NSString*)streamID completion:(void (^)(id userDict))completionBlock;
 +(NSString*) getStreamIDForOfflineModeID:(NSString*)offlineModeID;
 +(NSString*) getStreamNameForID:(NSString*)streamID;
++(NSString*) getStreamServerUUIDForID:(NSString*)streamID;
 +(BOOL) canSendNotificationForStream:(NSString*)streamID;
 +(BOOL) hasStreamEndedMoreThanTwoHoursAgo:(NSString*)streamID;
 +(BOOL) isStreamLocalOnly:(NSString*)streamID;

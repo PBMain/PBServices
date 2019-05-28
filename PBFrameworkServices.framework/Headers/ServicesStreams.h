@@ -62,7 +62,7 @@
 +(void) getPublicUpcomingPhotoStreamsSummary:folderID completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 
 // Edit
-+(void) photoStreamEdit:(NSString*)streamID newStartDate:(NSString*)newStartDate newEndDate:(NSString*)newEndDate newName:(NSString*)name newInviteCode:(NSString*)inviteCode manualContribution:(NSNumber*)manualContribution completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
++(void) photoStreamEdit:(NSString*)streamID newStartDate:(NSDate*)newStartDate newEndDate:(NSDate*)newEndDate newName:(NSString*)name newInviteCode:(NSString*)inviteCode manualContribution:(NSNumber*)manualContribution completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 
 // Join Streams
 +(void) getStreamFromInviteCode:(NSString*)inviteCode folderID:(NSString*)folderID completionBlock:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;
