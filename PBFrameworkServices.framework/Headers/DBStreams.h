@@ -15,10 +15,14 @@
 +(void) startContributingBySelectionForStream:(NSString*)streamID;
 +(void) stopContributingForStream:(NSString*)streamID;
 +(void) setStreamHasCustomCover:(NSString*)streamID;
++(void) setStreamCustomCoverURL:(NSString*)streamID coverURL:(NSString*)coverURL;
 +(void) setStreamCoverAssetID:(NSString*)assetID forStreamID:(NSString*)streamID;
 +(void) setContributingForStream:(NSString*)streamID contributingCode:(NSString*)code;
 +(void) setInviteCodeForStream:(NSString*)streamID inviteCode:(NSString*)code;
 +(void) setStreamID:(NSString*)streamID forOfflineModeID:(NSString*)offlineModeID;
++(void) setAssetCount:(NSString*)count forStream:(NSString*)streamID;
++(void) setDuplicateCount:(NSString*)duplicateCount forStreamID:(NSString*)streamID;
++(void) setHighlightCount:(NSString*)highlightCount forStreamID:(NSString*)streamID;
 +(void) setCommentCount:(NSString*)commentCount forStreamID:(NSString*)streamID;
 +(void) setNewStartDate:(NSString*)startDate forStreamID:(NSString*)streamID;
 +(void) setNewEndDate:(NSString*)endDate forStreamID:(NSString*)streamID;
@@ -30,7 +34,6 @@
 +(void) addAudienceMembers:(int)numberOfMembersToAdd toStream:(NSString*)streamID;
 +(void) setNumberOfAudienceMembers:(int)numberOfMembers forStream:(NSString*)streamID;
 +(void) setStreamStatus:(NSString*)status forStream:(NSString*)streamID;
-+(void) setAssetCount:(NSString*)count forStream:(NSString*)streamID;
 +(void) setBibPath:(NSString*)bibPath forStream:(NSString*)streamID;
 +(void) setBibInfoPath:(NSString*)bibInfoPath forStream:(NSString*)streamID;
 +(void) setIsPopupURLAlreadyShown:(BOOL) isPopupURLAlreadyShown forStream:(NSString*)streamID;
@@ -71,6 +74,7 @@
 +(NSString*) getStreamIDForOfflineModeID:(NSString*)offlineModeID;
 +(NSString*) getStreamNameForID:(NSString*)streamID;
 +(NSString*) getStreamServerUUIDForID:(NSString*)streamID;
++(NSString*) getStreamFolderForID:(NSString*)streamID;
 +(BOOL) canSendNotificationForStream:(NSString*)streamID;
 +(BOOL) hasStreamEndedMoreThanTwoHoursAgo:(NSString*)streamID;
 +(BOOL) isStreamLocalOnly:(NSString*)streamID;
@@ -82,6 +86,7 @@
 +(NSDate*) getStartDateForStream:(NSString*)streamID;
 +(NSDate*) getEndDateForStream:(NSString*)streamID;
 +(NSString*) getOwnerIDForStreamID:(NSString*)streamID;
++(NSString*) getContributionStatusForStream:(NSString*)streamID;
 
 // Returns an array of streams that meet the requirements for review.
 // Meaning, if a stream needs to be contributed to by this user, and the user needs to have contributed 15 photos to that stream, this will return all streams that meet those criteria.

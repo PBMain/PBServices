@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype) create;
 
 @property (nonatomic, strong) NSString* authToken; //User auth token. Default value: @"".
+@property (nonatomic, strong) NSString* nasdaqToken; //User nasdaq auth token. Default value: @"".
 @property (nonatomic, strong) NSString* deviceToken; //User device token. Default value: @"".
 @property (nonatomic, strong) NSString* deviceTokenForPushNotifications; //User device token for registering push notifications. Default value: @"".
 
@@ -22,6 +23,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString* pbId; //PhotoButler user ID. Default value: @"".
 
 @property (nonatomic, strong) NSArray* personIds; //
+
+@property (nonatomic, assign) BOOL isUnnamedUser; //Default value: NO.
+@property (nonatomic, strong) NSString* login; //User login. Default value: @"".
+@property (nonatomic, strong) NSString* password; //User password. Default value: @"".
 
 @property (nonatomic, strong, readonly) NSString* userName; //User full name. Default value: @"".
 @property (nonatomic, strong) NSString* firstName; //User first name. Default value: @"".

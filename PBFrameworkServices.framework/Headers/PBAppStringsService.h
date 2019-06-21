@@ -39,6 +39,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString*) optInButton_manualShareTitle; //Default value: @"Select Photos"
 - (NSString*) optInButton_manualShareSubtitle; //Default value: @"Choose which photos you want to share."
 
+//Errors
+- (NSString*) error_unnamedUserAction; //This error is returned, when Unnamed User tries to post a comment / to like Photostream / to create new Photostream / to create new Photostream from local. Default value: @"Must login before performing this action."
+
 @end
 
 @interface PBAppStringsService : NSObject
@@ -74,6 +77,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *optInButton_manualShareTitle;
 @property (nonatomic, strong) NSString *optInButton_manualShareSubtitle;
 
+#pragma mark - Errors
+@property (nonatomic, strong) NSString *error_unnamedUserAction;
 
 @end
 

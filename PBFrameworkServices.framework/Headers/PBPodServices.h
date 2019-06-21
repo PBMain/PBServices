@@ -140,12 +140,13 @@
  @code
  [PBPodServices setContributionToManual:@"streamID" completion:^(id response) {
      // Logged in user is now contributing manually
- } error:^(id response) {
+ } error:^(id response, NSInteger responseStatusCode) {
      NSLog(@"There was an error calling setContributionToManual: %@", response);
+     if responseStatusCode == 401 - the user has been removed from the stream by the host
  }];
  @endcode
  */
-+(void) setContributionToManual:(NSString*)streamID completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
++(void) setContributionToManual:(NSString*)streamID completion:(void (^)(id response))completionBlock error:(void (^)(id response, NSInteger responseStatusCode))errorBlock;
 
 /*!
  @method setContributionToAutomatic
@@ -153,12 +154,13 @@
  @code
  [PBPodServices setContributionToAutomatic:@"streamID" completion:^(id response) {
      // Logged in user is now contributing automatically
- } error:^(id response) {
+ } error:^(id response, NSInteger responseStatusCode) {
      NSLog(@"There was an error calling setContributionToAutomatic: %@", response);
+     if responseStatusCode == 401 - the user has been removed from the stream by the host
  }];
  @endcode
  */
-+(void) setContributionToAutomatic:(NSString*)streamID completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
++(void) setContributionToAutomatic:(NSString*)streamID completion:(void (^)(id response))completionBlock error:(void (^)(id response, NSInteger responseStatusCode))errorBlock;
 
 /*!
  @method setContributionToSpectator
@@ -166,12 +168,13 @@
  @code
  [PBPodServices setContributionToSpectator:@"streamID" completion:^(id response) {
      // Logged in user is now spectating (not contributing)
- } error:^(id response) {
+ } error:^(id response, NSInteger responseStatusCode) {
      NSLog(@"There was an error calling setContributionToSpectator: %@", response);
+     if responseStatusCode == 401 - the user has been removed from the stream by the host
  }];
  @endcode
  */
-+(void) setContributionToSpectator:(NSString*)streamID completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
++(void) setContributionToSpectator:(NSString*)streamID completion:(void (^)(id response))completionBlock error:(void (^)(id response, NSInteger responseStatusCode))errorBlock;
 
 /*!
  @method setStreamCover

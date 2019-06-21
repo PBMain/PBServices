@@ -211,6 +211,7 @@
 #define kUserId @"user_id"
 #define kPBID @"pbid"
 #define kAuthToken @"auth_token"
+#define kNasdaqToken @"nasdaq_token"
 #define kCurrentUploads @"current_uploads"
 #define kCurrentTotalUploads @"current_total_uploads"
 #define kCurrentTotalScreenshotsSkipped @"current_total_screenshotsskipped"

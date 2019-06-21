@@ -21,6 +21,7 @@
 #import "ServicesComments.h"
 #import "ServicesClient.h"
 #import "ServicesActivityFeed.h"
+#import "ServicesVIPs.h"
 
 #import "NSString+RemoveEmoji.h"
 
@@ -117,7 +118,9 @@
 -(void) verifyOTP:(NSString*)otp completionBlock:(void (^)(id success))completionBlock;
 -(void) reAuth:(void (^)(id success))completionBlock userLoggedOut:(void (^)(void))userLoggedOutBlock;
 -(void) getCurrentUser:(void (^)(id success))completionBlock;
+-(void) loginUnnamedUserWithCompletion:(void (^)(id success))completionBlock error:(void (^)(id error))errorBlock;
 -(void) login:(NSString*)login withPassword:(NSString*)password completion:(void (^)(id success))completionBlock error:(void (^)(id error))errorBlock;
+-(void) createUnnamedUserWithCompletion:(void (^)(id success))completionBlock error:(void (^)(id error))errorBlock;
 -(void) registerWithLogin:(NSString*)login andPassword:(NSString*)password completion:(void (^)(id success))completionBlock error:(void (^)(id error))errorBlock;
 -(void) updateLoginToVersionOne:(void (^)(id success))completionBlock;
 -(void) setProfileImage:(UIImage*)image cropRectangle:(CGRect)rectangle completionBlock:(void (^)(id success))completionBlock;
@@ -191,12 +194,11 @@
 -(void) getPagedCategoryHighlights:(NSString*)albumId categoryId:(NSInteger)catID page:(int)page pageSize:(int)pageSize ascending:(BOOL)ascending completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 -(void) getPhotoStreamBlackoutTimes:(NSString*)albumId completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 -(void) getSharedPhotoStreamRecipients:(NSString*)albumId completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) updateContributorStatus:(NSString*)streamAlbumId ownerId:(NSString*)ownerId newStatus:(NSString*)newStatus retryString:(NSString*)retryString completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
+-(void) updateContributorStatus:(NSString*)streamAlbumId ownerId:(NSString*)ownerId newStatus:(NSString*)newStatus retryString:(NSString*)retryString completion:(void (^)(id response))completionBlock error:(void (^)(id response, NSInteger responseStatusCode))errorBlock;
 -(void) getPhotoStreamAssetsByPersonId:(NSString*)streamAlbumId personId:(NSString*)personId ownerId:(NSString*)ownerId completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 -(void) photoStreamGetIdFromMiniToken:(NSString*)miniToken completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 +(void) photoStreamPersonAsUIImage:(NSString*)personId streamId:(NSString*)photoStreamId completionBlock:(void (^)(id response))completionBlock;
 +(void) photoStreamProfilePersonAsUIImage:(NSString*)personId streamId:(NSString*)photoStreamId userId:(NSString*)userId completionBlock:(void (^)(id response))completionBlock;
--(void) updateStreamCode:(NSString*)psid newCode:(NSString*)newCode completionBlock:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;
 -(void) getPhotoStreamCommentCounts:(NSArray*)psids completionBlock:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;
 -(void) setStreamCover:(UIImage*)image streamID:(NSString*)streamID completionBlock:(void (^)(id success))completionBlock;
 

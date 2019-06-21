@@ -18,3 +18,4 @@
 #import "DBStreamGUIDs.h"
 #import "DBStreamCategories.h"
 #import "DBActivities.h"
+#import "DBVIPs.h"

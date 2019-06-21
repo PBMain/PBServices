@@ -11,11 +11,11 @@
 +(NSArray*) getAssetsForStream:(NSString*)streamID completion:(void (^)(id userDict))completionBlock;
 +(NSArray*) getInstantAssetsForStream:(NSString*)streamID completion:(void (^)(id userDict))completionBlock;
 +(int) getConfirmedUploadedAssetCountForStream:(NSString*)streamID;
-+(int) getDuplicateCountForStream:(NSString*)streamID;
 +(NSString*) getAssetIDForImage:(NSString*)filename creationDate:(NSString*)creationDate;
 +(NSString*) getAssetIDForImage:(NSString*)filename creationDateUTC:(NSString*)creationDateUTC;
 +(NSString*) getAssetIDForStreamAssetID:(NSString*)streamAssetID;
 +(NSMutableDictionary*) getAssetForStream:(NSString*)streamID byID:(NSString*)assetID;
++(NSMutableDictionary*) getAssetByID:(NSString*)assetID;
 +(NSMutableDictionary*) getAssetForStream:(NSString*)streamID byFileName:(NSString*)fileName creationDateUTC:(NSString*)creationDateUTC;
 +(NSArray*) getAssetsNotUploadedForStream:(NSString*)streamID;
 +(NSArray*) getAssetsNotUploaded;
@@ -23,6 +23,8 @@
 +(BOOL) isAssetVideo:(NSString*)assetID;
 +(NSString*) getCommentCountForAssetID:(NSString*)assetID inStream:(NSString*)streamID;
 +(NSString*) getS3LinkForAsset:(NSString*)assetID inStream:streamID;
++(NSString*) getStreamAssetServerUUIDForID:(NSString*)assetID inStream:(NSString*)streamID;
++(NSString*) getStreamAssetServerUUIDForID:(NSString*)assetID;
 
 // Update
 +(BOOL) propogateIDForAssetsWithFileName:(NSString*)fileName captureDateTime:(NSString*)captureDateTime;
@@ -33,6 +35,7 @@
 +(void) setCommentCount:(NSString*)commentCount forAssetID:(NSString*)assetID inStream:(NSString*)streamID;
 +(void) setLikedByYou:(BOOL)likedByYou forAssetID:(NSString*)assetID inStream:(NSString*)streamID;
 +(void) setDuplicateParent:(NSString*)assetID previousParent:(NSString*)parentID;
++(void) setDetailsForAsset:(NSString*)assetID withAssetObject:(NSDictionary*)asset;
 +(void) setS3LinkExpired:(NSString*)assetID;
 +(void) setAllS3LinksExpiredForStream:(NSString*)streamID;
 
