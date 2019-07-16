@@ -24,6 +24,10 @@
 +(void)setUploadLocation:(NSString*)location forLocalIdentifier:(NSString*)localIdentifier;
 +(void)tryLocationAgainForLocalIdentifier:(NSString*)localIdentifier;
 
+// Processing detection of faces, text, etc
++(NSArray*) reserveProcessingWithCode:(NSString*)reserveCode;
++(void) setProcessingDoneWithCode:(NSString*)reserveCode payload:(NSString*)jsonStringPayload;
+
 // Assets that have locations but need to be uploaded
 +(NSDictionary*)reserveUploadWithCode:(NSString*)reserveCode;
 +(void)setUploadDoneWithCode:(NSString*)reserveCode;

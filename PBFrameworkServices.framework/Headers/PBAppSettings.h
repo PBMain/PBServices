@@ -46,6 +46,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (BOOL) isLightStatusBar; //Changing the status bar style. Default value: NO (UIStatusBarStyleDefault)
 
+- (BOOL) isAppUsedSpotlightSearch; //Default value: NO
+
 @end
 
 @interface PBAppSettings : NSObject
@@ -93,6 +95,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL hasChosenDataOrWifi;
 
 @property (nonatomic, assign) BOOL isCellularDataOnly;
+
+@property (nonatomic, assign) BOOL isAppUsedSpotlightSearch;
 
 @property (nonatomic, assign) int loginVersion;
 

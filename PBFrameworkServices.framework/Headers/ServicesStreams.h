@@ -17,7 +17,6 @@
 +(void) getPublicUpcomingPhotoStreamsSummary:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 
 // Get Stream Assets
-+(void) getPhotoStreamAssetsNoS3First:(NSString*)streamID completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 +(void) getPhotoStreamAssetsNoS3:(NSString*)streamID completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 +(void) getPhotoStreamAssetsS3Links:(NSString*)streamID startIndex:(int)startIndex numberRows:(int)numberRows isMeta:(BOOL)isMeta oldToNew:(BOOL)oldToNew completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 +(void) getPhotoStreamHighlightsNoS3First:(NSString*)streamID completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;

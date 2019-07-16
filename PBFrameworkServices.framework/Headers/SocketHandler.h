@@ -1,7 +1,7 @@
-@import SocketIO;
+//@import SocketIO;
 
 @interface SocketHandler : NSObject
-
+/*
 @property (nonatomic) SocketIOClient *socket;
 @property (nonatomic) SocketManager *manager;
 
@@ -9,5 +9,5 @@
 +(SocketIOClient*) sharedSocket;
 +(void) connect;
 +(void) disconnect;
-
+*/
 @end

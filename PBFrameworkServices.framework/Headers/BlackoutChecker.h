@@ -15,5 +15,6 @@
 -(BOOL) isDateInBlackout: (NSDate*) date;
 -(NSDate*) blackoutExpirationTime: (NSDate*) date;
 -(NSMutableArray*) getValidContributionRanges;
+-(void)loadInformation;
 
 @end

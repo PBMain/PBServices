@@ -3,7 +3,7 @@
 //  PhotoButler
 //
 //  Created by Daniel Spencer on 5/10/16.
-//  Copyright © 2016 blurbIQ. All rights reserved.
+//  Copyright © 2016 Photo Butler. All rights reserved.
 
 // Photos
 @import Photos;
@@ -341,5 +341,8 @@
 
 // Our own date->string conversion (to get around iOS bugs with date formatting)
 +(NSString*)dateToString:(NSDate*)date isUTC:(BOOL)isUTC;
+
+// CURL For given request, for testing
++(NSString *)curlForRequest:(NSURLRequest*)req;
 
 @end

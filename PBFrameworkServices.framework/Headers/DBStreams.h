@@ -4,6 +4,8 @@
 
 // Insert
 +(void) insertStreams:(NSArray*) data completion:(void (^)(void))completionBlock;
++(void) insertStreamServerIDs:(NSArray*)data completion:(void (^)(void))completionBlock;
++(void) insertStreamBlackoutTimes:(NSArray*)data forStream:(NSString*)streamID completion:(void (^)(void))completionBlock;
 
 // Update
 +(void) setAllPastStreamsNotified:(void (^)(void))completionBlock;
@@ -26,6 +28,7 @@
 +(void) setCommentCount:(NSString*)commentCount forStreamID:(NSString*)streamID;
 +(void) setNewStartDate:(NSString*)startDate forStreamID:(NSString*)streamID;
 +(void) setNewEndDate:(NSString*)endDate forStreamID:(NSString*)streamID;
++(void) setNewCoolDownDate:(NSString*)coolDownDateTime forStreamID:(NSString*)streamID;
 +(void) setNewName:(NSString*)name forStreamID:(NSString*)streamID;
 +(void) setAllStreamsUploadNotificationSent;
 +(void) setStreamHasCached:(NSString*)streamID;
@@ -37,6 +40,7 @@
 +(void) setBibPath:(NSString*)bibPath forStream:(NSString*)streamID;
 +(void) setBibInfoPath:(NSString*)bibInfoPath forStream:(NSString*)streamID;
 +(void) setIsPopupURLAlreadyShown:(BOOL) isPopupURLAlreadyShown forStream:(NSString*)streamID;
++(void) setHasGottenInformationForStream:(NSString*)streamID;
 +(void) setCoverVideoURL:(NSString*)videoURL withIconURL:(NSString*)iconURL forStream:(NSString*)streamID;
 
 // Delete
@@ -48,6 +52,7 @@
 +(void) deletePublicLiveStreamsNotPresentInArray:(NSArray*) streams inFolder:(NSString*)folderID;
 +(void) deletePublicPastStreamsNotPresentInArray:(NSArray*) streams inFolder:(NSString*)folderID;
 +(void) deletePublicUpcomingStreamsNotPresentInArray:(NSArray*) streams inFolder:(NSString*)folderID;
++(void) deleteAllBlackoutTimes:(NSString*)streamID;
 
 // Select
 +(NSArray*) getStreamsWithQuery:(NSString*)query completion:(void (^)(NSMutableArray *streamArray))completionBlock;
@@ -85,8 +90,11 @@
 +(int) getHostedStreamCount;
 +(NSDate*) getStartDateForStream:(NSString*)streamID;
 +(NSDate*) getEndDateForStream:(NSString*)streamID;
++(NSDate*) getCooldownDateForStream:(NSString*)streamID;
 +(NSString*) getOwnerIDForStreamID:(NSString*)streamID;
 +(NSString*) getContributionStatusForStream:(NSString*)streamID;
++(NSArray*) getBlackoutTimesForStream:(NSString*)streamID;
++(BOOL) hasStreamLoadedBlackoutTimes:(NSString*)streamID;
 
 // Returns an array of streams that meet the requirements for review.
 // Meaning, if a stream needs to be contributed to by this user, and the user needs to have contributed 15 photos to that stream, this will return all streams that meet those criteria.
@@ -97,7 +105,6 @@
 +(BOOL) getStreamHasCachedAssets:(NSString*)streamID;
 
 /* FOLDER STREAMS */
-
 +(NSArray*) getAllStreams:(NSString*)folderID completionBlock:(void (^)(NSMutableArray *streams))completionBlock;
 +(NSArray*) getAllPublicStreams:(NSString*)folderID completionBlock:(void (^)(NSMutableArray *streams))completionBlock;
 +(NSArray*) getAllUpcomingStreams:(NSString*)folderID completionBlock:(void (^)(NSMutableArray *streams))completionBlock;

@@ -9,6 +9,7 @@
 
 // Select
 +(int) getAssetCountForStream:(NSString*)streamID completion:(void (^)(id theCount))completionBlock;
++(int) getUploadingAssetCountForStream:(NSString*)streamID completion:(void (^)(id theCount))completionBlock;
 +(NSArray*) getAssetsForStream:(NSString*)streamID completion:(void (^)(id userDict))completionBlock;
 +(NSArray*) getInstantAssetsForStream:(NSString*)streamID completion:(void (^)(id userDict))completionBlock;
 +(int) getConfirmedUploadedAssetCountForStream:(NSString*)streamID;
@@ -28,7 +29,6 @@
 +(NSString*) getStreamAssetServerUUIDForID:(NSString*)assetID;
 
 // Update
-+(BOOL) propogateIDForAssetsWithFileName:(NSString*)fileName captureDateTime:(NSString*)captureDateTime;
 +(BOOL) updateAssetID:(NSString*)assetID forAssetsWithFileName:(NSString*)fileName captureDateTimeUTC:(NSString*)captureDateTimeUTC;
 +(void) setPhotoVideoURL:(NSString*)fileName captureDateTime:(NSString*)captureDateTime videoURL:(NSString*)videoURL;
 +(void) setPhotoAssetID:(NSString*)assetID forFilename:(NSString*)fileName captureDateTime:(NSString*)captureDateTime;
@@ -55,6 +55,9 @@
 +(void) unDeleteAssetIDsFromServer:(NSArray*)assets forStream:(NSString*)streamID;
 +(void) deleteImageFromPB:(NSString*)assetID filename:(NSString*)filename creationDateUTC:(NSString*)creationDateUTC;
 +(void) deleteAllAssetsFromStream:(NSString*)streamID;
+// Leaves assets that are being uploaded, or have been uploaded and the server doesn't say they exist yet
++(void) deleteAllUploadedAssetsFromStream:(NSString*)streamID;
++(void) deleteUploadingAssetsFromStream:(NSString*)streamID withCaptureTimes:(NSArray*)captureDateTimes;
 
 // Other
 +(void) compareInstantToUploads;

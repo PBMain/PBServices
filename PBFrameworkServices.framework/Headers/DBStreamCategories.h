@@ -13,6 +13,7 @@
 +(NSArray*) getCategoriesForStreamID:(NSString*)streamID completion:(void (^)(NSArray *categories))completionBlock;
 +(NSDictionary*) getCategoryForStreamID:(NSString*)streamID categoryID:(NSString*)categoryID completion:(void (^)(NSDictionary *category))completionBlock;
 +(NSArray*) getAssetsForStreamID:(NSString*)streamID categoryID:(NSString*)categoryID completion:(void (^)(NSArray *categories))completionBlock;
++(int) getAssetCountForStreamID:(NSString*)streamID categoryID:(NSString*)categoryID completion:(void (^)(int count))completionBlock;
 
 // Delete
 +(void) deleteStreamCategory:(NSString*)streamID categoryID:(NSString*)categoryID;
