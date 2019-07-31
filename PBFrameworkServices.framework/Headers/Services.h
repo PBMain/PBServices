@@ -196,9 +196,7 @@
 -(void) getSharedPhotoStreamRecipients:(NSString*)albumId completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 -(void) updateContributorStatus:(NSString*)streamAlbumId ownerId:(NSString*)ownerId newStatus:(NSString*)newStatus retryString:(NSString*)retryString completion:(void (^)(id response))completionBlock error:(void (^)(id response, NSInteger responseStatusCode))errorBlock;
 -(void) getPhotoStreamAssetsByPersonId:(NSString*)streamAlbumId personId:(NSString*)personId ownerId:(NSString*)ownerId completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) photoStreamGetIdFromMiniToken:(NSString*)miniToken completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 +(void) photoStreamPersonAsUIImage:(NSString*)personId streamId:(NSString*)photoStreamId completionBlock:(void (^)(id response))completionBlock;
-+(void) photoStreamProfilePersonAsUIImage:(NSString*)personId streamId:(NSString*)photoStreamId userId:(NSString*)userId completionBlock:(void (^)(id response))completionBlock;
 -(void) getPhotoStreamCommentCounts:(NSArray*)psids completionBlock:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;
 -(void) setStreamCover:(UIImage*)image streamID:(NSString*)streamID completionBlock:(void (^)(id success))completionBlock;
 

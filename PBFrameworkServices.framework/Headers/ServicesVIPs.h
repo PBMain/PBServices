@@ -20,4 +20,8 @@
 // Delete
 +(void) deleteVIP:(NSString*)VIPID completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 
+// Processed
++(void) processAndCreateVIP:(NSString*)name withImages:(NSArray<UIImage*>*)images failOnWarning:(BOOL)failOnWarning completion:(void (^)(id response))completionBlock warning:(void (^)(id response))warningBlock error:(void (^)(id response))errorBlock;
++(void) processAndAddImages:(NSArray<UIImage*>*)images toVIP:(NSString*)VIPID failOnWarning:(BOOL)failOnWarning completion:(void (^)(id response))completionBlock warning:(void (^)(id response))warningBlock error:(void (^)(id response))errorBlock;
+
 @end

@@ -10,6 +10,7 @@
 +(NSDictionary*)getUploadByReserveCode:(NSString*)reserveCode;
 +(NSArray*)getUploadNotificationsByReserveCode:(NSString*)reserveCode;
 +(NSArray*)getUploadLocationsByReserveCode:(NSString*)reserveCode;
++(NSArray*)getAllUploads;
 +(int)getCountCurrentlyUploading;
 +(int)getCountReadyForUploading;
 +(int)getCountDoneUploading;
@@ -23,6 +24,10 @@
 +(NSArray*)reserveUploadLocationsWithCode:(NSString*)reserveCode;
 +(void)setUploadLocation:(NSString*)location forLocalIdentifier:(NSString*)localIdentifier;
 +(void)setPostID:(NSString*)postID forUploadLocations:(NSArray*)uploadLocations;
+
+// Processing detection of faces, text, etc
++(NSDictionary*) reserveProcessingWithCode:(NSString*)reserveCode;
++(void) setProcessingDoneWithCode:(NSString*)reserveCode payload:(NSString*)jsonStringPayload;
 
 // Assets that have locations but need to be uploaded
 +(NSDictionary*)reserveUploadWithCode:(NSString*)reserveCode;

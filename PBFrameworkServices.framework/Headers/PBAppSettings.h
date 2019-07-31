@@ -48,6 +48,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (BOOL) isAppUsedSpotlightSearch; //Default value: NO
 
+- (BOOL) isAppUsedPhotoAnalysis; //Default value: NO
+
 @end
 
 @interface PBAppSettings : NSObject
@@ -97,6 +99,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isCellularDataOnly;
 
 @property (nonatomic, assign) BOOL isAppUsedSpotlightSearch;
+
+@property (nonatomic, assign) BOOL isAppUsedPhotoAnalysis;
 
 @property (nonatomic, assign) int loginVersion;
 

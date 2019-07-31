@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL) needToShowParksAndResortsViewController; //Shows a list of Parks and Resorts (default is NO)
 - (BOOL) needToShowPhotosTab; //Shows the photos tab on the main view (shown with needToShowMainViewController) (default is YES)
 - (BOOL) needToShowPOIOptions; //Shows the POI options in a menu, along with profile edit options, when tapping profile pic in stream list views (default is NO)
+- (BOOL) needToShowQRCodes; //Shows the QR code reader and display
 
 - (BOOL) singleMainViewHasBackButton; //You can manage left button on the navigation bar on the "SingleMain" View. Default value is NO (Displayed as a user photo. Transition to the "Settings" screen). if you set the value of YES to this property, the left button will look like a "back" button and dismiss "SingleMain" View.
 
@@ -37,7 +38,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL needToShowPhotosTab;
 @property (nonatomic, assign) BOOL needToShowPhotoAlbumWithActivityFeed;
 @property (nonatomic, assign) BOOL needToShowParksAndResortsViewController;
-@property (nonatomic, assign) BOOL needToShowPOIOptions; 
+@property (nonatomic, assign) BOOL needToShowPOIOptions;
+@property (nonatomic, assign) BOOL needToShowQRCodes;
 
 @property (nonatomic, assign) BOOL singleMainViewHasBackButton;
 

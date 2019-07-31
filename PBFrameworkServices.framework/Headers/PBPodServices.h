@@ -252,18 +252,6 @@
  @endcode
  */
 +(void) photoStreamPersonAsUIImage:(NSString*)personID streamID:(NSString*)streamID completion:(void (^)(id response))completionBlock;
-/*!
- @method photoStreamProfilePersonAsUIImage
- @brief Loads a person's profile image using a personID or userID
- @code
- [ServicesAssets photoStreamProfilePersonAsUIImage:@"personID" streamID:@"streamID" userID:"userID" completionBlock:^(id response) {
-     [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
-         [uiImageView setImage:response];
-     }];
- }];
- @endcode
- */
-+(void) photoStreamProfilePersonAsUIImage:(NSString*)personID streamID:(NSString*)streamID userID:(NSString*)userID completion:(void (^)(id response))completionBlock;
 
 @end
 

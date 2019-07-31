@@ -31,6 +31,7 @@
 +(void) getPhotoStreamLike:(NSString*)streamID completionBlock:(void (^)(BOOL isLiked))completionBlock errorBlock:(void (^)(id response))errorBlock;
 +(void) photoStreamChangeName:(NSString*)streamAlbumId newName:(NSString*)newName completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 +(void) updatePhotoStreamStatus:(NSString*)streamAlbumId newStatus:(NSString*)newStatus completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
++(void) stopPhotoStream:(NSString*)streamID completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 
 // Sharing
 +(void) sharePhotoStream:(NSString*)albumId recipients:(NSArray*)recipients completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
@@ -63,6 +64,7 @@
 +(void) getStreamPersonAssetsPaged:(NSString*)streamID personID:(NSString*)personID startIndex:(int)startIndex pageSize:(int)pageSize sortAscending:(BOOL)sortAscending completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 +(void) getStreamAssetDetails:(NSString*)streamID assetID:(NSString*)assetID completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 +(void) deleteStreamAsset:(NSString*)streamID assetID:(NSString*)assetID completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
++(void) deleteAsset:(NSString*)assetID completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 
 // OLD
 +(void) getPhotoStreamsSummary:(BOOL)isLive inFolder:(NSString*)folderID completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
@@ -82,5 +84,6 @@
 // Join Streams
 +(void) getStreamFromInviteCode:(NSString*)inviteCode folderID:(NSString*)folderID completionBlock:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;
 +(void) joinStreamWithInviteCode:(NSString*)inviteCode folderID:(NSString*)folderID completionBlock:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;
++(void) joinStreamWithWebToken:(NSString*)webToken completionBlock:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;
 
 @end

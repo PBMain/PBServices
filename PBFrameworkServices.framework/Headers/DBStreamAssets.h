@@ -39,6 +39,7 @@
 +(void) setDetailsForAsset:(NSString*)assetID withAssetObject:(NSDictionary*)asset;
 +(void) setS3LinkExpired:(NSString*)assetID;
 +(void) setAllS3LinksExpiredForStream:(NSString*)streamID;
++(void) setUploadStartTimeForAssetWithFilename:(NSString*)fileName andCreationDate:(NSString*)creationDate inStream:(NSString*)streamID;
 
 // Delete
 +(void) deleteAsset:(NSString*)assetID filename:(NSString*)filename creationDateUTC:(NSString*)creationDateUTC fromStream:(NSString*)streamID completionBlock:(void (^)(void))completionBlock;

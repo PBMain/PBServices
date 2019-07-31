@@ -350,9 +350,6 @@
 #define cExtendPhotoStreamTime [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/ExtendPhotoStreamTime/"]
 // Change the Stream Active Time
 #define cUpdatePhotoStreamTime [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/UpdatePhotoStreamTime/"]
-// Get Photo Stream ID by mini token
-#define cGetSharedAlbumIdFromMiniToken [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/Album/GetSharedAlbumIdFromMiniToken/"]
-#define cGetAlbumIdFromMiniToken [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/Album/GetPSId/"]
 // Get Streams call
 #define cGetPhotostreams [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/GetPhotostreams_v2/"]
 #define cGetPhotoStreamsNode [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/GetStreamsV3"]
@@ -361,7 +358,6 @@
 #define cGetPSPhoto [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/GetPSPhoto/"]
 // Person's face from stream
 #define cGetPSFaceThumb [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/GetPSFaceThumb/"]
-#define cGetPSPersonProfileThumb [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/PhotoStream/GetPSPersonProfileThumb/"]
 // Get photos for stream
 #define cGetPSPhotos [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/getPSPhotosV3/"]
 #define cGetPSPhotosWithPersonID [NSString stringWithFormat:@"%@%@", kServerEndpoint, @"/getPSPhotosByPersonV3/"]
