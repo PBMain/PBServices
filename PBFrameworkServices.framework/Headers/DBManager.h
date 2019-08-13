@@ -25,4 +25,7 @@
 // Clear stream offline mode caches
 +(void) clearStreamCaches;
 
+// Clear all records of uploads
++(void) clearUploadRecords;
+
 @end

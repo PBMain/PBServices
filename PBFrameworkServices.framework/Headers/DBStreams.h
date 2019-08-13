@@ -14,6 +14,7 @@
 +(void) setStreamShownContributorInvite:(NSString*)streamID completion:(void (^)(void))completionBlock;
 +(void) notificationSentForStream:(NSString*)streamID;
 +(void) startContributingForStream:(NSString*)streamID;
++(void) startContributingFromBeginningOfStream:(NSString*)streamID;
 +(void) startContributingBySelectionForStream:(NSString*)streamID;
 +(void) stopContributingForStream:(NSString*)streamID;
 +(void) setStreamHasCustomCover:(NSString*)streamID;

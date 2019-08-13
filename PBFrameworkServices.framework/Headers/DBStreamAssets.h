@@ -27,6 +27,9 @@
 +(NSString*) getS3LinkForAsset:(NSString*)assetID inStream:streamID;
 +(NSString*) getStreamAssetServerUUIDForID:(NSString*)assetID inStream:(NSString*)streamID;
 +(NSString*) getStreamAssetServerUUIDForID:(NSString*)assetID;
++(BOOL) isAssetDeletedByUser:(NSString*)assetID streamID:(NSString*)streamID;
++(NSArray*) getAssetsDeletedByUserInStream:(NSString*)streamID;
++(NSMutableArray*) filterAssetsDeletedByUserInStream:(NSString*)streamID withAssets:(NSArray*)assetsToFilter;
 
 // Update
 +(BOOL) updateAssetID:(NSString*)assetID forAssetsWithFileName:(NSString*)fileName captureDateTimeUTC:(NSString*)captureDateTimeUTC;

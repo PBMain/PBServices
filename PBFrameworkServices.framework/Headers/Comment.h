@@ -21,6 +21,8 @@
 
 @property (nonatomic, assign) NSTimeInterval timeInterval;
 @property (nonatomic, strong) NSString *userName;
+@property (nonatomic, strong) NSString *userThumbURL;
+@property (nonatomic, strong) NSString *thumbURL;
 @property (nonatomic, strong) NSString *fullMessage;
 
 +(instancetype) create : (NSDictionary*) dictionary;

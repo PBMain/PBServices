@@ -45,6 +45,8 @@
 +(void) photoStreamDelete:(NSString*)streamID completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 +(void) leavePhotoStream:(NSString*)streamID completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 
++(void) webTokenForStreamLink: (NSString*) streamID completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
+
 /* STREAMS BY FOLDER */
 
 // Create
