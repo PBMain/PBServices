@@ -322,9 +322,9 @@
 -(void) processInstantVideos;
 
 -(BOOL) checkDataWifiForService:(void (^)(id response))completionBlock;
--(BOOL) checkDataWifiForServiceNoPopup:(void (^)(id response))completionBlock;
--(BOOL) handleError:(NSError*)error completionBlock:(void (^)(void))completionBlock;
--(BOOL) handleErrorNoPopup:(NSError*)error completionBlock:(void (^)(void))completionBlock;
+-(BOOL) checkDataWifiForServiceNoPopup:(NSString*)callDescriptor callBack:(void (^)(id response))completionBlock;
+-(BOOL) handleError:(NSError*)error fromRequest:(NSURLRequest*)request completionBlock:(void (^)(void))completionBlock;
+-(BOOL) handleErrorNoPopup:(NSError*)error fromRequest:(NSURLRequest*)request completionBlock:(void (^)(void))completionBlock;
 -(NSMutableURLRequest*) buildUrlRequest:(NSURL*)url;
 +(NSData*) jsonDataFromParams:(NSString*)paramString;
 -(void) requestDidCompleteSuccessfully;

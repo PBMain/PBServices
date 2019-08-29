@@ -78,6 +78,7 @@
 +(NSArray*) getAllUpcomingStreams:(void (^)(NSMutableArray *streams))completionBlock;
 +(NSDictionary*) getStream:(NSString*)streamID completion:(void (^)(id userDict))completionBlock;
 +(NSString*) getStreamIDForOfflineModeID:(NSString*)offlineModeID;
++(NSString*) getStreamIDFromStreamName:(NSString*)streamName;
 +(NSString*) getStreamNameForID:(NSString*)streamID;
 +(NSString*) getStreamServerUUIDForID:(NSString*)streamID;
 +(NSString*) getStreamFolderForID:(NSString*)streamID;

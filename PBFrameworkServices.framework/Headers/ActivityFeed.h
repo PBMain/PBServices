@@ -30,6 +30,8 @@ typedef NS_ENUM(NSInteger, ActivityFeedType) {
 @property (nonatomic, strong) NSString *assetId;
 @property (nonatomic, strong) NSString *streamId;
 @property (nonatomic, strong) NSString *streamName;
+@property (nonatomic, strong) NSString *thumbURL;
+@property (nonatomic, strong) NSString *userThumbURL;
 @property (nonatomic, strong) NSNumber *numcount;
 
 @property (nonatomic, assign) NSTimeInterval timeInterval;

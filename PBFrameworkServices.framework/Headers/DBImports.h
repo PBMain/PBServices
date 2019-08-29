@@ -19,3 +19,4 @@
 #import "DBStreamCategories.h"
 #import "DBActivities.h"
 #import "DBVIPs.h"
+#import "DBLogging.h"
