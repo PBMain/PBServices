@@ -47,6 +47,8 @@
 // Delete
 +(void) deleteStream:(NSString*)streamID;
 +(void) deleteStreamsNotPresentInArray:(NSArray*) streams inFolder:(NSString*)folderID;
++(void) deletePrivateStreamsNotPresentInArray:(NSArray*)streams inFolder:(NSString*)folderID;
++(void) deletePublicStreamsNotPresentInArray:(NSArray*) streams inFolder:(NSString*)folderID;
 +(void) deleteLiveStreamsNotPresentInArray:(NSArray*) streams inFolder:(NSString*)folderID;
 +(void) deletePastStreamsNotPresentInArray:(NSArray*) streams inFolder:(NSString*)folderID;
 +(void) deleteUpcomingStreamsNotPresentInArray:(NSArray*) streams inFolder:(NSString*)folderID;

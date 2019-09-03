@@ -17,6 +17,7 @@
 +(void) setNewStreamID:(NSString*)streamID forOldStreamID:(NSString*)oldStreamID;
 
 // Delete
++(void) deleteAllServiceCalls;
 +(void) deleteServiceCall:(NSString*)code;
 +(void) deleteServiceCallsForStreamID:(NSString*)streamID;
 
