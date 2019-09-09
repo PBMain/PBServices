@@ -19,6 +19,7 @@
 +(NSMutableDictionary*) getAssetForStream:(NSString*)streamID byID:(NSString*)assetID;
 +(NSMutableDictionary*) getAssetByID:(NSString*)assetID;
 +(NSMutableDictionary*) getAssetForStream:(NSString*)streamID byFileName:(NSString*)fileName creationDateUTC:(NSString*)creationDateUTC;
++(BOOL) getAssetDeletedLocallyByFileName:(NSString*)fileName creationDateUTC:(NSString*)creationDateUTC;
 +(NSArray*) getAssetsNotUploadedForStream:(NSString*)streamID;
 +(NSArray*) getAssetsNotUploaded;
 +(NSString*) getPhotoVideoURL:(NSString*)fileName captureDateTime:(NSString*)captureDateTime;
@@ -33,6 +34,7 @@
 
 // Update
 +(BOOL) updateAssetID:(NSString*)assetID forAssetsWithFileName:(NSString*)fileName captureDateTimeUTC:(NSString*)captureDateTimeUTC;
++(BOOL) updateServerID:(NSString*)serverID forAssetsWithFileName:(NSString*)fileName captureDateTimeUTC:(NSString*)captureDateTimeUTC;
 +(void) setPhotoVideoURL:(NSString*)fileName captureDateTime:(NSString*)captureDateTime videoURL:(NSString*)videoURL;
 +(void) setPhotoAssetID:(NSString*)assetID forFilename:(NSString*)fileName captureDateTime:(NSString*)captureDateTime;
 +(void) setUpdatedStreamID:(NSString*)streamID forOldStreamID:(NSString*)oldStreamID completion:(void (^)(void))completionBlock;
