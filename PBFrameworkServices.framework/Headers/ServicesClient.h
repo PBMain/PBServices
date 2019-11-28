@@ -31,5 +31,12 @@
 +(void) getUserAccountBalance:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 +(void) withdrawFunds:(int)amount completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 
+// Spartan BIB
++(void) getBibMetaFile: (NSString *)location completion: (void (^)(id response))completionBlock error: (void (^)(id response))errorBlock;
+
++(void) getAssets: (NSString *)bib
+         location: (NSString *) location
+       completion: (void (^)(id response))completionBlock
+            error: (void (^)(id response))errorBlock;
 
 @end

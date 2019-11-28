@@ -9,7 +9,7 @@
 @property (nonatomic) NSTimer *uploadProcessingTimer;
 @property (nonatomic) NSTimer *uploadNotificationTimer;
 @property (nonatomic) NSTimer *uploadActivityFeedTimer;
-@property (nonatomic) dispatch_group_t backgroundUploadDispatchGroup;
+@property (nonatomic) dispatch_group_t backgroundUploadManualDispatchGroup;
 @property (nonatomic) NSTimer *uploadAnalysisProcessingTimer;
 
 +(void) initializeUploads;

@@ -44,10 +44,6 @@
 
 #define cMixpanelToken @"48837303f16edb45e643d8e2b8cbecea"
 #define cFacebookAppId @"847948338671877"
-#define IntercomAppId @"vchaj5cv"
-#define IntercomAPIKey @"ios_sdk-035465bd098527227c022744b7e23514e247d3fa"
-#define cNanigansId @"584857"
-#define cNaniganInTestMode NO
 #define cMixpanelTestMode NO
 #define cNodeJSServerDirectory @"v2/s"
 #define cServer [NSString stringWithFormat:@"%@%@", @"https://prjs.photobutler.com/", cNodeJSServerDirectory]
@@ -65,10 +61,6 @@
 /*
 #define cMixpanelToken @"771c9c7e26a613249d71e02700a0ee5e"
 #define cFacebookAppId @"960223207430209"
-#define IntercomAppId @"lad0o4jk"
-#define IntercomAPIKey @"ios_sdk-656bf0cb856ca58bccc1a8be610d4b6fdde87018"
-#define cNanigansId @"584857"
-#define cNaniganInTestMode YES
 #define cMixpanelTestMode YES
 #define cNodeJSServerDirectory @"v2/s"
 #define cServer [NSString stringWithFormat:@"%@%@", @"http://qajs.photobutler.com/", cNodeJSServerDirectory]
@@ -86,10 +78,6 @@
 /*
 #define cMixpanelToken @"038ce02309c68eebebe13a66d78429f8"
 #define cFacebookAppId @"960223207430209"
-#define IntercomAppId @""
-#define IntercomAPIKey @""
-#define cNanigansId @"584857"
-#define cNaniganInTestMode YES
 #define cMixpanelTestMode YES
 #define cNodeJSServerDirectory @"v2/s"
 #define cServer [NSString stringWithFormat:@"%@%@", @"http://devjs.photobutler.com/", cNodeJSServerDirectory]
@@ -134,7 +122,6 @@
 
 // Tracking
 #define onlyTrackingProductionMixpanel NO
-#define trackingNanigan YES
 
 // Settings
 // Set to YES if you want images larger in image size than 4500 (on their largest side) to be skipped (postponed)
@@ -225,6 +212,7 @@
 #define kUserName @"user_name"
 #define kUserFirstName @"user_firstname"
 #define kUserLastName @"user_lastname"
+#define kUserAvatar @"user_avatar"
 #define kUserPersonId @"user_person_id"
 #define kPhoneVerified @"user_phone_verified"
 #define kRegistered @"user_is_registered"
@@ -242,6 +230,7 @@
 #define kAccountCreationTimestamp @"account_creation_timestamp"
 #define kLastUploadTimestamp @"latest_upload_timestamp"
 #define kLoudNotifications @"loud_silent_notes"
+#define kAllowLeavePBPhotoStream @"allow_user_to_leave_pb_photostreams"
 #define kPhotosSaved @"saved_photos_hash"
 #define kUploadOldPhotos @"upload_old_photos_flag"
 #define kHideOptInUploadAll @"kHideOptInUploadAll"

@@ -33,6 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString* lastName; //User last name. Default value: @"".
 @property (nonatomic, strong) NSString* email; //User email. Default value: @"".
 @property (nonatomic, strong) NSString* phone; //User phone. Default value: @"".
+@property (nonatomic, strong) NSString* avatar; //User avatar url. Default value: @"".
 @property (nonatomic, strong) NSString* birthdayString; //User birthday. Default value: @"".
 
 @property (nonatomic, strong) NSString *hasOptedInToUploadAllPhotos; //If value is Empty or nil - Photo Butler stops sorting photos and identifying faces from new photos taken outside of streams.
@@ -64,6 +65,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableDictionary *peopleHash; //
 @property (nonatomic, strong) NSMutableArray *people; //
 @property (nonatomic, strong) NSDictionary *selectedContact; //
+
+@property (nonatomic) int numberOfUploads; //number of uploads in string reprensentation
+
+- (void) addToNumberOfUploads:(int)addValue;
 
 - (void) logout;
 

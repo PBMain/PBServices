@@ -50,6 +50,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (BOOL) isAppUsedPhotoAnalysis; //Default value: NO
 
+- (BOOL) isAppUsingVideoStories; // Default value: NO
+
+- (BOOL) isAppUsingBIBSearchForAllPublicStreams; // Default value: NO
+
+- (NSString*) videoStoryLocalVideoExampleFileName; // Default value: @""
+
+- (NSString*) videoStoryDefaultZIPLocation; // Default value: @""
+
+- (BOOL) showStreamInformationOnCoverInDetails; // Default value: NO
+
 @end
 
 @interface PBAppSettings : NSObject
@@ -102,6 +112,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) BOOL isAppUsedPhotoAnalysis;
 
+@property (nonatomic, assign) BOOL isAppUsingVideoStories;
+
+@property (nonatomic, assign) BOOL isAppUsingBIBSearchForAllPublicStreams;
+
+@property (nonatomic, assign) NSString *videoStoryLocalVideoExampleFileName;
+
+@property (nonatomic, assign) NSString *videoStoryDefaultZIPLocation;
+
 @property (nonatomic, assign) int loginVersion;
 
 @property (nonatomic, assign) int dbVersion;
@@ -109,6 +127,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) int loggingLevel; //Logging settings
 
 @property (nonatomic, strong) NSString *log; // Non-Debugger Logging
+
+@property (nonatomic) BOOL showStreamInformationOnCoverInDetails; // Defines whether to show ColVSectionStreamInfo information on the stream cover
 
 @end
 

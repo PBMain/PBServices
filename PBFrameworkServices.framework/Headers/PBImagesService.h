@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSString*) bg_verifyPhoneScreenImageName; //Image name that we use on the Verify phone screen
 
+- (NSString*) bg_videoStoriesCoverImage; //Image name that we use as the video stories cover
+
 //Placeholders
 - (NSString*) upcomingStreamHostPlaceholderName;
 - (NSString*) upcomingStreamSpectatorPlaceholderName;
@@ -74,6 +76,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *bg_helloScreenImageName;
 @property (nonatomic, strong) NSString *bg_registerScreenImageName;
 @property (nonatomic, strong) NSString *bg_verifyPhoneScreenImageName;
+@property (nonatomic, strong) NSString *bg_videoStoriesCoverImage;
 
 //Placeholders
 @property (nonatomic, strong) NSString *upcomingStreamHostPlaceholderName;

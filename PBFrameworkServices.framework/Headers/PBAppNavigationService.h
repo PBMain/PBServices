@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL) singleMainViewHasBackButton; //You can manage left button on the navigation bar on the "SingleMain" View. Default value is NO (Displayed as a user photo. Transition to the "Settings" screen). if you set the value of YES to this property, the left button will look like a "back" button and dismiss "SingleMain" View.
 
 - (BOOL) shouldHideMenuInStreamDetailsForPastStreams;
+- (BOOL) needToShowStreamInfoOnCoverInStreamList;
 
 @end
 
@@ -36,6 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL needToShowSingleMainViewController;
 @property (nonatomic, assign) BOOL needToShowMainViewController;
 @property (nonatomic, assign) BOOL needToShowPhotosTab;
+@property (nonatomic, assign) BOOL needToShowStreamInfoOnCoverInStreamList;
 @property (nonatomic, assign) BOOL needToShowPhotoAlbumWithActivityFeed;
 @property (nonatomic, assign) BOOL needToShowParksAndResortsViewController;
 @property (nonatomic, assign) BOOL needToShowPOIOptions;

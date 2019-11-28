@@ -40,6 +40,7 @@
 +(void) setStreamStatus:(NSString*)status forStream:(NSString*)streamID;
 +(void) setBibPath:(NSString*)bibPath forStream:(NSString*)streamID;
 +(void) setBibInfoPath:(NSString*)bibInfoPath forStream:(NSString*)streamID;
++(void) setRaceMetaURL:(NSString*)raceMetaURL forStream:(NSString*)streamID;
 +(void) setIsPopupURLAlreadyShown:(BOOL) isPopupURLAlreadyShown forStream:(NSString*)streamID;
 +(void) setHasGottenInformationForStream:(NSString*)streamID;
 +(void) setCoverVideoURL:(NSString*)videoURL withIconURL:(NSString*)iconURL forStream:(NSString*)streamID;
@@ -99,6 +100,7 @@
 +(NSString*) getContributionStatusForStream:(NSString*)streamID;
 +(NSArray*) getBlackoutTimesForStream:(NSString*)streamID;
 +(BOOL) hasStreamLoadedBlackoutTimes:(NSString*)streamID;
++(BOOL) isStreamCooledDown:(NSString*)streamID;
 
 // Returns an array of streams that meet the requirements for review.
 // Meaning, if a stream needs to be contributed to by this user, and the user needs to have contributed 15 photos to that stream, this will return all streams that meet those criteria.

@@ -64,10 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - TrackingImports Initializing
 // Initialization of application analytics
 - (TrackingImports*) setAnalytics: (nullable NSString*) mixpanelToken
-                    facebookAppId: (nullable NSString*)facebookAppId
-                    intercomAppId: (nullable NSString*)intercomAppId
-                   intercomAPIKey: (nullable NSString*)intercomAPIKey
-                       nanigansId: (nullable NSString*)nanigansId;
+                    facebookAppId: (nullable NSString*)facebookAppId;
 
 
 @end

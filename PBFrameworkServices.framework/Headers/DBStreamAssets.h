@@ -4,7 +4,6 @@
 
 // Insert
 +(void) insertStreamAssets:(NSArray*) data forStream:(NSString*)streamID completion:(void (^)(void))completionBlock;
-+(void) insertStreamAssetForTinkerbell:(NSArray*)data forStream:(NSString*)streamID completion:(void (^)(void))completionBlock;
 +(void) insertStreamAssetServerIDs:(NSArray*)data completion:(void (^)(void))completionBlock;
 
 // Select
@@ -67,5 +66,8 @@
 
 // Other
 +(void) compareInstantToUploads;
+
+// Testing
++(void) setAllImagesExpired:(NSString*)streamID;
 
 @end

@@ -26,17 +26,9 @@ NS_ASSUME_NONNULL_BEGIN
 //Facebook Application ID
 - (NSString*) facebookAppId;
 
-//Intercom API key and Application ID
-- (NSString*) intercomAPIKey;
-- (NSString*) intercomAppId;
-
 //Mixpanel
 - (NSString*) mixpanelToken;
 - (BOOL) isMixpanelInTestMode;
-
-//Nanigans
-- (NSString*) nanigansId;
-- (BOOL) isNanigansInTestMode;
 
 @end
 
@@ -58,14 +50,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString* facebookAppId;
 
-@property (nonatomic, strong) NSString* intercomAPIKey;
-@property (nonatomic, strong) NSString* intercomAppId;
-
 @property (nonatomic, strong) NSString* mixpanelToken;
 @property (nonatomic, assign) BOOL isMixpanelInTestMode;
-
-@property (nonatomic, strong) NSString* nanigansId;
-@property (nonatomic, assign) BOOL isNanigansInTestMode;
 
 @end
 

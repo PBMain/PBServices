@@ -6,7 +6,7 @@
 @property (nonatomic) NSMutableArray *uploadTasks;
 @property (nonatomic) NSTimer *uploadProcessingTimer;
 @property (nonatomic) NSTimer *uploadNotificationTimer;
-@property (nonatomic) dispatch_group_t backgroundUploadDispatchGroup;
+@property (nonatomic) dispatch_group_t backgroundUploadVideoDispatchGroup;
 
 +(void) initializeUploads;
 +(void) killAllUploads;
