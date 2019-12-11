@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'PBServices'
-  s.version          = '1.5.0.0'
+  s.version          = '1.5.0.1'
   s.summary          = 'Photo Butler pod that contains support for connecting to Photo Butler services'
 
   s.description      = <<-DESC
