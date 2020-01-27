@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSString*) userFeedbackEmail; //Email address for user feedback. Default value: @"feedback@photobutler.com"
 
+- (NSString*) userSupportEmail; //Email address for user support, such as reporting objectionable content. Default value: @"support@photobutler.com"
+
 @end
 
 @interface PBLinkProviderService : NSObject
@@ -32,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *termsAndConditionsURLString;
 @property (nonatomic, strong) NSString *appITunesLink;
 @property (nonatomic, strong) NSString *userFeedbackEmail;
-
+@property (nonatomic, strong) NSString *userSupportEmail;
 
 
 @end

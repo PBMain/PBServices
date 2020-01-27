@@ -67,6 +67,16 @@
 // Other
 +(void) compareInstantToUploads;
 
+// Favorites Cache
++(void) setAssetsLikedByUser:(NSArray*)data inStream:(NSString*)streamServerID liked:(BOOL)isLiked completion:(void (^)(void))completionBlock;
++(NSString*)assetLikedByUserInSubCache:(NSString*)assetID inStream:(NSString*)streamID;
+
+// Comment count cache
++(void) setAssetCommentCount:(NSString*)assetID commentCount:(NSString*)commentCount inStream:(NSString*)streamServerID completion:(void (^)(void))completionBlock;
++(NSString*)assetCommentCount:(NSString*)assetID inStream:(NSString*)streamID;
++(BOOL)assetCommentCountShouldRefresh:(NSString*)assetID inStream:(NSString*)streamID;
++(void)assetCommentCountSetShouldRefreshForStream:(NSString*)streamID;
+
 // Testing
 +(void) setAllImagesExpired:(NSString*)streamID;
 

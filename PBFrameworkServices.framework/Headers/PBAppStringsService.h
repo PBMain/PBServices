@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 //These properties are used on the NewPhotoStream Screen. (PBPodUIStreamList)
 - (NSString*) newPhotoStream_mainTitle; //Default value: @"Create a Photo Stream"
-- (NSString*) newPhotoStream_subtitle; //Default value: @"Set a  duration, invite your friends and family and Photo Butler will share your photos instantly."
+- (NSString*) newPhotoStream_subtitle; //Default value: @"Set a duration, invite your friends and family and Photo Butler will share your photos instantly."
 
 //These properties are used on the HostContributorOptInView Screen. (PBPodUIStreamList)
 - (NSString*) hostContributorOptInView_mainTitle; //Default value: @"How would you like to add photos to your stream?"

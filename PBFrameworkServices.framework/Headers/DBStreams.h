@@ -80,6 +80,7 @@
 +(NSArray*) getAllPastStreamsNotNotified:(void (^)(NSMutableArray *streams))completionBlock;
 +(NSArray*) getAllUpcomingStreams:(void (^)(NSMutableArray *streams))completionBlock;
 +(NSDictionary*) getStream:(NSString*)streamID completion:(void (^)(id userDict))completionBlock;
++(NSString*) getStreamIDFromServerID:(NSString*)serverID;
 +(NSString*) getStreamIDForOfflineModeID:(NSString*)offlineModeID;
 +(NSString*) getStreamIDFromStreamName:(NSString*)streamName;
 +(NSString*) getStreamNameForID:(NSString*)streamID;
