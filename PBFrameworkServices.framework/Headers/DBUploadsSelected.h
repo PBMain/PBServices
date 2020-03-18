@@ -49,5 +49,7 @@
 +(void) deleteUploadsWithTemporaryPostID:(NSString*)tempPostID;
 +(void) deleteUploadsWithFileName:(NSString*)fileName andCreationDate:(NSString*)creationDate;
 +(void) deleteUploadsIfAllDoneForStream:(NSString*)streamID;
++(void) deleteAllUploads;
++(void) deleteAllUploadsInStreamsNotInStreamIDArray:(NSArray*) streamIDs;
 
 @end

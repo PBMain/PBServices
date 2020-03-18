@@ -49,5 +49,6 @@
 // Delete
 +(void) deleteUploadWithReservedCode:(NSString*)reservedCode;
 +(void) deleteUploadsWithFileName:(NSString*)fileName andCreationDate:(NSString*)creationDate;
++(void) deleteAllUploads;
 
 @end

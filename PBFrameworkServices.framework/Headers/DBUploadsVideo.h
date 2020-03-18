@@ -49,5 +49,7 @@
 +(void) deleteUploadsIfAllDoneForStream:(NSString*)streamID;
 +(void) deleteUploadsWithStreamID:(NSString*)streamID andFileName:(NSString*)fileName andCreationDate:(NSString*)creationDate;
 +(void) deleteUploadsWithFileName:(NSString*)fileName andCreationDate:(NSString*)creationDate;
++(void) deleteAllUploads;
++(void) deleteAllUploadsInStreamsNotInStreamIDArray:(NSArray*) streamIDs;
 
 @end

@@ -49,8 +49,11 @@
 +(void) deleteAsset:(NSString*)assetID filename:(NSString*)filename creationDateUTC:(NSString*)creationDateUTC fromStream:(NSString*)streamID completionBlock:(void (^)(void))completionBlock;
 // This removes anything that was inserted by the pre-upload function, but didn't come back when getting the assets from the server. This will remove any local-only photos from a stream.
 +(void) deleteUnverifiedPhotosFromStream:(NSString*)streamID completionBlock:(void (^)(void))completionBlock;
-// This will take a filename/creationdate and remove it from any streams where it is a temp file. This is for when we have 'already uploaded an image' but it's not getting assigned an AssetID, which usually is some kind of server error at some point.
+// Deletes all unfinished instant-insert uploads that we're showing locally for all streams
 +(void) deleteAllUnverifiedPhotosFromStreams:(void (^)(void))completionBlock;
+// Deletes all "uploading" instant-assets from streams that aren't in the stream ID array. Clears everything but a whitelist of streams where uploads are allowed (cooldown date hasn't been reached)
++(void) deleteAllUnverifiedPhotosExceptFromStreamsWithIDs:(NSArray*)streamIDs completion:(void (^)(void))completionBlock;
+// This will take a filename/creationdate and remove it from any streams where it is a temp file. This is for when we have 'already uploaded an image' but it's not getting assigned an AssetID, which usually is some kind of server error at some point.
 +(void) deleteUnverifiedPhotoFromStreams:(NSString*)filename creationDateUTC:(NSString*)creationDateUTC completionBlock:(void (^)(void))completionBlock;
 // This takes an array of photos from the server, and removes any photos in the stream that meet this criteria:
 //  1) Have an assetID (meaning they've been uploaded and aren't pre-upload display)

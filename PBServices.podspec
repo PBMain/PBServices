@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'PBServices'
-  s.version          = '1.5.1.1'
+  s.version          = '1.5.2.1'
   s.summary          = 'Photo Butler pod that contains support for connecting to Photo Butler services'
 
   s.description      = <<-DESC
@@ -12,7 +12,7 @@ Photo Butler pod that contains support for connecting to Photo Butler services, 
   s.author           = { 'drewspencer@yourvideokeepsakes.com' => 'Photo Butler' }
   s.source           = { :git => 'https://github.com/PBMain/PBServices.git', :tag => s.version.to_s }
 
-  s.platform = :ios, '9.3'
+  s.platform = :ios, '10.0'
   s.swift_version = '4.1'
 
   #s.source_files = 'PBServices/Classes/**/*'
