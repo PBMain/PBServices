@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString*) fullAppName; //Default value: @"Photo Butler"
 - (NSString*) clientName; //Default value: Empty string
 
+- (NSString*) facebookId; //Default value: nil
+
 
 @optional
 
@@ -73,6 +75,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString *fullAppName;
 @property (nonatomic, strong) NSString *clientName;
+
+@property (nonatomic, strong) NSString *facebookId;
 
 #pragma mark - PBPodUIStreamList
 @property (nonatomic, assign) BOOL needToShowAllUserSettings; //This property is used on Settings Screen.

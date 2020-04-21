@@ -253,5 +253,14 @@
  */
 +(void) photoStreamPersonAsUIImage:(NSString*)personID streamID:(NSString*)streamID completion:(void (^)(id response))completionBlock;
 
+
++(void) setClientID:(NSString*)clientID andClientKey:(NSString*)clientKey error:(void (^)(NSString* error))errorBlock;
+
++(void) loginAnonymous:(void (^)(id response))successBlock error:(void (^)(NSString* error))errorBlock;
+
++(void) loginWithUserName:(NSString*)username success:(void (^)(id response))successBlock error:(void (^)(NSString* error))errorBlock;
+
++(void) loginWithUserName:(NSString*)username andPassword:(NSString*)password success:(void (^)(id response))successBlock error:(void (^)(NSString* error))errorBlock;
+
 @end
 
