@@ -44,6 +44,9 @@
 +(void) setIsPopupURLAlreadyShown:(BOOL) isPopupURLAlreadyShown forStream:(NSString*)streamID;
 +(void) setHasGottenInformationForStream:(NSString*)streamID;
 +(void) setCoverVideoURL:(NSString*)videoURL withIconURL:(NSString*)iconURL forStream:(NSString*)streamID;
++(void) setBackgroundURLs:(NSArray*)data forStream:(NSString*)streamID completion:(void (^)(void))completionBlock;
++(void) clearBackgroundImagesForStream:(NSString*)streamID;
++(void) clearBackgroundImagesForAllStreams;
 
 // Delete
 +(void) deleteStream:(NSString*)streamID;
@@ -103,6 +106,7 @@
 +(BOOL) hasStreamLoadedBlackoutTimes:(NSString*)streamID;
 +(BOOL) isStreamCooledDown:(NSString*)streamID;
 +(NSMutableArray*) getAllNonCooledStreams;
++(NSMutableArray*) getAllBackgroundURLsForStream:(NSString*)streamID;
 
 // Returns an array of streams that meet the requirements for review.
 // Meaning, if a stream needs to be contributed to by this user, and the user needs to have contributed 15 photos to that stream, this will return all streams that meet those criteria.

@@ -36,6 +36,8 @@
 
 // Assets that have been uploaded, but the server needs to be notified of the upload
 +(NSArray*)reserveCompletedUploadsWithCode:(NSString*)reserveCode;
++(NSArray*)reserveCompletedUploadsForBGChangeWithCode:(NSString*)reserveCode;
++(NSArray*)reserveCompletedUploadsForBGTransparencyWithCode:(NSString*)reserveCode;
 +(void)setUploadsNotifiedWithCode:(NSString*)reserveCode andLog:(NSString*)logEntry;
 
 // Force an upload retry
@@ -51,5 +53,6 @@
 +(void) deleteUploadsIfAllDoneForStream:(NSString*)streamID;
 +(void) deleteAllUploads;
 +(void) deleteAllUploadsInStreamsNotInStreamIDArray:(NSArray*) streamIDs;
++(void) deleteUploadsForCustomBG;
 
 @end

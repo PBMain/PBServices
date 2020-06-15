@@ -227,6 +227,14 @@
  */
 +(void) removeAssetsFromPhotoStream:(NSString*)streamID assetsToRemove:(NSArray*)assetsToRemove completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 
+/*
+ @method isAppExtension
+ @brief Retertuns true whether is launched fro App Extension
+ */
+
++ (BOOL) isAppExtension;
++ (UIApplication *) sharedUIApplication;
+
 // ASSETS
 /*!
  @method photoStreamAssetAsUIImage
