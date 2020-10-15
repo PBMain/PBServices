@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Application colors
 //App navigation colors
 - (UIColor*) navigationBarColor; //Default value: pbColorMain
+- (UIColor*) navigationBarColorSecondary; //Default value: pbColorMain
+- (UIColor*) navigationBarColorTertiary; //Default value: pbColorMain
+
 - (UIColor*) navigationTextColor; //Default value: [UIColor whiteColor]
 - (UIColor*) navigationSubBarColor; //Default value: pbColorMain
 - (UIColor*) navigationSubTextColor; //Default value: [UIColor whiteColor]
@@ -27,6 +30,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (UIColor*) buttonTextColor; //Default value: [UIColor whiteColor]
 
 - (UIColor*) buttonsColor; //Default value: pbColorMain
+- (UIColor*) buttonsColorSecondary; //Default value: pbColorMain
+- (UIColor*) buttonsColorTertiary; //Default value: pbColorMain
+
 - (UIColor*) buttonsAgainstLightBGColor; //Default value: buttonsColor
 
 //These properties are used on the NewPhotoStream Screen. (PBPodUIStreamList)
@@ -58,6 +64,9 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Application colors
 //App navigation colors
 @property (nonatomic, strong, nullable) UIColor *navigationBarColor;
+@property (nonatomic, strong, nullable) UIColor *navigationBarColorSecondary;
+@property (nonatomic, strong, nullable) UIColor *navigationBarColorTertiary;
+
 @property (nonatomic, strong, nullable) UIColor *navigationTextColor;
 @property (nonatomic, strong, nullable) UIColor *navigationSubBarColor;
 @property (nonatomic, strong, nullable) UIColor *navigationSubTextColor;
@@ -68,6 +77,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, nullable) UIColor *buttonTextColor;
 
 @property (nonatomic, strong, nullable) UIColor *buttonsColor;
+@property (nonatomic, strong, nullable) UIColor *buttonsColorSecondary;
+@property (nonatomic, strong, nullable) UIColor *buttonsColorTertiary;
+
 @property (nonatomic, strong, nullable) UIColor *buttonsAgainstLightBGColor;
 
 //These properties are used on the NewPhotoStream Screen. (PBPodUIStreamList)

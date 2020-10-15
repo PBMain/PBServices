@@ -111,6 +111,7 @@
 
 // Services
 -(void) initWithServer:(void (^)(id success))completionBlock error:(void (^)(id response))errorBlock;
+-(void) initWithServer:(void (^)(id success))completionBlock error:(void (^)(id response))errorBlock shouldErrorOnConnectivity:(BOOL)shouldErrorOnConnectivity;
 // Nearby streams by lat/long
 -(void) getStreamsByLocation:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 -(void) checkLogin;
@@ -342,5 +343,8 @@
 
 // CURL For given request, for testing
 +(NSString *)curlForRequest:(NSURLRequest*)req;
+
++(int) numberOfQueuedCalls;
+-(BOOL) checkReachability:(void (^)(BOOL wifiReachable, BOOL wwanReachable, BOOL hasCheckedReach))completionBlock;
 
 @end

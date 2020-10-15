@@ -13,13 +13,17 @@
   "properties" : {
 
   },
-  "storage" : "model.espresso.weights",
+  "analyses" : {
+
+  },
   "format_version" : 200,
+  "storage" : "model.espresso.weights",
   "layers" : [
     {
       "pad_r" : 1,
       "fused_relu" : 1,
       "fused_tanh" : 0,
+      "debug_info" : "conv1",
       "pad_fill_mode" : 0,
       "pad_b" : 1,
       "pad_l" : 1,
@@ -50,6 +54,7 @@
       "pad_r" : 1,
       "fused_relu" : 1,
       "fused_tanh" : 0,
+      "debug_info" : "conv2_1\/dw",
       "pad_fill_mode" : 0,
       "pad_b" : 1,
       "pad_l" : 1,
@@ -68,8 +73,8 @@
       "weights" : {
 
       },
-      "pad_mode" : 0,
       "Nx" : 3,
+      "pad_mode" : 0,
       "pad_value" : 0,
       "Ny" : 3,
       "n_parallel" : 1
@@ -78,6 +83,7 @@
       "pad_r" : 0,
       "fused_relu" : 1,
       "fused_tanh" : 0,
+      "debug_info" : "conv2_1\/sep",
       "pad_fill_mode" : 0,
       "pad_b" : 0,
       "pad_l" : 0,
@@ -96,8 +102,8 @@
       "weights" : {
 
       },
-      "pad_mode" : 0,
       "Nx" : 1,
+      "pad_mode" : 0,
       "pad_value" : 0,
       "Ny" : 1,
       "n_parallel" : 1
@@ -106,6 +112,7 @@
       "pad_r" : 1,
       "fused_relu" : 1,
       "fused_tanh" : 0,
+      "debug_info" : "conv2_2\/dw",
       "pad_fill_mode" : 0,
       "pad_b" : 1,
       "pad_l" : 1,
@@ -136,6 +143,7 @@
       "pad_r" : 0,
       "fused_relu" : 1,
       "fused_tanh" : 0,
+      "debug_info" : "conv2_2\/sep",
       "pad_fill_mode" : 0,
       "pad_b" : 0,
       "pad_l" : 0,
@@ -154,8 +162,8 @@
       "weights" : {
 
       },
-      "pad_mode" : 0,
       "Nx" : 1,
+      "pad_mode" : 0,
       "pad_value" : 0,
       "Ny" : 1,
       "n_parallel" : 1
@@ -164,6 +172,7 @@
       "pad_r" : 1,
       "fused_relu" : 1,
       "fused_tanh" : 0,
+      "debug_info" : "conv3_1\/dw",
       "pad_fill_mode" : 0,
       "pad_b" : 1,
       "pad_l" : 1,
@@ -182,8 +191,8 @@
       "weights" : {
 
       },
-      "pad_mode" : 0,
       "Nx" : 3,
+      "pad_mode" : 0,
       "pad_value" : 0,
       "Ny" : 3,
       "n_parallel" : 1
@@ -192,6 +201,7 @@
       "pad_r" : 0,
       "fused_relu" : 1,
       "fused_tanh" : 0,
+      "debug_info" : "conv3_1\/sep",
       "pad_fill_mode" : 0,
       "pad_b" : 0,
       "pad_l" : 0,
@@ -210,8 +220,8 @@
       "weights" : {
 
       },
-      "pad_mode" : 0,
       "Nx" : 1,
+      "pad_mode" : 0,
       "pad_value" : 0,
       "Ny" : 1,
       "n_parallel" : 1
@@ -220,6 +230,7 @@
       "pad_r" : 1,
       "fused_relu" : 1,
       "fused_tanh" : 0,
+      "debug_info" : "conv3_2\/dw",
       "pad_fill_mode" : 0,
       "pad_b" : 1,
       "pad_l" : 1,
@@ -250,6 +261,7 @@
       "pad_r" : 0,
       "fused_relu" : 1,
       "fused_tanh" : 0,
+      "debug_info" : "conv3_2\/sep",
       "pad_fill_mode" : 0,
       "pad_b" : 0,
       "pad_l" : 0,
@@ -268,8 +280,8 @@
       "weights" : {
 
       },
-      "pad_mode" : 0,
       "Nx" : 1,
+      "pad_mode" : 0,
       "pad_value" : 0,
       "Ny" : 1,
       "n_parallel" : 1
@@ -278,6 +290,7 @@
       "pad_r" : 1,
       "fused_relu" : 1,
       "fused_tanh" : 0,
+      "debug_info" : "conv4_1\/dw",
       "pad_fill_mode" : 0,
       "pad_b" : 1,
       "pad_l" : 1,
@@ -296,8 +309,8 @@
       "weights" : {
 
       },
-      "pad_mode" : 0,
       "Nx" : 3,
+      "pad_mode" : 0,
       "pad_value" : 0,
       "Ny" : 3,
       "n_parallel" : 1
@@ -306,6 +319,7 @@
       "pad_r" : 0,
       "fused_relu" : 1,
       "fused_tanh" : 0,
+      "debug_info" : "conv4_1\/sep",
       "pad_fill_mode" : 0,
       "pad_b" : 0,
       "pad_l" : 0,
@@ -324,8 +338,8 @@
       "weights" : {
 
       },
-      "pad_mode" : 0,
       "Nx" : 1,
+      "pad_mode" : 0,
       "pad_value" : 0,
       "Ny" : 1,
       "n_parallel" : 1
@@ -334,6 +348,7 @@
       "pad_r" : 1,
       "fused_relu" : 1,
       "fused_tanh" : 0,
+      "debug_info" : "conv4_2\/dw",
       "pad_fill_mode" : 0,
       "pad_b" : 1,
       "pad_l" : 1,
@@ -364,6 +379,7 @@
       "pad_r" : 0,
       "fused_relu" : 1,
       "fused_tanh" : 0,
+      "debug_info" : "conv4_2\/sep",
       "pad_fill_mode" : 0,
       "pad_b" : 0,
       "pad_l" : 0,
@@ -382,8 +398,8 @@
       "weights" : {
 
       },
-      "pad_mode" : 0,
       "Nx" : 1,
+      "pad_mode" : 0,
       "pad_value" : 0,
       "Ny" : 1,
       "n_parallel" : 1
@@ -392,6 +408,7 @@
       "pad_r" : 1,
       "fused_relu" : 1,
       "fused_tanh" : 0,
+      "debug_info" : "conv5_1\/dw",
       "pad_fill_mode" : 0,
       "pad_b" : 1,
       "pad_l" : 1,
@@ -410,8 +427,8 @@
       "weights" : {
 
       },
-      "pad_mode" : 0,
       "Nx" : 3,
+      "pad_mode" : 0,
       "pad_value" : 0,
       "Ny" : 3,
       "n_parallel" : 1
@@ -420,6 +437,7 @@
       "pad_r" : 0,
       "fused_relu" : 1,
       "fused_tanh" : 0,
+      "debug_info" : "conv5_1\/sep",
       "pad_fill_mode" : 0,
       "pad_b" : 0,
       "pad_l" : 0,
@@ -438,8 +456,8 @@
       "weights" : {
 
       },
-      "pad_mode" : 0,
       "Nx" : 1,
+      "pad_mode" : 0,
       "pad_value" : 0,
       "Ny" : 1,
       "n_parallel" : 1
@@ -448,6 +466,7 @@
       "pad_r" : 1,
       "fused_relu" : 1,
       "fused_tanh" : 0,
+      "debug_info" : "conv5_2\/dw",
       "pad_fill_mode" : 0,
       "pad_b" : 1,
       "pad_l" : 1,
@@ -466,8 +485,8 @@
       "weights" : {
 
       },
-      "pad_mode" : 0,
       "Nx" : 3,
+      "pad_mode" : 0,
       "pad_value" : 0,
       "Ny" : 3,
       "n_parallel" : 1
@@ -476,6 +495,7 @@
       "pad_r" : 0,
       "fused_relu" : 1,
       "fused_tanh" : 0,
+      "debug_info" : "conv5_2\/sep",
       "pad_fill_mode" : 0,
       "pad_b" : 0,
       "pad_l" : 0,
@@ -494,8 +514,8 @@
       "weights" : {
 
       },
-      "pad_mode" : 0,
       "Nx" : 1,
+      "pad_mode" : 0,
       "pad_value" : 0,
       "Ny" : 1,
       "n_parallel" : 1
@@ -504,6 +524,7 @@
       "pad_r" : 1,
       "fused_relu" : 1,
       "fused_tanh" : 0,
+      "debug_info" : "conv5_3\/dw",
       "pad_fill_mode" : 0,
       "pad_b" : 1,
       "pad_l" : 1,
@@ -522,8 +543,8 @@
       "weights" : {
 
       },
-      "pad_mode" : 0,
       "Nx" : 3,
+      "pad_mode" : 0,
       "pad_value" : 0,
       "Ny" : 3,
       "n_parallel" : 1
@@ -532,6 +553,7 @@
       "pad_r" : 0,
       "fused_relu" : 1,
       "fused_tanh" : 0,
+      "debug_info" : "conv5_3\/sep",
       "pad_fill_mode" : 0,
       "pad_b" : 0,
       "pad_l" : 0,
@@ -550,8 +572,8 @@
       "weights" : {
 
       },
-      "pad_mode" : 0,
       "Nx" : 1,
+      "pad_mode" : 0,
       "pad_value" : 0,
       "Ny" : 1,
       "n_parallel" : 1
@@ -560,6 +582,7 @@
       "pad_r" : 1,
       "fused_relu" : 1,
       "fused_tanh" : 0,
+      "debug_info" : "conv5_4\/dw",
       "pad_fill_mode" : 0,
       "pad_b" : 1,
       "pad_l" : 1,
@@ -578,8 +601,8 @@
       "weights" : {
 
       },
-      "pad_mode" : 0,
       "Nx" : 3,
+      "pad_mode" : 0,
       "pad_value" : 0,
       "Ny" : 3,
       "n_parallel" : 1
@@ -588,6 +611,7 @@
       "pad_r" : 0,
       "fused_relu" : 1,
       "fused_tanh" : 0,
+      "debug_info" : "conv5_4\/sep",
       "pad_fill_mode" : 0,
       "pad_b" : 0,
       "pad_l" : 0,
@@ -606,8 +630,8 @@
       "weights" : {
 
       },
-      "pad_mode" : 0,
       "Nx" : 1,
+      "pad_mode" : 0,
       "pad_value" : 0,
       "Ny" : 1,
       "n_parallel" : 1
@@ -616,6 +640,7 @@
       "pad_r" : 1,
       "fused_relu" : 1,
       "fused_tanh" : 0,
+      "debug_info" : "conv5_5\/dw",
       "pad_fill_mode" : 0,
       "pad_b" : 1,
       "pad_l" : 1,
@@ -634,8 +659,8 @@
       "weights" : {
 
       },
-      "pad_mode" : 0,
       "Nx" : 3,
+      "pad_mode" : 0,
       "pad_value" : 0,
       "Ny" : 3,
       "n_parallel" : 1
@@ -644,6 +669,7 @@
       "pad_r" : 0,
       "fused_relu" : 1,
       "fused_tanh" : 0,
+      "debug_info" : "conv5_5\/sep",
       "pad_fill_mode" : 0,
       "pad_b" : 0,
       "pad_l" : 0,
@@ -662,8 +688,8 @@
       "weights" : {
 
       },
-      "pad_mode" : 0,
       "Nx" : 1,
+      "pad_mode" : 0,
       "pad_value" : 0,
       "Ny" : 1,
       "n_parallel" : 1
@@ -672,6 +698,7 @@
       "pad_r" : 1,
       "fused_relu" : 1,
       "fused_tanh" : 0,
+      "debug_info" : "conv5_6\/dw",
       "pad_fill_mode" : 0,
       "pad_b" : 1,
       "pad_l" : 1,
@@ -702,6 +729,7 @@
       "pad_r" : 0,
       "fused_relu" : 1,
       "fused_tanh" : 0,
+      "debug_info" : "conv5_6\/sep",
       "pad_fill_mode" : 0,
       "pad_b" : 0,
       "pad_l" : 0,
@@ -720,8 +748,8 @@
       "weights" : {
 
       },
-      "pad_mode" : 0,
       "Nx" : 1,
+      "pad_mode" : 0,
       "pad_value" : 0,
       "Ny" : 1,
       "n_parallel" : 1
@@ -730,6 +758,7 @@
       "pad_r" : 1,
       "fused_relu" : 1,
       "fused_tanh" : 0,
+      "debug_info" : "conv6\/dw",
       "pad_fill_mode" : 0,
       "pad_b" : 1,
       "pad_l" : 1,
@@ -748,8 +777,8 @@
       "weights" : {
 
       },
-      "pad_mode" : 0,
       "Nx" : 3,
+      "pad_mode" : 0,
       "pad_value" : 0,
       "Ny" : 3,
       "n_parallel" : 1
@@ -758,6 +787,7 @@
       "pad_r" : 0,
       "fused_relu" : 1,
       "fused_tanh" : 0,
+      "debug_info" : "conv6\/sep",
       "pad_fill_mode" : 0,
       "pad_b" : 0,
       "pad_l" : 0,
@@ -776,20 +806,21 @@
       "weights" : {
 
       },
-      "pad_mode" : 0,
       "Nx" : 1,
+      "pad_mode" : 0,
       "pad_value" : 0,
       "Ny" : 1,
       "n_parallel" : 1
     },
     {
       "pad_r" : 0,
+      "debug_info" : "pool6",
       "pad_fill_mode" : 0,
       "pad_b" : 0,
       "pad_l" : 0,
-      "top" : "pool6",
       "size_x" : 7,
       "is_global" : 1,
+      "top" : "pool6",
       "top_shape_style" : 2,
       "stride_x" : 1,
       "avg_or_max" : 0,
@@ -810,6 +841,7 @@
       "pad_r" : 0,
       "fused_relu" : 0,
       "fused_tanh" : 0,
+      "debug_info" : "fc7",
       "pad_fill_mode" : 0,
       "pad_b" : 0,
       "pad_l" : 0,
@@ -828,21 +860,25 @@
       "weights" : {
 
       },
-      "pad_mode" : 0,
       "Nx" : 1,
+      "pad_mode" : 0,
       "pad_value" : 0,
       "Ny" : 1,
       "n_parallel" : 1
     },
     {
-      "C" : 2,
+      "bottom" : "fc7",
+      "attributes" : {
+        "is_output" : 1
+      },
       "weights" : {
 
       },
+      "debug_info" : "prob",
       "top" : "classLabelProbs",
+      "C" : 2,
       "type" : "softmax",
-      "name" : "prob",
-      "bottom" : "fc7"
+      "name" : "prob"
     }
   ]
 }

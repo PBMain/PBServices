@@ -62,6 +62,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (BOOL) showStreamInformationOnCoverInDetails; // Default value: NO
 
+- (NSString*) clientCineURL; //Default value: nil
+
 @end
 
 @interface PBAppSettings : NSObject
@@ -133,6 +135,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *log; // Non-Debugger Logging
 
 @property (nonatomic) BOOL showStreamInformationOnCoverInDetails; // Defines whether to show ColVSectionStreamInfo information on the stream cover
+
+@property (nonatomic, strong) NSString *clientCineURL;
 
 @end
 

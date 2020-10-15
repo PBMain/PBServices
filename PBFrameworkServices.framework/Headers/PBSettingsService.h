@@ -67,6 +67,7 @@ NS_ASSUME_NONNULL_BEGIN
                     facebookAppId: (nullable NSString*)facebookAppId;
 
 
++ (BOOL) isBreakingMatzo;
 @end
 
 NS_ASSUME_NONNULL_END

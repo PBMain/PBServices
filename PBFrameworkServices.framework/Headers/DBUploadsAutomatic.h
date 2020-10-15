@@ -5,7 +5,7 @@
 // Insert
 +(void) insertUploads:(NSArray*)data;
 +(void) insertUploadsAsAlreadyFinished:(NSArray*)data;
-
++(void) insertInstantUploadsTracking:(NSArray*)uploads;
 
 // Select
 +(NSDictionary*)getUploadByFileName:(NSString*)fileName andCreationDate:(NSDate*)creationDate;
@@ -17,7 +17,7 @@
 +(int)getCountReadyForUploading;
 +(int)getCountDoneUploading;
 +(BOOL)isPhotoPendingUpload:(NSString*)fileName andCreationDate:(NSDate*)creationDate;
-
++(BOOL)hasAlreadyInstantInsertedImageToStream:(NSString*)filename creationDate:(NSDate*)creationDate streamID:(NSString*)streamID;
 
 // Update (And UpdateSelects)
 // Getting assets that need locations
