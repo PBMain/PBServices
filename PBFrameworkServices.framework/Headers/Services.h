@@ -346,5 +346,6 @@
 
 +(int) numberOfQueuedCalls;
 -(BOOL) checkReachability:(void (^)(BOOL wifiReachable, BOOL wwanReachable, BOOL hasCheckedReach))completionBlock;
+-(void) checkConnectivity:(void (^)(BOOL success, NSError *error))completionBlock;
 
 @end
