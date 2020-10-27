@@ -11,6 +11,8 @@
 +(NSArray*)getUploadNotificationsByReserveCode:(NSString*)reserveCode;
 +(NSArray*)getUploadLocationsByReserveCode:(NSString*)reserveCode;
 +(NSArray*)getAllUploads;
++(NSArray*)getAllUploadsQueued;
++(NSArray*)getAllUploadsUploading;
 +(int)getCountCurrentlyUploading;
 +(int)getCountReadyForUploading;
 +(int)getCountDoneUploading;
@@ -43,6 +45,9 @@
 // Force an upload retry
 +(void) retryUpload:(NSString*)localIdentifier;
 +(void) retryUploadByFilename:(NSString*)fileName andCreationDateUTC:(NSString*)creationDateUTC;
+
+// Force all uploads to retry
++(void) retryAllUploads;
 
 // Delete
 +(void) deleteUploadWithReservedCode:(NSString*)reservedCode;

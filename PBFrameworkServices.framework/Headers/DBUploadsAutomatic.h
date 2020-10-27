@@ -13,6 +13,8 @@
 +(NSArray*)getUploadNotificationsByReserveCode:(NSString*)reserveCode;
 +(NSArray*)getUploadLocationsByReserveCode:(NSString*)reserveCode;
 +(NSArray*)getAllUploads;
++(NSArray*)getAllUploadsQueued;
++(NSArray*)getAllUploadsUploading;
 +(int)getCountCurrentlyUploading;
 +(int)getCountReadyForUploading;
 +(int)getCountDoneUploading;

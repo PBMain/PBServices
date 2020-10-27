@@ -347,5 +347,9 @@
 +(int) numberOfQueuedCalls;
 -(BOOL) checkReachability:(void (^)(BOOL wifiReachable, BOOL wwanReachable, BOOL hasCheckedReach))completionBlock;
 -(void) checkConnectivity:(void (^)(BOOL success, NSError *error))completionBlock;
++(void) setUploadProgressBlock:(void (^)(NSString *filename, NSUInteger totalBytes, NSProgress *progress))progressBlock;
++(void) setUploadCompletionBlock:(void (^)(NSString *filename, NSUInteger totalBytes))completionBlock;
++(NSArray*) getUploadsQueued;
++(NSArray*) getUploadsActive;
 
 @end

@@ -23,6 +23,8 @@
 +(NSArray*)getUploadLocationsByReserveCode:(NSString*)reserveCode;
 +(int)getCountReadyForUploading;
 +(NSArray*)getAllUploads;
++(NSArray*)getAllUploadsQueued;
++(NSArray*)getAllUploadsUploading;
 +(BOOL)isUploadSkipped:(PHAsset*)videoAsset;
 
 // Update

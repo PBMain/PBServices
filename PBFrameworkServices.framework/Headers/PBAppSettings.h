@@ -64,6 +64,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSString*) clientCineURL; //Default value: nil
 
+- (int) maxConcurrentUploads; //Default value: 10
+
 @end
 
 @interface PBAppSettings : NSObject
@@ -137,6 +139,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL showStreamInformationOnCoverInDetails; // Defines whether to show ColVSectionStreamInfo information on the stream cover
 
 @property (nonatomic, strong) NSString *clientCineURL;
+
+@property (nonatomic, assign) int maxConcurrentUploads;
 
 @end
 
