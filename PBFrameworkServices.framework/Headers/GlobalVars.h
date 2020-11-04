@@ -256,7 +256,7 @@
 #define kOpenPersonWithEvent @"kOpenPersonWithEvent"
 #define kAuthenticationHeader @"kAuthenticationHeader"
 #define kOTPFromLink @"kOTPFromLink"
-
+#define PhotoButlerErrorDomain @"PhotoButlerErrorDomain"
 
 #define kServerEndpoint [NSString stringWithFormat:@"%@", [PBSettingsService service].appEndpointsSettingsService.serverEndpoint]
 

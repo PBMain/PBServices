@@ -344,6 +344,9 @@
 // CURL For given request, for testing
 +(NSString *)curlForRequest:(NSURLRequest*)req;
 
+// Error checking, to make sure we're ready to make calls
+-(NSError*) checkForErrorsBeforeCalling;
+
 +(int) numberOfQueuedCalls;
 -(BOOL) checkReachability:(void (^)(BOOL wifiReachable, BOOL wwanReachable, BOOL hasCheckedReach))completionBlock;
 -(void) checkConnectivity:(void (^)(BOOL success, NSError *error))completionBlock;
