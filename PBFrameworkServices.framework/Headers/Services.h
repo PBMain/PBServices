@@ -81,14 +81,12 @@
 @property (nonatomic) double backgroundTimestart;
 @property (nonatomic) double totalSizeInKB;
 @property (nonatomic) NSTimer *refreshViewsTimer;
-@property (nonatomic) NSTimer *refreshPhotoStreamViewsTimer;
 @property (nonatomic) NSTimer *timerWifiPopup;
 @property (nonatomic) NSTimer *retryFriendSummary;
 @property (nonatomic) NSTimer *retryLocationSummary;
 @property (nonatomic) NSTimer *retryLogin;
 @property (nonatomic) NSTimer *setFadeSleepTimer;
 @property (nonatomic) NSTimer *buildNewImageHashTableRetryTimer;
-@property (nonatomic) NSTimer *everyTenSecondsTimer;
 @property (nonatomic) BOOL isProcessingNewPhotos;
 @property (nonatomic) BOOL wifiCanPopup;
 @property (nonatomic) int photoAssetCheckLimit;
@@ -112,10 +110,13 @@
 // Services
 -(void) initWithServer:(void (^)(id success))completionBlock error:(void (^)(id response))errorBlock;
 -(void) initWithServer:(void (^)(id success))completionBlock error:(void (^)(id response))errorBlock shouldErrorOnConnectivity:(BOOL)shouldErrorOnConnectivity;
+// Same initialization, but without automatic upload watcher start
+-(void) initWithServer:(void (^)(id success))completionBlock error:(void (^)(id response))errorBlock startUploads:(BOOL)startUploads;
+-(void) initWithServer:(void (^)(id success))completionBlock error:(void (^)(id response))errorBlock shouldErrorOnConnectivity:(BOOL)shouldErrorOnConnectivity shouldStartUploads:(BOOL)shouldStartUploads;
 // Nearby streams by lat/long
--(void) getStreamsByLocation:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 -(void) checkLogin;
 -(void) sendPhoneForOTP:(NSString*)phoneNumber email:(NSString*)email completionBlock:(void (^)(id success))completionBlock;
+-(void) sendPhoneForOTP:(NSString*)phoneNumber email:(NSString*)email completionBlock:(void (^)(id success))completionBlock error:(void (^)(id error))errorBlock;
 -(void) verifyOTP:(NSString*)otp completionBlock:(void (^)(id success))completionBlock;
 -(void) reAuth:(void (^)(id success))completionBlock userLoggedOut:(void (^)(void))userLoggedOutBlock;
 -(void) getCurrentUser:(void (^)(id success))completionBlock error:(void (^)(id error))errorBlock;
@@ -123,82 +124,19 @@
 -(void) login:(NSString*)login withPassword:(NSString*)password completion:(void (^)(id success))completionBlock error:(void (^)(id error))errorBlock;
 -(void) createUnnamedUserWithCompletion:(void (^)(id success))completionBlock error:(void (^)(id error))errorBlock;
 -(void) registerWithLogin:(NSString*)login andPassword:(NSString*)password completion:(void (^)(id success))completionBlock error:(void (^)(id error))errorBlock;
--(void) updateLoginToVersionOne:(void (^)(id success))completionBlock;
 -(void) setProfileImage:(UIImage*)image cropRectangle:(CGRect)rectangle completionBlock:(void (^)(id success))completionBlock;
 -(void) registerForPushNotifications:(void (^)(id success))completionBlock;
--(void) updateDeviceId:(id)newDeviceId callbackDelegate:(void (^)(id response))callbackDelegate;
--(void) silentUpdateToken:(void (^)(id success))completionBlock;
 -(void) subscribePushNotifications:(void (^)(id success))completionBlock;
 
 // Update Profile
 -(void) updateUserProfileInfo:(NSString*)firstName lastName:(NSString*)lastName cellPhoneNumber:(NSString*)cellPhoneNumber email:(NSString*)emailId personId:(NSString*)personId completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
-// Person
--(void) getUserFriendSummaryFromServer:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) updateFriendData:(NSString*)friendId name:(NSString*)name phoneNumber:(NSString*)phoneNumber email:(NSString*)email birthDate:(NSString*)birthDate completionBlock:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;
--(void) getFriendsRecentImages:(NSString*)friendIds completion:(void (^)(id response))completionBlock;
--(void) getFriendsLocationImages:(NSString*)personId completion:(void (^)(id response))completionBlock;
--(void) getFriendsLocationImagesByMonth:(NSString*)personId locationId:(NSString*)locationId completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) getFriendsMonthlyImages:(NSString*)personId completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) getPhotoStreamsForPerson:(NSString*)personId completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
-// Person Clustering
--(void) getUnidentifiedPeople:(NSString*)personId completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) getIdentifiedPeople:(NSString*)personId completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) getPersonsCluster:(NSString*)personId completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) addPersonsToCluster:(NSString*)personId personsArray:(NSArray*)personsToAdd completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) splitPersonsFromCluster:(NSString*)personId personsArray:(NSArray*)personsToRemove completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) removePersonFromEntireApp:(NSString*)personId completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) switchMasterPersonIdInCluster:(NSString*)oldPersonId newMasterId:(NSString*)newPersonId completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) getSimilarFacesForCluster:(NSString*)personId completionBlock:(void (^)(id people))completionBlock error:(void (^)(id response))errorBlock;
--(void) resetAllPersonsInCluster:(NSString*)personId completionBlock:(void (^)(id people))completionBlock error:(void (^)(id response))errorBlock;
--(void) getLiveStreamsTimer:(void (^)(id people))completionBlock error:(void (^)(id response))errorBlock;
 
-// Location
--(void) getImagesGroupByLocation:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) getLocationPhotos:(NSString*)locationId completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) getPeopleAtLocation:(NSString*)locationId completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
-
-// Occasion
--(void) tellServerToCreateOccasion:(NSString*)typeId completionBlock:(void (^)(id response))completionBlock;
--(void) getUsersOccasions:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) getUsersOccasionAssets:(NSString*)occasionId completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) getPersonsOccasions:(NSString*)personId completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) getPersonsOccasionAssets:(NSString*)personId occasionId:(NSString*)occasionId completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) getFriendInOccasion:(NSString*)occasionTypeId completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) getOccasionSplitByYear:(NSString*)typeId completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) getOccasionYearTopSection:(NSString*)typeId year:(NSString*)year completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) getOccasionYearBottomSection:(NSString*)typeId year:(NSString*)year completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
-
-
-// Timeline
--(void) getUserImagesGroupByMonth:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 // Auth String
 -(NSString*) getParamsForAuth;
 
 // Magic Albums
--(void) createMagicAlbum:(NSString*)albumParameterString name:(NSString*)name completionBlock:(void (^)(id name, id albumid))completionBlock error:(void (^)(id response))errorBlock;
--(void) getMagicAlbumsSummary:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) getMagicAlbumImages:(NSString*)albumId completionBlock:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) filterImages:(NSString*)searchParameterString completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) getPeopleForMagicAlbum:(NSString*)albumParameterString completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) removeAssetsFromMagicAlbum:(NSString*)albumId assetsToRemove:(NSArray*)assetsToRemove completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) removeAssetsFromPhotoStream:(NSString*)streamId assetIDsToRemove:(NSArray*)assetIDsToRemove assetDetails:(NSArray*)assetDetails completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) removeAssetsFromOccasion:(NSString*)occasionId assetsToRemove:(NSArray*)assetsToRemove completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) removeMagicAlbum:(NSString*)albumId completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) peopleSeenInMagicAlbum:(NSString*)albumId completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) getParamsForEditingMagicAlbum:(NSString*)albumId completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) editParamsForMagicAlbum:(NSString*)albumId albumParameterString:(NSString*)albumParameterString completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) editNameForMagicAlbum:(NSString*)albumId name:(NSString*)name completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) getFirstPhotoStreamAssets:(NSString*)albumId completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) getPhotoStreamAssets:(NSString*)albumId completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) getCategoryAssets:(NSString*)albumId categoryId:(NSInteger)catID completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) getPagedCategoryAssets:(NSString*)albumId categoryId:(NSInteger)catID page:(int)page pageSize:(int)pageSize ascending:(BOOL)ascending completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) getPagedCategoryHighlights:(NSString*)albumId categoryId:(NSInteger)catID page:(int)page pageSize:(int)pageSize ascending:(BOOL)ascending completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
--(void) getPhotoStreamBlackoutTimes:(NSString*)albumId completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 -(void) getSharedPhotoStreamRecipients:(NSString*)albumId completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 -(void) updateContributorStatus:(NSString*)streamAlbumId ownerId:(NSString*)ownerId newStatus:(NSString*)newStatus retryString:(NSString*)retryString completion:(void (^)(id response))completionBlock error:(void (^)(id response, NSInteger responseStatusCode))errorBlock;
--(void) getPhotoStreamAssetsByPersonId:(NSString*)streamAlbumId personId:(NSString*)personId ownerId:(NSString*)ownerId completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
-+(void) photoStreamPersonAsUIImage:(NSString*)personId streamId:(NSString*)photoStreamId completionBlock:(void (^)(id response))completionBlock;
--(void) getPhotoStreamCommentCounts:(NSArray*)psids completionBlock:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;
 -(void) setStreamCover:(UIImage*)image streamID:(NSString*)streamID completionBlock:(void (^)(id success))completionBlock;
 
 // Activity Feed
@@ -215,43 +153,20 @@
 
 -(void)splitPhotosFromCluster:(NSMutableArray*)assetList completionBlock:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;
 
--(void)switchMasterAssetIdFrom:(NSString*)masterAssetId to:(NSString*)newMasterAssetId inStreamByID:(NSString*)streamID completionBlock:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;
 
 -(void)resetAllPhotosInCluster:(NSNumber*)masterAssetId completionBlock:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;
 
-// Remove from PhotoButler
--(void) removeAssetsFromPhotoButler:(NSArray*)assetIDsToRemove assetDetails:(NSArray*)assetDetails completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
-
-// Magic Tiles (Header Tiles)
--(void) getMagicTiles:(NSString*)tileParameterString completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
-
-// Search
--(void) searchImages:(NSString*)searchParameterString completion:(void (^)(id response))completion error:(void (^)(id response))errorHandler;
 //-(void) getFriendsLocationImages:(NSString*)personId;
 
 // Sharing
-// Get basic info of a stream based on invite code
--(void) getStreamFromInviteCode:(NSString*)inviteCode completionBlock:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;
-// Get all liked photos
--(void) getLikedPhotos:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;
 // Add self to stream using invite code
 -(void) joinStreamWithInviteCode:(NSString*)inviteCode completionBlock:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;
-// Create share link from assetids
--(void) shareCreateLink:(NSString*)albumName assets:(NSMutableArray*)assets recipientEmails:(NSArray*)emails recipientPhones:(NSArray*)phones completionBlock:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;
-// Create share link from magic album
--(void) shareMagicAlbum:(NSString *)albumId recipientEmails:(NSArray*)emails recipientPhones:(NSArray*)phones completionBlock:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;
-// Get albums shared with this user
--(void) getSharedAlbumsToThisUser:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;
+
 // Get assets in an album shared with this user
--(void) getAlbumSharedWithUser:(NSString*)albumId completionBlock:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;
-// Get albums shared by this user
--(void) getSharedAlbumsFromThisUser:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;
+
 // Get assets in an album shared by this user
--(void) getSharedAlbumAssets:(NSString*)albumId userId:(NSString*)userId completionBlock:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;
 // Get shared album recipients (For shared by you)
--(void) getSharedAlbumRecipients:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;
 // Get top ten people shared with
--(void) getSharedAlbumTopTenRecipients:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;
 // Get user information for users we have userid for but not name and/or masterpersonid
 -(void) getUsers:(NSArray*)userIds completionBlock:(void (^)(id response))completionBlock errorBlock:(void (^)(id response))errorBlock;
 
@@ -270,14 +185,11 @@
 
 // Image resize
 + (NSData *)JPEGRepresentationSavedMetadataWithImage:(NSData *)imageData compressionQuality:(CGFloat)compressionQuality maxSize:(CGFloat)maxSize filename:(NSString*)filename;
+// Image resize and copy metadata from other image data
++ (NSData *)JPEGRepresentationSavedMetadataWithImage:(NSData *)imageData compressionQuality:(CGFloat)compressionQuality maxSize:(CGFloat)maxSize filename:(NSString*)filename metaFromImage:(NSData*)metaImage;
 
 // Detect debugging console
 + (BOOL)isDebuggerAttached;
-
-// Timers
--(void) timersStart;
--(void) timersKill;
--(void) timersRestart;
 
 // Helpers
 // Build search parameter string
@@ -288,11 +200,6 @@
 
 // Build image from given vars
 +(void) getImageNamed:(NSString*)fileName timeCreated:(NSString*)timeCreated assetId:(NSString*)assetId personId:(NSString*)personId base64:(NSString*)base64 width:(float)width height:(float)height isThumb:(BOOL)isThumb completionBlock:(void (^)(id response))completionBlock;
-+(NSString*) getThumbByAssetID:(NSString*)assetId;
-+(NSString*) getSomeoneElsesImage:(NSString*)assetId userId:(NSString*)userId albumId:(NSString*)albumId;
-+(NSString*) getSomeoneElsesThumbnail:(NSString*)assetId userId:(NSString*)userId albumId:(NSString*)albumId;
-+(NSString*) getSomeoneElsesPerson:(NSString *)personId userId:(NSString *)userId sharedAlbumId:(NSString *)albumId;
-+(NSString*) getHeroImageForAssetId:(NSString*)assetId albumOwnerId:(NSString*)albumOwnerId sharedAlbumId:(NSString*)sharedAlbumId;
 
 +(NSString *) gmtDate : (NSDate *)deviceDate deviceStr:(NSString *)deviceStr dateFormat:(NSString *)dateFormat;
 +(NSDate *) gmtDateM : (NSDate *)deviceDate deviceStr:(NSString *)deviceStr dateFormat:(NSString *)dateFormat;
@@ -309,14 +216,8 @@
 -(void)popUpCheckWifiAndGenerate;
 -(BOOL) isMagicAlbumAPhotoStream:(NSString*)albumID;
 -(void) refreshAllViewsInForeground;
--(void) refreshAllViewsInBackground;
--(void) refreshPeopleInForeground;
--(void) refreshPlacesInForeground;
--(void) refreshOccasionsInForeground;
--(void) refreshAlbumsInForeground;
 -(void) refreshTimelinesInForeground;
 -(void) refreshSharedInForeground;
--(void) everyTenSeconds; // Refreshes certain views if they need it.
 +(void) retryAllTimedOutServices;
 +(BOOL) handleErrorInImageLoading:(NSError*)error completionBlock:(void (^)(void))completionBlock;
 -(void) processInstantPhotos;
@@ -324,6 +225,7 @@
 
 -(BOOL) checkDataWifiForService:(void (^)(id response))completionBlock;
 -(BOOL) checkDataWifiForServiceNoPopup:(NSString*)callDescriptor callBack:(void (^)(id response))completionBlock;
+-(BOOL) handleResponse:(NSURLResponse*)response completionBlock:(void (^)(void))completionBlock;
 -(BOOL) handleError:(NSError*)error fromRequest:(NSURLRequest*)request completionBlock:(void (^)(void))completionBlock;
 -(BOOL) handleErrorNoPopup:(NSError*)error fromRequest:(NSURLRequest*)request completionBlock:(void (^)(void))completionBlock;
 -(NSMutableURLRequest*) buildUrlRequest:(NSURL*)url;

@@ -61,6 +61,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSString*) optInButton_helpIconName; //Default value: nil
 
+- (NSString*) pbWelcomeHome_firstImageName;
+- (NSString*) pbWelcomeHome_secondImageName;
+- (NSString*) pbWelcomeHome_thirdImageName;
+- (NSString*) pbWelcomeHome_createVideostoryImageName;
+- (NSString*) pbWelcomeHome_goToSingleMainImageName;
+
 @end
 
 @interface PBImagesService : NSObject
@@ -112,6 +118,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *optInButton_manualShareSelectedIconName;
 
 @property (nonatomic, strong) NSString *optInButton_helpIconName;
+
+
+//These properties are used on the PBWelcomeHomeViewController (Breaking Matzo) Screen.
+
+@property (nonatomic, strong) NSString *pbWelcomeHome_firstImageName;
+@property (nonatomic, strong) NSString *pbWelcomeHome_secondImageName;
+@property (nonatomic, strong) NSString *pbWelcomeHome_thirdImageName;
+@property (nonatomic, strong) NSString *pbWelcomeHome_createVideostoryImageName;
+@property (nonatomic, strong) NSString *pbWelcomeHome_goToSingleMainImageName;
+
 
 @end
 

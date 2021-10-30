@@ -12,8 +12,6 @@
 
 +(void) photoStreamCoverAsUIImage:(NSDictionary*)stream uiImageView:(UIImageView*)uiImageView completionBlock:(void (^)(id response))completionBlock;
 
-+(void) photoStreamAssetAsUIImage:(NSString*)assetId filename:(NSString*)filename captureDateTime:(NSString*)captureDateTime isThumb:(BOOL)isThumb streamId:(NSString*)photoStreamId uiImageView:(UIImageView*)uiImageView completionBlock:(void (^)(id response))completionBlock;
-
 // Cached
 +(void) getImageFromCache:(NSDictionary*)asset isThumb:(BOOL)isThumb streamId:(NSString*)photoStreamId uiImageView:(UIImageView*)uiImageView cacheIdentifier:(NSString*)cacheIdentifier completionBlock:(void (^)(id response))completionBlock;
 // Just use the S3 link

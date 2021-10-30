@@ -11,14 +11,18 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol PBAppNavigationServiceDataSource <NSObject>
 
 @optional
-- (BOOL) needToShowOnboardingTutorial; //Shows the PhotoButler tutorial screen (default is NO)
+- (BOOL) needToShowOnboardingTutorial; //Shows the PhotoButler tutorial screen (default is YES)
+- (BOOL) needToShowOnboardingTutorialOnStream; //Shows the PhotoButler tutorial screen the first time a user enters a stream (default is NO)
 - (BOOL) needToShowSingleMainViewController; //Shows a list of photo streams (default is NO)
 - (BOOL) needToShowMainViewController; //Shows a list of photo streams with a bottom tab bar (default is YES)
 - (BOOL) needToShowPhotoAlbumWithActivityFeed; //Should use Activity Feed stream details instead of single stream details view. Shows PhotoAlbumViewController with Activity Feed (like in Bizzabo app) (default is NO)
 - (BOOL) needToShowParksAndResortsViewController; //Shows a list of Parks and Resorts (default is NO)
 - (BOOL) needToShowPhotosTab; //Shows the photos tab on the main view (shown with needToShowMainViewController) (default is YES)
-- (BOOL) needToShowPOIOptions; //Shows the POI options in a menu, along with profile edit options, when tapping profile pic in stream list views (default is NO)
+- (BOOL) needToShowPOIOptions; //Shows the POI options in a menu, along with profile edit options, when tapping profile pic in stream list views (default is YES)
+- (BOOL) allowCreationOfPOIFromStreamImages;
 - (BOOL) needToShowQRCodes; //Shows the QR code reader and display
+- (BOOL) needToShowWelcomeHomeView;
+- (BOOL) needToShowTutorialButton; // Shows the stream tutorial button in the SingleMainView's + button menu.
 
 - (BOOL) singleMainViewHasBackButton; //You can manage left button on the navigation bar on the "SingleMain" View. Default value is NO (Displayed as a user photo. Transition to the "Settings" screen). if you set the value of YES to this property, the left button will look like a "back" button and dismiss "SingleMain" View.
 
@@ -34,6 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) id<PBAppNavigationServiceDataSource> dataSource;
 
 @property (nonatomic, assign) BOOL needToShowOnboardingTutorial;
+@property (nonatomic, assign) BOOL needToShowOnboardingTutorialOnStream;
 @property (nonatomic, assign) BOOL needToShowSingleMainViewController;
 @property (nonatomic, assign) BOOL needToShowMainViewController;
 @property (nonatomic, assign) BOOL needToShowPhotosTab;
@@ -41,7 +46,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL needToShowPhotoAlbumWithActivityFeed;
 @property (nonatomic, assign) BOOL needToShowParksAndResortsViewController;
 @property (nonatomic, assign) BOOL needToShowPOIOptions;
+@property (nonatomic, assign) BOOL allowCreationOfPOIFromStreamImages;
 @property (nonatomic, assign) BOOL needToShowQRCodes;
+@property (nonatomic, assign) BOOL needToShowWelcomeHomeView;
+@property (nonatomic, assign) BOOL needToShowTutorialButton;
 
 @property (nonatomic, assign) BOOL singleMainViewHasBackButton;
 

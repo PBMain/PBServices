@@ -40,6 +40,7 @@
 +(NSArray*)reserveCompletedUploadsWithCode:(NSString*)reserveCode;
 +(NSArray*)reserveCompletedUploadsForBGChangeWithCode:(NSString*)reserveCode;
 +(NSArray*)reserveCompletedUploadsForBGTransparencyWithCode:(NSString*)reserveCode;
++(NSArray*)reserveCompletedUploadsForSignatureWithCode:(NSString*)reserveCode;
 +(void)setUploadsNotifiedWithCode:(NSString*)reserveCode andLog:(NSString*)logEntry;
 
 // Force an upload retry

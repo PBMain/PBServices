@@ -3,6 +3,7 @@
 #import "DBAssets.h"
 #import "DBStreamAssets.h"
 #import "DBServices.h"
+#import "DBReports.h"
 #import "DBCustomCovers.h"
 #import "DBStreamPeople.h"
 #import "DBStreamPeopleAssets.h"
@@ -20,3 +21,5 @@
 #import "DBActivities.h"
 #import "DBVIPs.h"
 #import "DBLogging.h"
+#import "DBFantasticPhotos.h"
+#import "DBStreamBellTimes.h"

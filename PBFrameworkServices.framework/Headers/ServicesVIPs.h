@@ -11,7 +11,7 @@
 +(void) getAllStreamImagesContainingVIPs:(NSArray<NSString*>*)VIPIDs streamID:(NSString*)streamID startIndex:(int)startIndex totalRows:(int)totalRows sortAscending:(BOOL)sortAscending completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
 
 // Create
-+(void) createVIP:(NSString*)name withImages:(NSArray<UIImage*>*)images completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;
++(void) createVIPFromUIImages:(NSArray<UIImage*>*)images withName:(NSString*)name completion:(void (^)(id response))completionBlock error:(void (^)(id error))errorBlock progress:(void (^)(CGFloat prog))progressBlock;
 
 // Update
 +(void) addImages:(NSArray<UIImage*>*)images toVIP:(NSString*)VIPID completion:(void (^)(id response))completionBlock error:(void (^)(id response))errorBlock;

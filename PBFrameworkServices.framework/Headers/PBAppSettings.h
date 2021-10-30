@@ -54,6 +54,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (BOOL) isAppUsingVideoStories; // Default value: NO
 
+- (BOOL) isAppShowingHighlights; // Default value: YES
+
+- (BOOL) isAppUsingVideoStoriesCarouselBadges; // Default value: YES
+
+- (BOOL) isAppUsingVideoStoriesComingSoonCarouselCard; // Default value: NO
+
 - (BOOL) isAppUsingBIBSearchForAllPublicStreams; // Default value: NO
 
 - (NSString*) videoStoryLocalVideoExampleFileName; // Default value: @""
@@ -121,6 +127,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isAppUsedPhotoAnalysis;
 
 @property (nonatomic, assign) BOOL isAppUsingVideoStories;
+
+@property (nonatomic, assign) BOOL isAppShowingHighlights;
+
+@property (nonatomic, assign) BOOL isAppUsingVideoStoriesCarouselBadges;
+@property (nonatomic, assign) BOOL isAppUsingVideoStoriesComingSoonCarouselCard;
 
 @property (nonatomic, assign) BOOL isAppUsingBIBSearchForAllPublicStreams;
 

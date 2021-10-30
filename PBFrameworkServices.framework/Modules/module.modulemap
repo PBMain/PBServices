@@ -4,3 +4,8 @@ framework module PBFrameworkServices {
   export *
   module * { export * }
 }
+
+module PBFrameworkServices.Swift {
+    header "PBFrameworkServices-Swift.h"
+    requires objc
+}

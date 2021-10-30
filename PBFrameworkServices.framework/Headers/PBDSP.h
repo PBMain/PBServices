@@ -23,3 +23,11 @@
 +(void) drawDominantImage:(UIImage*)image usingReferenceImage:(UIImage*)reference completion:(void (^)(NSMutableArray *data, UIImage *image))completionBlock;
 
 @end
+
+@interface UIImage (FaceDetection)
+
+-(NSArray*)faceArray;
+-(BOOL)isAppropriateForPOI;
+-(BOOL)isAppropriateForFANTasticPhotos;
+
+@end

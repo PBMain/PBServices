@@ -12,9 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @optional
 
-- (NSString*) privacyPolicyURLString; //Privacy policy URL String for an Application. Default value: @"http://legal.photobutler.com/privacy/"
+- (NSString*) privacyPolicyURLString; //Privacy policy URL String for an Application. Default value: @"https://legal.photobutler.com/privacy/index.html"
 
-- (NSString*) termsAndConditionsURLString; //Terms and conditions URL String for an Application. Default value: @"http://legal.photobutler.com/terms/"
+- (NSString*) termsAndConditionsURLString; //Terms and conditions URL String for an Application. Default value: @"https://legal.photobutler.com/terms/index.html"
 
 - (NSString*) appITunesLink; //Actual iTunes link for an Application. Default value:  @"https://itunes.apple.com/us/app/photo-butler-app/id1209878239?ls=1&mt=8"
 

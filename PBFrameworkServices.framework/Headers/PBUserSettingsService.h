@@ -42,6 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, readonly) NSString *deviceUUID; //Device UUID.
 
 @property (nonatomic, assign) BOOL isPhoneVerified; //User phone is verified. Default value: NO.
+@property (nonatomic, assign) BOOL isEmailVerified; //User phone is verified. Default value: NO.
 @property (nonatomic, assign) BOOL isRegistered; //User is registered. Default value: NO.
 @property (nonatomic, assign) BOOL hasSeenSharePopup; //User has already seen SharePopup. Default value: NO.
 @property (nonatomic, assign) BOOL hasSeenPushNotificationPopup; //User has already seen PushNotificationPopup. Default value: NO.

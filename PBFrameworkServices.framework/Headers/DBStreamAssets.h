@@ -44,6 +44,8 @@
 +(void) setS3LinkExpired:(NSString*)assetID;
 +(void) setAllS3LinksExpiredForStream:(NSString*)streamID;
 +(void) setUploadStartTimeForAssetWithFilename:(NSString*)fileName andCreationDate:(NSString*)creationDate inStream:(NSString*)streamID;
++(void) setDeletedAssetNoLongerDeleted:(NSString*)fileName creationDate:(NSString*)creationDate inStream:(NSString*)streamID;
++(void) setDeletedAssetsNoLongerDeleted:(NSArray*)assets inStream:(NSString*)streamID;
 
 // Delete
 +(void) deleteAsset:(NSString*)assetID filename:(NSString*)filename creationDateUTC:(NSString*)creationDateUTC fromStream:(NSString*)streamID completionBlock:(void (^)(void))completionBlock;
@@ -65,6 +67,7 @@
 +(void) deleteAllAssetsFromStream:(NSString*)streamID;
 // Leaves assets that are being uploaded, or have been uploaded and the server doesn't say they exist yet
 +(void) deleteAllUploadedAssetsFromStream:(NSString*)streamID;
++(void) deleteAllUploadedAssetsFromStreamIncludingMine:(NSString*)streamID;
 +(void) deleteUploadingAssetsFromStream:(NSString*)streamID withCaptureTimes:(NSArray*)captureDateTimes;
 
 // Other

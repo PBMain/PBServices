@@ -6,6 +6,7 @@
 +(void) insertStreams:(NSArray*) data completion:(void (^)(void))completionBlock;
 +(void) insertStreamServerIDs:(NSArray*)data completion:(void (^)(void))completionBlock;
 +(void) insertStreamBlackoutTimes:(NSArray*)data forStream:(NSString*)streamID completion:(void (^)(void))completionBlock;
++(void) insertOverlayImages:(NSArray*)overlayImageData forStream:(NSString*)streamID completion:(void (^)(void))completionBlock;
 
 // Update
 +(void) setAllPastStreamsNotified:(void (^)(void))completionBlock;
@@ -47,6 +48,14 @@
 +(void) setBackgroundURLs:(NSArray*)data forStream:(NSString*)streamID completion:(void (^)(void))completionBlock;
 +(void) clearBackgroundImagesForStream:(NSString*)streamID;
 +(void) clearBackgroundImagesForAllStreams;
++(void) setVideoStoryURL:(NSString*)url forStream:(NSString*)streamID completion:(void (^)(void))completionBlock;
++(void) clearVideoStoryURLForStream:(NSString*)streamID;
++(void) clearVideoStoryURLForAllStreams;
++(void) setForcedFITS:(BOOL)shouldForce forStream:(NSString*)streamID;
++(void) setUploadLimit:(NSString*)limit forStream:(NSString*)streamID;
++(void) setForcedOverlay:(BOOL)shouldForce forStream:(NSString*)streamID;
++(void) setEditableOverlayPosition:(BOOL)positionEditable forStream:(NSString*)streamID;
++(void) setARExperienceEnabled:(BOOL)isActive forStream:(NSString*)streamID;
 
 // Delete
 +(void) deleteStream:(NSString*)streamID;
@@ -60,6 +69,7 @@
 +(void) deletePublicPastStreamsNotPresentInArray:(NSArray*) streams inFolder:(NSString*)folderID;
 +(void) deletePublicUpcomingStreamsNotPresentInArray:(NSArray*) streams inFolder:(NSString*)folderID;
 +(void) deleteAllBlackoutTimes:(NSString*)streamID;
++(void) deleteOverlayImageMeta:(NSString*)streamID;
 
 // Select
 +(NSArray*) getStreamsWithQuery:(NSString*)query completion:(void (^)(NSMutableArray *streamArray))completionBlock;
@@ -105,8 +115,11 @@
 +(NSArray*) getBlackoutTimesForStream:(NSString*)streamID;
 +(BOOL) hasStreamLoadedBlackoutTimes:(NSString*)streamID;
 +(BOOL) isStreamCooledDown:(NSString*)streamID;
++(BOOL) isARExperienceEnabled:(NSString*)streamID;
 +(NSMutableArray*) getAllNonCooledStreams;
 +(NSMutableArray*) getAllBackgroundURLsForStream:(NSString*)streamID;
++(NSMutableArray*) getVideoStoryURLForStream:(NSString*)streamID;
++(NSMutableArray*) getOverlayImageDataForStream:(NSString*)streamID;
 
 // Returns an array of streams that meet the requirements for review.
 // Meaning, if a stream needs to be contributed to by this user, and the user needs to have contributed 15 photos to that stream, this will return all streams that meet those criteria.

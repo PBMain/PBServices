@@ -52,6 +52,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (UIColor*) optInButton_mainIconDefaultColor; //Default value: [self buttonsColor]
 - (UIColor*) optInButton_mainIconSelectedColor; //Default value: [self buttonTextColor]
 
+//These properties are used in the Cinemini/Cinemajor AdjustAndPlay VC
+- (UIColor*) cine_backgroundColorGradientTop; //Default value: [UIColor whiteColor]
+- (UIColor*) cine_backgroundColorGradientBottom; //Default value: [UIColor whiteColor]
+- (UIColor*) cine_textColorAgainstBackground; //Default value: PB Blue
+
 @end
 
 
@@ -60,6 +65,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype) createWithDataSource : (nullable id<PBAppColorsServiceDataSource>) dataSource;
 
 @property (nonatomic, weak) id<PBAppColorsServiceDataSource> dataSource;
+
+//Temp support method
+- (NSString *)hexStringForColor:(UIColor *)color;
 
 #pragma mark - Application colors
 //App navigation colors
@@ -82,6 +90,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong, nullable) UIColor *buttonsAgainstLightBGColor;
 
+@property (nonatomic, strong, nullable) UIColor *appColor1;
+@property (nonatomic, strong, nullable) UIColor *appColor2;
+@property (nonatomic, strong, nullable) UIColor *appColor3;
+@property (nonatomic, strong, nullable) UIColor *appColor4;
+@property (nonatomic, strong, nullable) UIColor *appColor5;
+@property (nonatomic, strong, nullable) UIColor *appColor6;
+@property (nonatomic, strong, nullable) UIColor *appColor7;
+@property (nonatomic, strong, nullable) UIColor *appColor8;
+@property (nonatomic, strong, nullable) UIColor *appColor9;
+@property (nonatomic, strong, nullable) UIColor *appColor10;
+@property (nonatomic, strong, nullable) UIColor *appColor11;
+@property (nonatomic, strong, nullable) UIColor *appColor12;
+
 //These properties are used on the NewPhotoStream Screen. (PBPodUIStreamList)
 @property (nonatomic, strong) UIColor *newPhotoStream_mainTitleColor;
 @property (nonatomic, strong) UIColor *newPhotoStream_subtitleColor;
@@ -99,6 +120,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UIColor *optInButton_mainIconDefaultColor;
 @property (nonatomic, strong) UIColor *optInButton_mainIconSelectedColor;
+
+//These properties are used in the Cinemini/Cinemajor AdjustAndPlay VC
+@property (nonatomic, strong) UIColor *cine_backgroundColorGradientTop;
+@property (nonatomic, strong) UIColor *cine_backgroundColorGradientBottom;
+@property (nonatomic, strong) UIColor *cine_textColorAgainstBackground;
 
 #pragma mark - Сolor themes
 

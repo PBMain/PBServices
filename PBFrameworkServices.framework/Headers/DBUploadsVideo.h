@@ -18,6 +18,7 @@
 +(int)getCountTotalUploadsForStream:(NSString*)streamID;
 +(BOOL)isVideoHiddenFromListings:(PHAsset*)videoAsset forStream:(NSString*)streamID;
 +(BOOL)isVideoManuallyAppearingInTrimList:(PHAsset*)videoAsset forStream:(NSString*)streamID;
++(NSArray*)getManualTrimListForStream:(NSString*)streamID;
 +(NSDictionary*)getUploadByFileName:(NSString*)fileName andCreationDate:(NSDate*)creationDate;
 +(NSArray*)getUploadNotificationsByReserveCode:(NSString*)reserveCode;
 +(NSArray*)getUploadLocationsByReserveCode:(NSString*)reserveCode;

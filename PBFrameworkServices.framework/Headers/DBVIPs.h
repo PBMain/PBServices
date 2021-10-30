@@ -19,4 +19,11 @@
 +(void) deleteAllVIPs;
 +(void) deleteAllVIPsFromStream:(NSString*)streamID;
 
+// For tracking which images were used to create which POI/VIP
++(void) insertAssetsUsedToCreatePOI:(NSArray*)assetData forPOI:(NSString*)VIPID withName:(NSString*)name completion:(void (^)(void))completionBlock;
++(NSString*) nameOfPOIFromAsset:(NSDictionary*)assetInfo;
++(void) updateBlankPOIAssets:(NSArray*)VIPs;
++(void) deleteAssetsUsedToCreatePOI:(NSString*)VIPID;
++(void) deleteAssetsUsedToCreatePOIByName:(NSString*)name;
+
 @end
