@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'PBServices'
-  s.version          = '1.6.0.0'
+  s.version          = '1.6.0.1'
   s.summary          = 'Photo Butler pod that contains support for connecting to Photo Butler services'
 
   s.description      = <<-DESC
@@ -26,5 +26,8 @@ Photo Butler pod that contains support for connecting to Photo Butler services, 
   s.dependency "AFNetworking"
   s.dependency "GZIP"
   s.dependency "TesseractOCRiOS"
+
+  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   
 end
