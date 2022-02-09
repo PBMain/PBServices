@@ -31,4 +31,8 @@
        completion: (void (^)(id response))completionBlock
             error: (void (^)(id response))errorBlock;
 
+// Random Event Photos (Nasdaq)
++(void) getRandomEventPhotos:(NSString*)systemID sessionID:(NSString*)sessionID imageCount:(int)imageCount completion:(void (^)(NSArray *photos))completionBlock;
++(void) getEventInfo:(NSString*)systemID completion:(void (^)(NSDictionary *photos))completionBlock;
+
 @end

@@ -1,7 +1,7 @@
 [
   {
-    "shortDescription" : "MobileNets are based on a streamlined architecture that have depth-wise separable convolutions to build light weight deep neural networks. Trained on ImageNet with categories such as trees, animals, food, vehicles, person etc. MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications https:\/\/github.com\/shicai\/MobileNet-Caffe",
     "metadataOutputVersion" : "3.0",
+    "shortDescription" : "MobileNets are based on a streamlined architecture that have depth-wise separable convolutions to build light weight deep neural networks. Trained on ImageNet with categories such as trees, animals, food, vehicles, person etc. MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications https:\/\/github.com\/shicai\/MobileNet-Caffe",
     "outputSchema" : [
       {
         "isOptional" : "0",
@@ -19,13 +19,14 @@
         "shortDescription" : "Most likely image category"
       }
     ],
-    "version" : "",
+    "storagePrecision" : "Float32",
     "modelParameters" : [
 
     ],
     "author" : "Andrew G. Howard, Menglong Zhu, Bo Chen, Dmitry Kalenichenko, Weijun Wang, Tobias Weyand, Marco Andreetto, Hartwig Adam",
     "specificationVersion" : 1,
     "license" : "Apache License. Version 2.0 http:\/\/www.apache.org\/licenses\/LICENSE-2.0 ",
+    "computePrecision" : "Float16",
     "isUpdatable" : "0",
     "availability" : {
       "macOS" : "10.13",

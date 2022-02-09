@@ -1,23 +1,4 @@
 {
-  "transform_params" : {
-    "image" : {
-      "bias_a" : 0,
-      "bias_g" : -1.985260009765625,
-      "bias_r" : -2.1025600433349609,
-      "bias_b" : -1.7669800519943237,
-      "center_mean" : 0,
-      "is_network_bgr" : 1,
-      "scale" : 0.017000000923871994
-    }
-  },
-  "properties" : {
-
-  },
-  "analyses" : {
-
-  },
-  "format_version" : 200,
-  "storage" : "model.espresso.weights",
   "layers" : [
     {
       "pad_r" : 1,
@@ -880,5 +861,27 @@
       "type" : "softmax",
       "name" : "prob"
     }
-  ]
+  ],
+  "transform_params" : {
+    "image" : {
+      "bias_a" : 0,
+      "bias_g" : -1.985260009765625,
+      "bias_r" : -2.1025600433349609,
+      "bias_b" : -1.7669800519943237,
+      "center_mean" : 0,
+      "is_network_bgr" : 1,
+      "scale" : 0.017000000923871994
+    }
+  },
+  "storage" : "model.espresso.weights",
+  "metadata_in_weights" : [
+
+  ],
+  "properties" : {
+
+  },
+  "analyses" : {
+
+  },
+  "format_version" : 200
 }
